@@ -1,0 +1,16 @@
+---
+interface Quote {name:string; quote:string;}
+interface Props {heading:string; quotes:Quote[];}
+const {heading,quotes}=Astro.props;
+---
+<section class="band quote-carousel center" aria-label={heading}><div class="container"><h2>{heading}</h2><hr class="rule short"/>
+ <div class="quotes">{quotes.map((item,index)=><figure hidden={index!==0}><blockquote>“{item.quote}”</blockquote><figcaption>{item.name}</figcaption></figure>)}</div>
+ <div class="controls"><button data-direction="-1" aria-label="Previous testimonial">‹</button><span aria-live="polite">1 / {quotes.length}</span><button data-direction="1" aria-label="Next testimonial">›</button></div>
+</div></section>
+<script>
+document.querySelectorAll<HTMLElement>('.quote-carousel').forEach(section=>{let index=0;const figures=Array.from(section.querySelectorAll<HTMLElement>('figure'));section.querySelectorAll<HTMLButtonElement>('button').forEach(button=>button.addEventListener('click',()=>{index=(index+Number(button.dataset.direction)+figures.length)%figures.length;figures.forEach((figure,i)=>figure.hidden=i!==index);section.querySelector('[aria-live]')!.textContent=`${index+1} / ${figures.length}`;}));});
+</script>
+<style>
+.quote-carousel{background:var(--soft-rose);color:var(--ink)}.quote-carousel .rule{margin-inline:auto}.quotes{max-width:850px;margin:auto;min-height:270px}.quotes figure{margin:28px 0}.quotes blockquote{font:400 24px/1.45 var(--heading)}figcaption{margin-top:24px;font-size:14px}.controls{display:flex;align-items:center;justify-content:center;gap:25px}.controls button{color:var(--ink);border:0;background:none;width:44px;height:44px;font-size:28px}
+@media(max-width:600px){.quotes{min-height:0}.quotes blockquote{font-size:21px}}
+</style>

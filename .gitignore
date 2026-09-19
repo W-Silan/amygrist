@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.env
+.dev.vars
+test-results/
+
+# Private WordPress source archive: retained locally, never committed.
+amy-grist-astro-starter-docs/uploads/

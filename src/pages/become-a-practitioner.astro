@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteCarousel from '../components/QuoteCarousel.astro';
+import {href} from '../data/site';
+
+const mentoringQuotes = [
+  {name:'Andrea', quote:`My mentoring journey with Amy was exceptional. Amy's qualities of trustworthiness and immense patience create an environment conducive to deep introspection and personal growth.`},
+  {name:'Stacie', quote:`Amy is a pure light and held my experience and journey with love, compassion and understanding. I felt safe to enter into new landscapes together and discover ties to old habitual tendencies, outdated ways of looking at the world and pave a new way of experiencing the frontier of my life.`},
+  {name:'Rita', quote:`I loved my mentoring experience with Amy who is an inviting, compassionate practitioner. She definitely gave me the room and made me feel comfortable to be open, vulnerable and to share whatever was coming up. Her knowledge and expertise shone through as she guided me to make sense of things, always making sure it was indeed my own reflections and feelings.`},
+];
+
+const practitionerTestimonials = [
+  {name:'Annie - Person Centred & Holistic Counsellor', paragraphs:[
+    `I felt the program overall had a deeply profound effect on my life. I connected to my Inner Child on a much deeper level than I have ever before. Each day, the connection continues to grow and grow and I have a much better understanding of my patterns and wounds.`,
+    `During the program, when challenges were raised, and there were many, I was able to overcome them as I had been provided with tools during the course to work through the challenges. The material within the course gave me a better understanding of why I was either reacting to a certain situation or attempting to sabotage my life.`,
+    `The Practitioner Program for me differs from others as I felt very supported by my mentor, Amy. With regular Zoom sessions with Amy, I felt well supported and understood. The level of compassion and understanding was amazing, and I was able to have a voice in a safe space. The Practitioner Program is not rushed and you are given time and space to achieve optimum outcomes.`,
+  ]},
+  {name:'Megan - Social Worker & Grief Recovery Specialist', paragraphs:[
+    `The Program far exceeded my expectations! I was floored by how much perspective I gained about my own personal loss experiences that I have already previously worked through, helping me to find a deeper level of peace.`,
+    `The hands-on structure of experiencing prior to facilitating is more in depth. The level of personal work was much deeper and allowed for better understanding than other programs.`,
+    `Amy was highly engaged throughout this program. While the topics we went through were deeply personal, I never felt alone and I love how she held space as I explored the past with her as a guide.`,
+  ]},
+  {name:'Andrea - Mindset Coach & Mentor', paragraphs:[
+    `My mentoring journey with Amy was exceptional. After participating in the initial workshop under her guidance, I couldn't have been more grateful for the opportunity to share this transformative space with her. Amy's qualities of trustworthiness and immense patience create an environment conducive to deep introspection and personal growth.`,
+    `What struck me the most was the genuine human connection in this experience. Amy, my mentor, would occasionally share her personal opinions and stories during our sessions. This made the whole process feel more real and created a special connection between us.`,
+    `I truly appreciated the personalised one-to-one experience. The program specifically targeted the areas where I required the most support, allowing me to grow in my personal gifts. Amy provided unwavering support throughout the entire program.`,
+    `The final training sessions went smoothly. Delving into the trauma session was particularly beneficial, providing me with valuable insights on how to approach this work in a trauma-sensitive environment.`,
+  ]},
+  {name:'Rita - Mindset Coach', paragraphs:[
+    `During my healing journey for childhood trauma I came across inner child healing and the positive impact it had on me was so much that I knew I had to learn and experience more. From the discovery process of my inner child healing I have the lightest, most whole feeling I’ve ever had. It’s given me the desire to help others using this amazing healing method.`,
+    `I loved the program as it fulfilled my intention for inner peace and healing. I enjoyed being able to do it in the comfort of my own home, knowing I was in a safe environment to be open for the experiences.`,
+    `There was lots of space and time for reflections and insights. I loved seeing the integration of my day-to-day tasks and goals with my inner child journey and how, as I connected more, I was drawn to and able to accomplish other things.`,
+    `Amy was amazing from start to finish. Always compassionate, kind and a real sense of calm. It wasn’t always heavy and I enjoyed the lighter side to things. Amy is an experienced mentor and I drew valuable insights and lessons from her.`,
+    `If you are looking for in-depth training I would really recommend this Practitioners Program. I have experienced the definite results and benefits of this program so I can say it works.`,
+  ]},
+  {name:'Janice - Licensed Clinical Social Worker in Private Practice', paragraphs:[
+    `During my years of practice, I have noticed that childhood events or traumas often are the origin of current adult crisis, so being trained as an Inner Child practitioner is very beneficial to the healing of clients. This program is insightful and educational for anyone who wants to grow mentally and emotionally.`,
+    `This program was a deeper and more insightful study of oneself. My skills as a clinical therapist were truly enhanced. Amy was superb and skilled at drawing out feelings and behaviours through active listening without blaming, simply naming the behaviours and what they mean to your current interactions or relationships.`,
+    `I would recommend all practitioners take this program. I believe it’s the foundation for all therapies. It lays the foundation for healing, wholeness and loving oneself, so you can handle life’s challenges with a greater depth of understanding.`,
+    `This Program is wonderful to become certified in because it is educational, its knowledge base of the Inner Child is strong, and it teaches clients that they hold the power of change.`,
+  ]},
+  {name:'Stacie - Integrative Life Coach', paragraphs:[
+    `LOVE Amy and her spirit! Amy was amazing and incredibly supportive throughout the entire process. I honestly couldn't have asked for a more approachable and digestible experience. I loved the one-to-one support and the way that the program was spaced out intentionally.`,
+    `If you are ready to truly experience deep inner healing in a supportive and loving container, this program is for you! I would recommend this program 100%.`,
+    `It is such a joy sharing this powerful healing modality with amazing humans that are seeking healing on such a deeply important and impactful level.`,
+  ]},
+  {name:'Chantelle - Healthcare Specialist', paragraphs:[
+    `I felt the program went very well. I understood many of the elements and considerations of what makes a strong facilitator for this type of work. I enjoyed running my first workshop, as it provided confidence and demonstrated that I really had learned and internalised knowledge and wisdom that I can offer to support others.`,
+    `Amy was so supportive throughout my entire journey. She offered guidance as I moved through my own inner child work, and encouragement as I worked towards becoming a facilitator. She is approachable and insightful, which creates a valuable space with room for expansion, growth and deeper understanding.`,
+    `The one-to-one guidance was very effective and helpful in my growth and learning. Each individual is different and having an individualised approach is something not often found in many courses or programs, and that makes this program unique.`,
+    `I would recommend this program to anyone with a deep desire to offer a healing service to others. If you have embodied and experienced inner child work yourself, you have so much to offer others and the Practitioner Program would be a great fit for you.`,
+  ]},
+  {name:'Kathryn - Licensed Master of Social Work', paragraphs:[
+    `I absolutely loved the program! The entire program felt like a good pace and enough time to do my own inner child work while also learning how to facilitate and guide others on their journey. Amy did a wonderful job of holding a safe space to address and work through difficult moments. I never felt rushed or pressured, but I still felt challenged.`,
+    `I really enjoyed the one-to-one dynamic throughout this program. I felt like the program was very personal and intimate, and I received the space to reflect on my own experiences and connect them to our discussions.`,
+    `I really enjoyed working with Amy. She did a wonderful job facilitating the entire program and has so much knowledge and first-hand experience. She created a safe and supportive space, and I look forward to continuing to check in with her throughout my journey of doing inner child work.`,
+  ]},
+];
+
+const whoFor = ['deepen their personal journey of healing, transformation and self-understanding','learn a structured framework that expands their skills, tools and experience','receive support and guidance while embodying the workshop techniques','stay accountable to their own practice with mentoring and practitioner support','acknowledge their commitment through certification aligned with their values','make a heartfelt commitment to a transformative, experiential healing modality'];
+const commitments = ['participant assessment and evaluation','holding space in a therapeutic environment','empathy, metaphor and guiding others safely','trauma-informed care','regression and guided meditation','integrating others’ experiences into your own narrative','archetypal theory and interpretation','building a personal dedication to your practitioner path','becoming familiar with all Inner Child Workshop material','preparing to deliver both individual and group workshops','organising a practice workshop (with a friend or family member)'];
+const included = ['Two one-to-one practitioner training sessions (approx. five hours total)','Three months of personalised mentoring','Access to Inner Child Workshop materials','Participant worksheets, guides and templates','Guidance on trauma-informed facilitation','Support with designing and hosting your first practice workshop','Certification and all documentation to run workshops and mentoring','Ongoing connection and support through The Inner Council practitioner community'];
+const faqs = [
+  ['Do I need previous experience in therapy or healing to join?','No. The program is open to anyone who has completed the Inner Child Workshop and feels a genuine calling to continue the work, either personally or professionally.'],
+  ['Will this integrate with my existing practice?','Yes. Many practitioners blend Inner Child work with counselling, coaching, energy healing, somatic work and spiritual modalities. The framework is trauma-informed, flexible and complementary.'],
+  ['How do mentoring sessions work?','You will meet one-to-one for personalised support, exploration and guidance. Mentoring helps you embody the work, deepen your connection with your inner child, and prepare to hold space for others.'],
+  ['How long will certification take?','There is no set timeline. Most practitioners complete the process within 3–6 months, depending on personal integration and life commitments.'],
+  ['What happens after I’m certified?','You will be able to facilitate workshops, mentor participants and integrate Inner Child work into your professional or personal offerings.'],
+  ['Is there support after certification?','Yes. You will have continued access to support, resources and community.'],
+];
+---
+
+<BaseLayout solidHeader title="Inner Child Certification | Inner Child Therapy | Amy Grist" description="Become a certified Inner Child Practitioner through The Inner Council. Trauma-informed training, one-to-one mentoring, and workshop facilitation skills.">
+  <article class="practitioner-page">
+    <header class="page-title container center"><h1>Become a Certified Inner Child Practitioner</h1><h2>Training & Certification through The Inner Council</h2><hr class="rule short"/></header>
+    <section class="band"><div class="container copy stack">
+      <section><h2>Welcome - I’m delighted you landed here</h2><hr class="rule short"/><p>The journey to becoming a certified Inner Child Practitioner begins with the <a href="/inner-child/">Inner Child Workshop</a>. This is the foundation of a courageous, playful and deeply integrative healing journey between you and your inner child.</p><p>During the workshop, we create a safe and nurturing space for your inner child to be seen, heard and witnessed in both their light and shadow, held in wholeness. You will learn tools and techniques to hold space for yourself, connect with your inner child, and build a lasting relationship of trust.</p><p>Inner child work is a complete, trauma-informed and deeply considerate modality. As it transforms your own life, the desire to share this work with others may naturally arise. When that calling comes, you are warmly welcomed into our practitioner pathway.</p></section>
+      <section><h2>Who Is Inner Child Practitioner Training For?</h2><hr class="rule short"/><p>Training to become an Inner Child Practitioner is suited to those who wish to:</p><ul>{whoFor.map(item=><li>{item}</li>)}</ul></section>
+      <section><h2>Becoming a certified Inner Child Practitioner</h2><hr class="rule short"/><p>The Inner Council Practitioner Program is an experiential training process, rooted in <strong>an inner-child-led, trauma-informed, integrative approach</strong>, supporting practitioners to embody the work personally before offering it professionally. Practitioners demonstrate their ongoing relationship of trust with their inner child throughout the workshop and complete a 3-month mentoring process. This is required in order to ethically deliver workshops and mentor others.</p><p>After mentoring, you will complete the Practitioner Program, which focuses on the soft skills needed to support participants with confidence, enthusiasm, clarity and care. Upon completion, you will receive all documentation and certification required to:</p><ul><li>run Inner Child Workshops</li><li>provide mentoring</li><li>integrate inner child work into your existing practice</li></ul></section>
+      <section><h2>Your Personal Inner Child Practice</h2><hr class="rule short"/><p>Certification involves a commitment to maintaining and deepening your own relationship with your inner child. Daily check-ins, journaling and recording interactions form a core part of ongoing personal development.</p><p>This inner work is essential. By tending to your own healing, you build the experience, empathy and grounded presence needed to hold space for others.</p></section>
+    </div></section>
+
+    <QuoteCarousel heading="Practitioner's experiences (Mentoring, Stage 2)" quotes={mentoringQuotes}/>
+
+    <section class="band"><div class="container copy stack">
+      <section><h2>Is the Inner Child Practitioner Program for me?</h2><hr class="rule short"/><p>Consult your heart and your inner child.</p><p>One of the profound gifts of inner child work is a clearer relationship with intuition. If the workshop resonated deeply, or you can imagine this becoming a dedicated life practice you wish to pursue and share with others, this program is very likely for you.</p><p>The Practitioner Program offers:</p><ul><li>motivation to sustain your inner child practice</li><li>ongoing support and guidance</li><li>a path to expand your personal practice into offerings for others</li><li>an empowering way to share transformative tools and insights</li></ul><p>Whether you are an experienced practitioner, or someone devoted to personal growth and healing, this training is open to all who have completed the Inner Child Workshop.</p><p class="center"><a class="button" href="#contact">Book a Free Discovery Call</a></p></section>
+      <section><h2>What You Commit To</h2><hr class="rule short"/><p>Training includes online and one-to-one study covering:</p><ul>{commitments.map(item=><li>{item}</li>)}</ul></section>
+      <section><h2>What’s Included in Practitioner Training</h2><hr class="rule short"/><ul>{included.map(item=><li>{item}</li>)}</ul></section>
+      <section><h2>How Long Does the Program Take?</h2><hr class="rule short"/><p>The Practitioner Program is delivered over two one-to-one sessions. However, training is only one part of the journey.</p><p>There is no strict timeline. The natural development of trust, integration and connection with your inner child may take between 3–6 months, depending on personal circumstances and how the practice weaves into your life.</p><p>Part of this journey is trusting:</p><ul><li>yourself</li><li>your intuition</li><li>your inner child</li><li>the timing of your readiness</li></ul><p>When alignment arrives, you will feel it clearly; there will be a moment of inner knowing that you are ready to offer the work to others.</p></section>
+    </div></section>
+
+    <section class="band rose faq"><div class="container"><h2>Frequently Asked Questions</h2><hr class="rule short"/><dl>{faqs.map(([q,a])=><><dt>{q}</dt><dd>{a}</dd></>)}</dl></div></section>
+
+    <section class="band testimonials"><div class="container"><h2>Testimonials from the Practitioner Program</h2><hr class="rule short"/><div class="disclosures">{practitionerTestimonials.map(item=><details><summary>{item.name}</summary><blockquote>{item.paragraphs.map(p=><p>{p}</p>)}</blockquote></details>)}</div></div></section>
+
+    <section class="band soft-rose center invitation"><div class="container"><h2>Ready to Begin the Practitioner Path?</h2><hr class="rule short"/><p>If your heart feels a “yes,” or even a curious whisper, you are warmly invited to connect.</p><ul><li>ask questions</li><li>explore whether the program is right for you</li><li>receive guidance and clarity before enrolling</li></ul><p>It would be my pleasure to support you on this journey.<br/>You may also wish to read more <a href="/amy/"><strong>about me</strong></a> and <a href="/inner-council/"><strong>The Inner Council</strong></a>.</p></div></section>
+
+    <section class="band center contact" id="contact"><div class="container"><h2>Enquire to become a Practitioner</h2><hr class="rule short"/><a class="button" href={href('/get-in-touch/')}>Get in touch</a><p class="form-note">The discovery-call form will be connected when the site’s email provider is selected.</p></div></section>
+  </article>
+</BaseLayout>
+
+<style>
+  .practitioner-page{padding-top:110px}.page-title{padding:60px 0 10px}.page-title h1{font-size:46px}.page-title h2{font-size:25px}.page-title .rule,.center .rule{margin-inline:auto}.stack{display:grid;gap:42px}.stack h2,.faq h2,.testimonials h2,.invitation h2,.contact h2{font-size:30px}.stack .rule,.faq .rule,.testimonials .rule{margin:12px 0 22px}.stack a{text-decoration:underline;text-underline-offset:3px}.faq dl{margin:0}.faq dt{font-weight:500;margin-top:20px}.faq dt:first-child{margin-top:0}.faq dd{margin:3px 0 0}.disclosures details{border-bottom:1px solid #ddd}.disclosures summary{padding:18px 8px;cursor:pointer;font:400 19px var(--heading);color:var(--ink)}.disclosures blockquote{padding:20px 48px 28px;font-style:italic;color:var(--ink)}.invitation ul{list-style:none;padding:0}.invitation a{text-decoration:underline}.form-note{font-size:13px;color:var(--ink);margin-top:18px}
+  @media(max-width:799px){.practitioner-page{padding-top:100px}.page-title{padding-top:42px}.page-title h1{font-size:36px}.page-title h2{font-size:23px}.stack h2,.faq h2,.testimonials h2,.invitation h2,.contact h2{font-size:27px}.copy p{text-align:left}.disclosures blockquote{padding:18px 36px 25px}.disclosures summary{font-size:18px}}
+</style>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+import {href} from '../data/site';
+---
+<BaseLayout title="Integration Approach for Holistic Wellbeing | Amy Grist" description="Integration Work with Amy supports emotional healing, trauma integration and mindset transformation through compassionate, grounded, inner-led practices.">
+ <PageHero image={images[130]} title="Embracing Integration" caption="Finding Deep Grounded Foundations" alt="Mountain ridges beside a calm lake"/>
+ <article class="integration">
+  <section class="band"><div class="container copy">
+   <h2>What Is Integration Work?</h2><hr class="rule short"/>
+   <p>Integration is the process of bringing all aspects of yourself into harmony; mind, body, emotions and spirit. It is a lifelong journey of returning to wholeness, supported by practice, dedication, presence and compassion.</p>
+   <p>Through integration, we cultivate a grounded foundation within ourselves. We learn to meet life’s experiences with awareness, to soften old patterns, and to reconnect with our authentic centre. It is a holistic approach to healing that honours the fullness of who we are.</p>
+   <h2>A Path Toward Wholeness</h2><hr class="rule short"/>
+   <p>Throughout our lifetime, we collect beliefs, conditioning, habit patterns and emotional imprints. These can manifest as challenges, creative blocks, limiting behaviours or difficulties in relationships.</p>
+   <p>Integration work gently invites us to explore and heal these deeper layers, not from a place of fixing, but from understanding, compassion and conscious choice.</p>
+   <p>This work supports you in:</p>
+   <ul><li>identifying and healing trauma imprints</li><li>softening long-held patterns and emotional reactions</li><li>cultivating inner clarity and emotional balance</li><li>reconnecting with your intuition and inner authority</li><li>reclaiming the potential that has always been within you</li></ul>
+   <h2>A Space to Explore, Heal and Transform</h2><hr class="rule short"/>
+   <p>I invite you to open and explore the deeper components of your inner world in a safe, grounded and supportive space. Integration work offers room for:</p>
+   <ul><li>profound realisations</li><li>emotional release</li><li>expanded self-awareness</li><li>meaningful transformation</li></ul>
+   <p>Through guided enquiry and intuitive support, we direct intention toward the areas of your life, behaviour or inner landscape that feel ready for adjustment, liberation or healing.</p>
+   <p>This is deep work, gentle yet powerful, weaving through the physical, emotional and spiritual aspects of Self.</p>
+  </div></section>
+  <section class="band soft-rose"><div class="container copy">
+   <h2>Listening to the Inner Landscape</h2><hr class="rule short"/>
+   <p>Integration begins with listening. When we turn inward with honesty and curiosity, we meet the parts of ourselves that long to be acknowledged, soothed or understood.</p>
+   <p>This process may involve:</p>
+   <ul><li>meeting parts of yourself that have been hidden or rejected</li><li>recognising protective patterns and understanding their origins</li><li>learning to love the parts of you that feel difficult to embrace</li><li>allowing space for shadow work, compassion and acceptance</li><li>developing the courage to be fully expressed and present</li></ul>
+   <p>Integration is not always about releasing or “getting rid” of anything. Often, the transformation lies in softening, accepting, and inviting love into the spaces we once resisted.</p>
+  </div></section>
+  <section class="band"><div class="container copy">
+   <h2>Opening to Change</h2><hr class="rule short"/>
+   <p>The willingness to change, even subtly, is the first step toward transformation. When we allow honest reflection on the relationships we have with ourselves, others and the world, we begin to see what truly serves us.</p>
+   <p>This can be confronting at times, but it is also deeply liberating.<br/>With kindness and self-recognition, we gain the clarity needed to move beyond:</p>
+   <ul><li>destructive habits</li><li>repetitive thoughts</li><li>emotional blocks</li><li>outdated beliefs</li><li>unintegrated trauma</li></ul>
+   <p>Integration work creates space for reevaluation, reinvention, and conscious choice, letting go of what limits you and inviting in what nourishes your growth.</p>
+   <h2>Remembering Your Essence</h2><hr class="rule short"/>
+   <p>Your heart is intelligent.<br/>Your energy is meant to flow.<br/>Your essence is pure.</p>
+   <p>You are deserving of experiencing life’s gifts every day; with greater authenticity, joy and inner freedom.</p>
+   <p>Integration work supports you in returning to this truth.</p>
+  </div></section>
+  <section class="band rose center"><div class="container">
+   <h2>Explore Integration Through My Offerings</h2><hr class="rule short"/>
+   <p>Integration is woven throughout all of my work.<br/>You’re invited to explore deeper through:</p>
+   <ul class="offerings"><li><a href={href('/inner-child/')}>Inner Child Workshops</a></li><li><a href={href('/one-to-one-coaching/')}>Mindset &amp; Wellbeing Coaching</a></li><li><a href={href('/inner-child-mentoring/')}>Inner Child Mentoring</a></li><li><a href={href('/become-a-practitioner/')}>Inner Child Practitioner Training</a></li></ul>
+   <p>Each pathway offers tools, insights and practices to support your personal evolution.</p>
+  </div></section>
+ </article>
+</BaseLayout>
+<style>
+.integration .band{padding-block:52px}.integration h2{font-size:30px;margin:0}.integration .rule{width:220px;margin:15px 0 24px}.integration h2:not(:first-child){margin-top:48px}.integration ul{margin-bottom:28px}.integration .offerings{list-style-position:inside;padding:0}.integration .offerings a{text-decoration:underline;text-underline-offset:3px}.integration .rose .rule{border-color:var(--accent);margin-inline:auto}
+@media(max-width:699px){.integration .band{padding-block:42px}.integration h2{font-size:27px}.integration .copy p{text-align:left}}
+</style>

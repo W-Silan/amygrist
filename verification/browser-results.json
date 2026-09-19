@@ -1,0 +1,138 @@
+{
+  "base": "http://127.0.0.1:4323",
+  "results": [
+    {
+      "route": "/",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 124,
+        "domContentLoadedMs": 103.5,
+        "height": 13952,
+        "resources": 22
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/amy/",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 56,
+        "domContentLoadedMs": 41.899999998509884,
+        "height": 6896,
+        "resources": 11
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/inner-council/",
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 48,
+        "domContentLoadedMs": 35.30000000074506,
+        "height": 5236,
+        "resources": 12
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 60,
+        "domContentLoadedMs": 44.099999997764826,
+        "height": 10364,
+        "resources": 22
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/amy/",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 56,
+        "domContentLoadedMs": 37,
+        "height": 4608,
+        "resources": 11
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/inner-council/",
+      "width": 768,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 48,
+        "domContentLoadedMs": 30.299999997019768,
+        "height": 2837,
+        "resources": 12
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 136,
+        "domContentLoadedMs": 109.40000000223517,
+        "height": 8192,
+        "resources": 21
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/amy/",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 60,
+        "domContentLoadedMs": 37.100000001490116,
+        "height": 4140,
+        "resources": 11
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    },
+    {
+      "route": "/inner-council/",
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "metrics": {
+        "lcpMs": 56,
+        "domContentLoadedMs": 30.5,
+        "height": 2602,
+        "resources": 12
+      },
+      "menuAccessibility": [],
+      "accessibility": []
+    }
+  ],
+  "localLinks": [
+    "/",
+    "/amy/",
+    "/inner-council/"
+  ],
+  "originalsVerified": 18,
+  "rootPostUrlsPreserved": true
+}

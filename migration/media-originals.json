@@ -1,0 +1,177 @@
+[
+  {
+    "id": 544,
+    "original": "2022/01/amy_grist_logo_retina_dark.png",
+    "asset": "src/assets/images/amy_grist_logo_retina_dark.png",
+    "sha256": "4f960919fc40da0f88b023e73ee1492cdd7844cf167f550260f646dc67c3e188",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 548,
+    "original": "2022/01/amy_grist_logo_retina_white.png",
+    "asset": "src/assets/images/amy_grist_logo_retina_white.png",
+    "sha256": "6d79803a763845bb5e806714849ed017fb0188edcf75325012fc2242df8affbe",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1741,
+    "original": "2020/03/Amy-High-Res-4.webp",
+    "asset": "src/assets/images/Amy-High-Res-4.webp",
+    "sha256": "dfb46eeea0ccbb6de3af49fd55241ffa42ea85af2396b2183cb3063687973b2c",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 87,
+    "original": "2020/03/amy_grist_splash3.jpg",
+    "asset": "src/assets/images/amy_grist_splash3.jpg",
+    "sha256": "77bc6cb0cfcd36fc82a0f89c8b11fbff3d82d957dfe58837e7573c7d62ccfcea",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 281,
+    "original": "2020/03/amygrist_intimate_setting_inner_child_workshop.jpg",
+    "asset": "src/assets/images/amygrist_intimate_setting_inner_child_workshop.jpg",
+    "sha256": "ce9c1c82a7cacd559f6181d66ff4158452d31436da5b2428c9c80fd5fb44c976",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 100,
+    "original": "2020/03/amy_grist_splash6-1.jpg",
+    "asset": "src/assets/images/amy_grist_splash6-1.jpg",
+    "sha256": "b345ae4f059458a29108cd65cfc3c0a0190f9e74f408f75bb82fe10f467a4374",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 115,
+    "original": "2020/03/amy_grist_about_large.jpg",
+    "asset": "src/assets/images/amy_grist_about_large.jpg",
+    "sha256": "99e4ae7fa0460b05a32a3881f0d1714d9da14cb613c76186c6e74ea5ea28b837",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1133,
+    "original": "2024/03/amy_grist_inner_child_workshops_003.jpg",
+    "asset": "src/assets/images/amy_grist_inner_child_workshops_003.jpg",
+    "sha256": "13f193bfca862773f3999433b7fedf40b3147b583f0385bd894fcea2e828bda8",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1130,
+    "original": "2024/03/amy_grist_inner_child_practitioner_coaching_002.jpg",
+    "asset": "src/assets/images/amy_grist_inner_child_practitioner_coaching_002.jpg",
+    "sha256": "9b9653b2d9551142c442e1a81f117f68c99048d06e14b524bd81473776a20384",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 419,
+    "original": "2021/02/Amy_Grist_Meditation_Introduction.jpg",
+    "asset": "src/assets/images/Amy_Grist_Meditation_Introduction.jpg",
+    "sha256": "70d95760b5409fe57abde4978f25613645ad0809786f5170b9dd15842ef2a378",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 259,
+    "original": "2020/06/amy-grist-andriele.jpg",
+    "asset": "src/assets/images/amy-grist-andriele.jpg",
+    "sha256": "5dcb48d64ee40913c543d8ee57c36ee8ed5e8e312b18177de5039608fced7b8e",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1150,
+    "original": "2024/03/Amy_grist_inner_harmony_balance_meditation_series_001.jpg",
+    "asset": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_001.jpg",
+    "sha256": "be0883d1cf8b3441f6db5b72249ea019910a9a21fec9d9ea7f2d2e8832d94182",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1157,
+    "original": "2024/03/Amy_grist_inner_harmony_balance_meditation_series_009.jpg",
+    "asset": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_009.jpg",
+    "sha256": "556b2d2e031b1294777fec843b03f3115704a405e61e0de6ba14852e48a5714f",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1156,
+    "original": "2024/03/Amy_grist_inner_harmony_balance_meditation_series_008.jpg",
+    "asset": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_008.jpg",
+    "sha256": "5dfb36edfefc7cc822479ae498423780e02190f175ae8d39915783b5e20b3137",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1014,
+    "original": "2024/02/favicon.png",
+    "asset": "src/assets/images/favicon.png",
+    "sha256": "f7d39db846e53518af4716abd004075c2adfbeff1b206ed389a58f60f3e34432",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 391,
+    "original": "2020/11/module-1-booklet-cover_a.png",
+    "asset": "src/assets/images/module-1-booklet-cover_a.png",
+    "sha256": "23d05fa8e0ec107d87c007452323f474a4ab24e943e65074e1a053b14ac16add",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 390,
+    "original": "2020/11/module-2-booklet-cover_b.png",
+    "asset": "src/assets/images/module-2-booklet-cover_b.png",
+    "sha256": "2f0a37400523bbda8a5b9831b20f8ec1b4805a4cce1bbd268fa89920ac506c29",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 389,
+    "original": "2020/11/module-3a-booklet-cover.png",
+    "asset": "src/assets/images/module-3a-booklet-cover.png",
+    "sha256": "1dc4f44d96bee894ba91c3a888747cb5ecd9cc12eb66ab08e538069d4fdff686",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 130,
+    "original": "2020/05/amygrist_integrationwork.jpg",
+    "asset": "src/assets/images/amygrist_integrationwork.jpg",
+    "sha256": "52377b5cb1e1078e5e4190dc077ee22d0a81f1babe8708e7583021bc6b1f8a8c",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1147,
+    "original": "2024/03/Amy_grist_inner_harmony_balance_meditation_series_0010.jpg",
+    "asset": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_0010.jpg",
+    "sha256": "619b93b3bacb52f7a86e48100d57be34b6d5b3d7bd5ef1ec0edc6961cf717afc",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1148,
+    "original": "2024/03/Amy_grist_inner_harmony_balance_meditation_series_0011.jpg",
+    "asset": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_0011.jpg",
+    "sha256": "c06834a2f2a720eff1e6c565166ab4222cf63ec63af26ac41748eabec022a823",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 122,
+    "original": "2020/03/background-Image-long2.jpg",
+    "asset": "src/assets/images/background-Image-long2.jpg",
+    "sha256": "2356cf9a50ea5ced7cec6eb67982dab70faa5d45389246fbf3abce8e4480fe83",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 138,
+    "original": "2020/05/amygrist_integrationonetoone.jpg",
+    "asset": "src/assets/images/amygrist_integrationonetoone.jpg",
+    "sha256": "8303428a487cb23d48ad0992a5f68ef2677ea500bf60a10ac3f170d8b647ba6d",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 1269,
+    "original": "2024/05/Coaching_testimonial_Agnes.png",
+    "asset": "src/assets/images/Coaching_testimonial_Agnes.png",
+    "sha256": "0aa08f4ce2a84f5872c0eaae413ffafe55132f2aa2bcd2172e8e52002b8fcbc4",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 483,
+    "original": "2021/10/reiki_hands.jpg",
+    "asset": "src/assets/images/reiki_hands.jpg",
+    "sha256": "2a6b351abb9b110601b4aa4ed5543c92003b9bbfad0b8ee7b324445bb05fe907",
+    "resolution": "_wp_attached_file; no original_image override or generated filename"
+  }
+]

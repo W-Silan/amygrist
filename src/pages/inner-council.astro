@@ -1,0 +1,46 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {images} from '../data/images';
+
+const modules = [
+  {
+    image: images[391],
+    title: 'The Inner Child',
+    alt: 'The Inner Child, Module 1 of the Inner Council Workshop Series',
+    copy: 'The Inner Child workshop is where we meet our Primary Archetype and where we will learn the tools to begin our internal adventures into the unconscious. We will establish the first connection with the Inner Child and begin to demonstrate techniques in developing a trusting and genuine relationship. Energetic childhood episodes and the associated energetic blockages and behavioural symptoms are observed and realised into integration and harmony. Find out more <a href="https://innercouncil.org/inner-child-workshop-module-1/">here</a> and find a <a href="https://innercouncil.org/#practitioner">workshop practitioner</a> here.',
+  },
+  {
+    image: images[390],
+    title: 'The Inner Council',
+    alt: 'The Inner Council, Module 2 of the Inner Council Workshop Series',
+    copy: 'This mentoring module is where we begin to work alongside our Inner Child and explore the characters of our inner-consciousness, interpreting more complex messages of integration and initiation into the deeper aspects of our subjective knowledge. Deeper energies from ancestral contracts and archetypal symbols and meaning are brought into view guiding us towards deep soul integration, physical and energetic healing and personal realisation through intuitive guidance.',
+  },
+  {
+    image: images[389],
+    title: 'The Inner Corpus',
+    alt: 'The Inner Corpus, Module 3 of the Inner Council Workshop Series',
+    copy: 'We expand our subjective experience to develop a personal metaphysical structure of the upper and lower domains of spirit and soul and establish an energetic relationship to both. Tending to our inner universe and harmonising the subjective ecology towards blissful union. We comprehensively study the forms and mechanics of our new physical environment, working towards self realisation and the transcendence of conceptual duality and boundaries as we unlock the higher realms of spirit and collective knowledge.',
+  },
+];
+---
+<BaseLayout solidHeader title="The Inner Council Workshops | Amy Grist" description="The Inner Child Workshop Series allows an individual to learn the tools required for a deep integrative personal therapy.">
+ <article class="inner-council container">
+  <header><h1>The Inner Council Workshop Series</h1><hr class="rule short"/></header>
+  <div class="introduction">
+   <p>As co-founder of the Inner Council Series, I have co-developed a series of workshops in the format of modules which have been inspired by and designed to support the foundational work of Inner Child; to open up the space within our internal world and connect to the deepest innermost parts of ourselves.</p>
+   <p>The Inner Council workshop series has been designed to open up the space within our internal landscapes and connect to the deepest, innermost areas of ourselves. Based on a holistic, empowering, intuitive led form of self therapy, where you are the therapist and proceed at a pace inspired by your intuition. The workshops guide you to consider the foundational aspects of our core essence and what it is to live and explore the subjective ecology of the human condition.</p>
+   <p>Whether you are a practitioner, or someone interested in your own self development, aligning and discovering your true nature, spiritual and soul purpose, interested in exploring the depths, multiple aspects, characters and form that our consciousness takes, the Inner Council Series provides comprehensive workshops for examining these different parts of ourselves, often overlooked, remaining in our subconscious, or not talked about. Through the mechanism of self trust and empowerment, the workshop series provides the tools that directly contribute towards building your own daily core practice, healing, liberation and self enlightenment, compatible with any existing therapies and practices; it is universal.</p>
+   <p>The consciousness modules are defined as those aspects of ourselves that exist within us, that work together, interact, control and drive our actions, thoughts, feelings, emotions and behaviours. Quite often we are subject to these thoughts, emotions, feelings and resulting behaviours on a daily basis, however, float along unaware of what is happening within. Emotional blockages, disatisfaction, (dis)ease, lapses in creativity, purpose, meaning and focus in life are some of the symptoms of inner disharmony. We have the blueprints to discover our true nature and begin to align ourselves in a balanced harmony, radiating from the inside out. By opening ourselves up to the possibility of connecting with these inner components, understanding, forgiving and integrating them, your own subjective experience guides you to do so. Driven by self empowerment, you enable yourself to heal, grow, expand and realise your full potential and live a life of intentional awareness, true to the being within.</p>
+  </div>
+  <div class="modules">
+   {modules.map(module => <section class="module"><Image src={module.image} alt={module.alt} widths={[260,420,640,800]} sizes="(max-width: 699px) 72vw, 250px" format="webp"/><div><h2>{module.title}</h2><hr class="rule short"/><p set:html={module.copy}/></div></section>)}
+  </div>
+  <p class="more">More information at <a href="https://innercouncil.org/">The Inner Council</a>.</p>
+ </article>
+</BaseLayout>
+<style>
+.inner-council{padding-top:175px;padding-bottom:35px}.inner-council header{margin-bottom:25px}.inner-council h1{font-size:40px}.inner-council .rule{margin:16px 0 28px}.introduction p,.module p{text-align:justify}.modules{margin-top:35px}.module{display:grid;grid-template-columns:250px 1fr;gap:30px;align-items:center;margin:0 0 28px}.module img{width:100%;box-shadow:0 8px 20px #00000012}.module h2{font-size:30px;margin:0}.module .rule{border-color:var(--rose);width:170px;margin:18px 0}.module :global(a),.more a{text-decoration:underline;text-underline-offset:3px}.more{margin-top:10px}
+@media(max-width:999px){.inner-council{padding-top:145px}.inner-council h1{font-size:34px}}
+@media(max-width:699px){.inner-council{padding-top:135px}.inner-council h1{font-size:32px}.module{grid-template-columns:1fr;gap:28px;margin-bottom:55px}.module img{width:min(72vw,360px);margin:auto}.module h2{font-size:27px}}
+</style>

@@ -1,0 +1,26 @@
+[
+{"type":"header","version":"5.2.3","comment":"Export to JSON plugin for phpMyAdmin"},
+{"type":"database","name":"typedyvg_wp321"},
+{"type":"table","name":"wppg_posts","database":"typedyvg_wp321","data":
+[
+{"ID":"88","post_author":"1","post_date":"2020-03-20 16:26:24","post_modified":"2025-12-15 13:58:37","post_title":"Auto Draft","slug":"auto-draft-3","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"109","post_author":"1","post_date":"2020-03-21 02:37:32","post_modified":"2024-03-15 13:57:47","post_title":"Auto Draft","slug":"auto-draft-5","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"114","post_author":"1","post_date":"2020-03-21 16:30:33","post_modified":"2025-11-11 22:15:45","post_title":"Auto Draft","slug":"auto-draft-6","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"118","post_author":"1","post_date":"2020-03-21 16:40:57","post_modified":"2025-12-24 21:54:09","post_title":"Auto Draft","slug":"auto-draft-7","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"129","post_author":"1","post_date":"2020-05-04 19:22:20","post_modified":"2021-02-04 01:50:48","post_title":"Auto Draft","slug":"auto-draft-8","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"133","post_author":"1","post_date":"2020-05-04 19:27:50","post_modified":"2021-02-04 01:50:39","post_title":"Auto Draft","slug":"auto-draft-9","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"137","post_author":"1","post_date":"2020-05-04 19:31:11","post_modified":"2025-11-12 22:16:17","post_title":"Auto Draft","slug":"auto-draft-10","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"140","post_author":"1","post_date":"2020-05-04 20:07:21","post_modified":"2021-02-04 01:50:20","post_title":"Auto Draft","slug":"auto-draft-11","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"422","post_author":"1","post_date":"2021-02-03 18:31:56","post_modified":"2021-02-04 02:32:22","post_title":"Auto Draft","slug":"auto-draft-13","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"428","post_author":"1","post_date":"2021-02-03 18:54:34","post_modified":"2021-02-04 01:49:01","post_title":"Auto Draft","slug":"auto-draft-14","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"482","post_author":"1","post_date":"2021-10-07 22:55:39","post_modified":"2025-11-18 21:06:49","post_title":"Auto Draft","slug":"auto-draft-15","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"525","post_author":"1","post_date":"2022-01-14 01:11:53","post_modified":"2022-01-14 01:11:53","post_title":"Auto Draft","slug":"auto-draft-16","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"603","post_author":"1","post_date":"2022-09-05 16:49:21","post_modified":"2022-09-05 16:50:51","post_title":"Auto Draft","slug":"auto-draft-17","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"1040","post_author":"1","post_date":"2024-02-12 15:46:38","post_modified":"2024-02-12 15:47:57","post_title":"Auto Draft","slug":"auto-draft-18","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"0"},
+{"ID":"86","post_author":"1","post_date":"2020-03-20 15:54:21","post_modified":"2024-03-15 13:56:46","post_title":"Auto Draft","slug":"auto-draft-2","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"1"},
+{"ID":"95","post_author":"1","post_date":"2020-03-20 16:59:14","post_modified":"2024-03-15 13:57:11","post_title":"Auto Draft","slug":"auto-draft-4","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"2"},
+{"ID":"317","post_author":"1","post_date":"2020-07-24 15:34:38","post_modified":"2025-11-18 16:02:33","post_title":"Auto Draft","slug":"auto-draft-12","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"2"},
+{"ID":"83","post_author":"1","post_date":"2020-03-20 15:46:20","post_modified":"2024-03-15 13:56:26","post_title":"Auto Draft","slug":"auto-draft","post_content":"","post_excerpt":"","post_status":"publish","post_parent":"0","menu_order":"3"}
+]
+}
+]

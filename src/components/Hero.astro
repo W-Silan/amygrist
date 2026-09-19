@@ -1,0 +1,29 @@
+---
+import {Image} from 'astro:assets';
+import {images} from '../data/images';
+interface Props{about?:boolean;}
+const {about=false}=Astro.props;
+const slides=about ? [{image:115 as const,title:'About Me',caption:'',alt:'Amy sitting beside a sunlit window overlooking the mountains'}] : [
+ {image:1741 as const,title:'',caption:'',alt:'Amy Grist, holistic practitioner'},
+ {image:87 as const,title:'Gentle Therapies',caption:'To Unfurl Your Natural Resources',alt:'A peaceful setting for gentle therapies'},
+ {image:281 as const,title:'Intimate Workshops',caption:'Personalised Group Settings',alt:'Amy guiding an outdoor Inner Child workshop'},
+ {image:100 as const,title:'One - To - One',caption:'Personal Online Sessions',alt:'Amy holding an online session'}
+];
+---
+<section class:list={['hero',{'about-hero':about}]} aria-label={about?'About Amy':'Introducing Amy’s work'} aria-roledescription={about?undefined:'carousel'}>
+ {slides.map((slide,i)=><div class="slide" hidden={i!==0} data-slide style={slide.image===281?"--position:center top":undefined}><Image src={images[slide.image]} alt={slide.alt} widths={[480,768,1440,2000]} sizes="100vw" format="webp" loading={i===0?'eager':'lazy'} fetchpriority={i===0?'high':'auto'}/><div class="caption">{slide.title&&(about?<h1>{slide.title}</h1>:<h2>{slide.title}</h2>)}{slide.caption&&<p><span>{slide.caption}</span></p>}</div></div>)}
+ {!about&&<div class="slider-controls"><button data-prev aria-label="Previous slide">‹</button><span aria-live="polite" data-count>1 / 4</span><button data-next aria-label="Next slide">›</button><button data-pause aria-label="Pause slideshow">Ⅱ</button></div>}
+</section>
+<script>
+ document.querySelectorAll<HTMLElement>('.hero:not(.about-hero)').forEach(hero=>{
+  const slides=Array.from(hero.querySelectorAll<HTMLElement>('[data-slide]'));let index=0;let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;let timer:ReturnType<typeof setInterval>|undefined;
+  const pause=hero.querySelector<HTMLButtonElement>('[data-pause]')!;
+  function show(n:number){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.hidden=i!==index);hero.querySelector('[data-count]')!.textContent=`${index+1} / ${slides.length}`;}
+  function schedule(){clearInterval(timer);if(!paused)timer=setInterval(()=>show(index+1),10000);pause.textContent=paused?'▶':'Ⅱ';pause.setAttribute('aria-label',paused?'Play slideshow':'Pause slideshow');}
+  hero.querySelector('[data-prev]')!.addEventListener('click',()=>{show(index-1);paused=true;schedule();});hero.querySelector('[data-next]')!.addEventListener('click',()=>{show(index+1);paused=true;schedule();});pause.addEventListener('click',()=>{paused=!paused;schedule();});
+  hero.addEventListener('focusin',()=>{paused=true;schedule();});document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else schedule();});schedule();
+ });
+</script>
+<style>
+.hero{height:40.6vw;max-height:800px;min-height:450px;position:relative;background:var(--teal);color:white}.slide{height:100%;position:relative}.slide[hidden]{display:none}.slide img{width:100%;height:100%;object-fit:cover;object-position:var(--position,center)}.about-hero img{object-position:center top}.about-hero .slide:after{content:'';position:absolute;inset:0;background:rgba(227,166,161,.18)}.caption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 6% 0;z-index:1}.caption h1,.caption h2{font-size:60px;margin:0 0 20px;background:#023c4dcc;padding:10px 18px;border-radius:4px}.caption p{font-size:20px}.caption span{background:#023c4dcc;padding:6px 10px}.slider-controls{z-index:2;position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;width:max-content;max-width:88vw;white-space:nowrap;background:#023c4de6;border-radius:4px;font-size:12px}.slider-controls button{border:0;background:none;color:white;min-width:44px;min-height:44px;font-size:24px}@media(max-width:999px){.hero{height:450px;min-height:0}.caption h1,.caption h2{font-size:35px}.caption p{font-size:15px}.caption{padding-top:70px}.slider-controls{bottom:6px}.slider-controls button{font-size:20px}.about-hero{height:450px}}
+</style>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Copy from '../components/Copy.astro';
+import amy from '../data/amy.json';
+---
+<BaseLayout title="Amy Grist | Trauma-Informed Inner Child Work | Holistic Therapy" description="Amy is a trauma-informed inner child practitioner offering holistic therapy, somatic healing, meditation and programs for authentic, empowered living.">
+ <Hero about/>
+ <section class="soft-rose summary"><div class="container"><Copy texts={amy[1].texts}/></div></section>
+ <div class="container biography">
+  <section class="opening"><Copy texts={amy[2].texts}/></section>
+  <section><h2>{amy[3].headings[0]}</h2><hr class="rule short"/><Copy texts={amy[3].texts}/><div class="center action"><a class="button" href={amy[4].buttons[0].url}>{amy[4].buttons[0].text}</a></div></section>
+  <section><h2>{amy[5].headings[0]}</h2><hr class="rule short"/><Copy texts={amy[5].texts}/></section>
+  <section><h2>{amy[6].headings[0]}</h2><hr class="rule short"/><Copy texts={[amy[6].texts[0]]}/><hr class="rule short middle"/><Copy texts={amy[6].texts.slice(1)}/></section>
+  <section class="center"><h2>{amy[7].headings[0]}</h2><hr class="rule short"/><Copy texts={amy[7].texts}/><div class="action"><a class="button" href={amy[8].buttons[0].url}>{amy[8].buttons[0].text}</a></div></section>
+  <section class="closing-quote"><Copy texts={amy[9].texts}/></section>
+ </div>
+</BaseLayout>
+<style>.summary{padding:30px 0}.biography section{padding-top:55px}.biography .opening{padding-top:30px}.biography h2{font-size:30px}.biography .rule{margin-top:0}.biography .middle{margin:45px auto 35px}.action{margin-top:30px}.closing-quote{padding-bottom:15px}.opening :global(.text-block:first-child p:first-child){white-space:pre-line}@media(max-width:999px){.biography section{padding-top:45px}.biography h2{font-size:26px}}
+</style>

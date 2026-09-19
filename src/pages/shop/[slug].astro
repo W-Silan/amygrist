@@ -1,0 +1,45 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {products} from '../../data/products';
+import {href} from '../../data/site';
+
+export function getStaticPaths() {
+  return products.map(product => ({params:{slug:product.slug}, props:{product}}));
+}
+
+const {product} = Astro.props;
+---
+<BaseLayout solidHeader title={`${product.seoTitle} | Amy Grist`} description={product.seoDescription} ogImage={product.image}>
+ <article class="product-page container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={href('/shop/')}>Shop</a><span aria-hidden="true">›</span><span>Complete Series</span></nav>
+  <div class="product-overview">
+   <div class="gallery">
+    <Image class="primary" src={product.image} alt={product.imageAlt} widths={[480,720,1080]} sizes="(max-width: 799px) 88vw, 40vw" format="webp" loading="eager"/>
+    <div class="gallery-secondary">{product.gallery.map(item => <Image src={item.image} alt={item.alt} widths={[320,540,1080]} sizes="(max-width: 799px) 42vw, 19vw" format="webp"/>)}</div>
+   </div>
+   <div class="purchase">
+    <p class="eyebrow">Inner Harmony &amp; Balance Meditation Series</p>
+    <h1>{product.name}</h1>
+    <p class="price">{product.price}</p>
+    <p>{product.summary}</p>
+    <p class="format"><strong>Digital download:</strong> {product.fileCount} guided MP3 files supplied in one ZIP file.</p>
+    {product.paymentUrl
+      ? <a class="button buy" href={product.paymentUrl}>Buy it now</a>
+      : <><span class="button buy disabled" aria-disabled="true">Buy it now</span><p class="purchase-status">Purchase is not yet available on this preview. Stripe Payment Link required.</p></>}
+    <p class="checkout-note">Secure checkout will be provided by Stripe.</p>
+   </div>
+  </div>
+  <section class="details">
+   <h2>About the complete series</h2><hr class="rule short"/>
+   <ul>{product.features.map(feature => <li>{feature}</li>)}</ul>
+   <h2>What happens after purchase</h2><hr class="rule short"/>
+   <p>{product.delivery}</p>
+   <aside aria-label="Important information"><h2>Important information</h2><hr class="rule short"/><p><strong>Safety:</strong> {product.safety}</p><p>{product.terms}</p></aside>
+  </section>
+ </article>
+</BaseLayout>
+<style>
+.product-page{padding-top:155px;padding-bottom:70px}.breadcrumbs{display:flex;gap:10px;margin-bottom:35px;font-size:14px}.breadcrumbs a{text-decoration:underline;text-underline-offset:3px}.product-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:65px;align-items:start}.gallery .primary{width:100%;aspect-ratio:1;object-fit:cover}.gallery-secondary{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.gallery-secondary img{width:100%;aspect-ratio:1;object-fit:cover}.eyebrow{font:400 14px var(--nav);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}.purchase h1{font-size:42px}.price{color:var(--link);font-size:25px;font-weight:500}.format{color:var(--ink);margin:30px 0}.buy{min-width:180px;font-size:15px}.disabled{opacity:.65;cursor:not-allowed}.purchase-status{font-size:13px;color:var(--ink);margin:14px 0 0}.checkout-note{font-size:13px;margin-top:14px}.details{max-width:900px;margin:70px auto 0}.details h2{font-size:30px;margin-top:42px}.details h2:first-child{margin-top:0}.details .rule{margin:14px 0 24px}.details li{margin-bottom:10px}.details aside{background:var(--soft-rose);color:var(--ink);padding:35px;margin-top:50px}.details aside h2{margin-top:0}
+@media(max-width:799px){.product-page{padding-top:130px}.product-overview{grid-template-columns:1fr;gap:42px}.purchase h1{font-size:32px}.details{margin-top:55px}.details aside{padding:28px 22px}}
+</style>

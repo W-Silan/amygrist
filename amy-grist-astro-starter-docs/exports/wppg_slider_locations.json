@@ -1,0 +1,26 @@
+[
+{"type":"header","version":"5.2.3","comment":"Export to JSON plugin for phpMyAdmin"},
+{"type":"database","name":"typedyvg_wp321"},
+{"type":"table","name":"p","database":"typedyvg_wp321","data":
+[
+{"slide_id":"114","post_title":"Auto Draft","term_id":"178","slider_location":"about","slider_location_slug":"about","taxonomy":"slider-locations"},
+{"slide_id":"603","post_title":"Auto Draft","term_id":"1214","slider_location":"Circle 2022","slider_location_slug":"circle-2022","taxonomy":"slider-locations"},
+{"slide_id":"422","post_title":"Auto Draft","term_id":"1211","slider_location":"Guided Meditation Course","slider_location_slug":"guided-meditation-course","taxonomy":"slider-locations"},
+{"slide_id":"88","post_title":"Auto Draft","term_id":"3","slider_location":"home","slider_location_slug":"home","taxonomy":"slider-locations"},
+{"slide_id":"86","post_title":"Auto Draft","term_id":"3","slider_location":"home","slider_location_slug":"home","taxonomy":"slider-locations"},
+{"slide_id":"95","post_title":"Auto Draft","term_id":"3","slider_location":"home","slider_location_slug":"home","taxonomy":"slider-locations"},
+{"slide_id":"83","post_title":"Auto Draft","term_id":"3","slider_location":"home","slider_location_slug":"home","taxonomy":"slider-locations"},
+{"slide_id":"118","post_title":"Auto Draft","term_id":"181","slider_location":"Inner child","slider_location_slug":"inner-child","taxonomy":"slider-locations"},
+{"slide_id":"1040","post_title":"Auto Draft","term_id":"1222","slider_location":"inner child mentoring","slider_location_slug":"inner-child-mentoring","taxonomy":"slider-locations"},
+{"slide_id":"317","post_title":"Auto Draft","term_id":"825","slider_location":"inner child reading","slider_location_slug":"inner-child-reading","taxonomy":"slider-locations"},
+{"slide_id":"129","post_title":"Auto Draft","term_id":"195","slider_location":"Integration","slider_location_slug":"integration","taxonomy":"slider-locations"},
+{"slide_id":"137","post_title":"Auto Draft","term_id":"229","slider_location":"Integration11","slider_location_slug":"integration11","taxonomy":"slider-locations"},
+{"slide_id":"525","post_title":"Auto Draft","term_id":"1213","slider_location":"Masterclass 2022","slider_location_slug":"masterclass-2022","taxonomy":"slider-locations"},
+{"slide_id":"428","post_title":"Auto Draft","term_id":"1210","slider_location":"Meditation","slider_location_slug":"meditation","taxonomy":"slider-locations"},
+{"slide_id":"140","post_title":"Auto Draft","term_id":"256","slider_location":"Moving","slider_location_slug":"moving","taxonomy":"slider-locations"},
+{"slide_id":"482","post_title":"Auto Draft","term_id":"1212","slider_location":"Reiki","slider_location_slug":"reiki","taxonomy":"slider-locations"},
+{"slide_id":"133","post_title":"Auto Draft","term_id":"217","slider_location":"visual expression","slider_location_slug":"visual-expression","taxonomy":"slider-locations"},
+{"slide_id":"109","post_title":"Auto Draft","term_id":"168","slider_location":"yoga","slider_location_slug":"yoga","taxonomy":"slider-locations"}
+]
+}
+]

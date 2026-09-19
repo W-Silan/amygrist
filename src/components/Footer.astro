@@ -1,0 +1,17 @@
+---
+import {Image} from 'astro:assets';
+import {images} from '../data/images';
+import {href} from '../data/site';
+import Instagram from './Instagram.astro';
+---
+<footer>
+ <div class="container footer-content">
+  <a href="/" class="footer-logo"><Image src={images[544]} width={380} alt="Amy Grist, Integrative Therapist" /></a>
+  <Instagram/>
+  <div class="bio"><p>Amy is a trauma-informed holistic practitioner and Inner Child specialist with degrees in Psychology and Investigative Forensic Psychology. With over six years’ experience, she offers integrative healing, mentoring and practitioner training internationally, known for integrity, safety and compassionate presence.</p><p>Trauma-informed Inner Child healing • holistic wellbeing • mentoring • practitioner training • meditation • Reiki</p></div>
+ </div>
+ <div class="copyright">© MMXXV Amy Grist. | Soulfully Created by <a href="https://typeface.us/">typeface</a> | <a href={href('/payme/')}>Pay Me</a></div>
+</footer>
+<style>
+footer{text-align:center}.footer-content{padding:60px 0 30px}.footer-logo{display:block;width:350px;max-width:80%;margin:0 auto 30px}.footer-content :global(svg){width:40px;height:40px;color:var(--text-rose)}.bio{max-width:840px;margin:45px auto 0;font-size:12px;line-height:1.2}.bio p{margin-bottom:24px}.copyright{background:var(--teal);color:white;padding:24px 6%;font-size:14px}.copyright a{color:inherit}@media(max-width:600px){.footer-content{padding-top:45px}.bio{line-height:1.5}.copyright{font-size:12px}}
+</style>

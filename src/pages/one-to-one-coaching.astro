@@ -1,0 +1,98 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+import {href} from '../data/site';
+
+const approaches = [
+  'Neuro-linguistic programming (NLP)',
+  'Reparenting and inner child integration',
+  'Generational and ancestral healing',
+  'Reframing and belief deconditioning',
+  'Conscious relationship dynamics and communication',
+];
+
+const resonates = [
+  'You value meaningful relationships and wish to create more harmony and balance within them.',
+  'You appear confident but sense that your true authenticity isn’t fully expressed.',
+  'You wish to deepen your experience of love, for yourself and others, in ways that feel nurturing, conscious and fulfilling.',
+  'Your heart, body, mind and soul feel ready to awaken more fully to their vitality and purpose.',
+];
+
+const gains = [
+  'A clearer, calmer state of mind and improved emotional regulation',
+  'Stronger boundaries and healthier communication in relationships',
+  'Greater self-confidence and connection with your authentic voice',
+  'Deeper compassion for yourself and others',
+  'Freedom from repetitive thought and behaviour patterns',
+  'An increased sense of energy, creativity and life purpose',
+  'Everyday wellbeing practices that sustain balance and clarity',
+];
+
+const faqs = [
+  ['How is Mindset and Wellbeing Coaching different from therapy?', 'Coaching is future-focused and solution-oriented, guiding you to create practical changes and new perspectives. While we may gently acknowledge past experiences, the focus is on awareness, integration and forward movement.'],
+  ['How many sessions will I need?', 'Many clients begin with three to six sessions, though this varies depending on your goals and pace. You can book sessions according to what is appropriate for your needs after your discovery call.'],
+  ['Are sessions online or in person?', 'The majority of sessions are available online and face-to-face where possible, depending on your location (UK based). Both options are held in a safe, confidential and supportive environment.'],
+  ['Do I need any previous experience with meditation or self-development?', 'Not at all. Whether you’re brand new to this work or have years of practice, the sessions meet you exactly where you are.'],
+];
+---
+
+<BaseLayout title="One to One Coaching | Holistic Wellbeing | Amy Grist" description="Mindset & Wellbeing Coaching with Amy is trauma-informed, holistic guidance to reprogram limiting patterns, nurture confidence and authentic self-expression." ogImage={images[138]}>
+  <PageHero image={images[138]} title="Mindset & Wellbeing Coaching" caption="Connect & Receive" alt="Amy seated outside overlooking the sea" actions={[{label: 'Book your discovery call', href: '#discoverycall'}]} />
+
+  <main class="coaching-page">
+    <section class="band introduction">
+      <div class="container copy section-stack">
+        <section>
+          <p>Due to early conditioning, learned behaviours and adaptive patterns formed in childhood, many of us move through life unaware of the subconscious beliefs that shape how we think, feel and respond. We often live on autopilot, repeating familiar cycles and coping mechanisms that once kept us safe, accepted and loved.</p>
+          <p>As adults, we no longer need these survival strategies, yet reprogramming the patterns that limit our authenticity requires care, awareness and support.</p>
+          <p>Mindset and Wellbeing Coaching offers a space to uncover and release those patterns, creating alignment between your mind, body, emotions and spirit.</p>
+        </section>
+
+        <section><h2>Healing From Within</h2><hr class="rule short"/><p>Healing unfolds on many levels and at many stages of life. Creating a safe and compassionate space for the parts of us that are ready to integrate is central to this journey.</p><p>I believe the answers we seek already exist within us; we simply need a way to access them. Through guided coaching, reflection and mindfulness-based practices, we tap into deeper layers of awareness and reconnect with the innate wisdom at the core of our being.</p></section>
+
+        <section><h2>About My Approach</h2><hr class="rule short"/><p>As a <strong>certified Mindfulness Coach, Wellbeing Practitioner and Mentor</strong>, I provide a grounded, nurturing space to explore the areas of life where you’re facing challenge or change.</p><p>Drawing from both training and lived experience, I weave together approaches including:</p><ul>{approaches.map(item => <li><strong>{item}</strong></li>)}</ul><p>These tools support you in releasing outdated habits and restoring alignment with your true, authentic self; the soul you came here to be.</p></section>
+
+        <section><h2>Does This Resonate With You?</h2><hr class="rule short"/><p>You may feel drawn to this work if:</p><ul>{resonates.map(item => <li>{item}</li>)}</ul><p>Through this coaching journey, I’ll support you in releasing imbalances across all aspects of self; physical, emotional, mental and spiritual. This includes past wounds, outdated beliefs, and unhelpful behavioural loops.</p><p>As you reclaim your inner balance, relationships begin to flow more harmoniously, self-confidence blossoms, and love is both given and received with greater authenticity.</p></section>
+
+        <section><h2>What You’ll Gain</h2><hr class="rule short"/><p>Mindset and Wellbeing Coaching invites growth through awareness and gentle transformation. As you integrate this work, you may begin to notice:</p><ul>{gains.map(item => <li>{item}</li>)}</ul><p>Each person’s experience is unique; the most profound changes often unfold quietly, in the space where awareness meets self-acceptance.</p></section>
+
+        <div class="center"><a class="button" href="#discoverycall">Enquire about Mindset & Wellbeing Coaching</a></div>
+      </div>
+    </section>
+
+    <section class="band soft-rose reflection">
+      <div class="container">
+        <h2>Client Reflections</h2><hr class="rule short"/>
+        <blockquote>
+          <p>“Amy is an incredible coach, mentor and teacher. She holds space in a profound way, walks you through the depths gently & firmly. She never ceases to show you new aspects of yourself, yet she’s always ready to meet you where you’re at and bring lightness into your heaviest moments.</p>
+          <p>She has a gift for liberation, creating tangible shifts both in your psyche and in your life, drawing deeply embedded experiences to the surface, in a way that makes it possible to engage with our deep patterns and begin to transform them. She facilitates this journey with such expertise, wisdom, integrity and grace. I’m grateful for being able to experience her limitless care, loving presence and patience.</p>
+          <p>Through her guidance I became calmer, much more attuned to my inner compass and have more presence to show up differently. I truly wish that anyone who’s committed to their own development and healing can find Amy and have the privilege to work with her.”</p>
+          <footer><Image src={images[1269]} alt="Agnes Udoh" width={46} height={46} format="webp"/><cite>Agnes Udoh, Integrative Coach</cite></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="band process">
+      <div class="container copy section-stack">
+        <section><h2>The Process: Awareness → Integration → Transformation</h2><hr class="rule short"/><h3>1. Awareness</h3><p>Together, we explore the stories, beliefs and patterns shaping your current reality. Through mindful enquiry and reflection, you begin to see with new clarity.</p><h3>2. Integration</h3><p>With compassion and somatic awareness, we meet the emotions and experiences that arise. This stage allows the nervous system to soften and new pathways of choice to emerge.</p><h3>3. Transformation</h3><p>As balance returns, you embody a renewed sense of wholeness and confidence. Life begins to flow with greater authenticity, ease and alignment.</p></section>
+        <section><h2>Your Introductory Coaching Call</h2><hr class="rule short"/><p>During your <strong>free discovery call</strong>, I’ll open a safe and supportive space for gentle enquiry, identifying areas of challenge, disconnection, or energetic blocks that may be impacting your wellbeing.</p><p>By the end of our call, you’ll gain clarity on what’s out of balance and a clear understanding of the next steps to begin restoring alignment and ease.</p></section>
+        <section><h2>Working Together</h2><hr class="rule short"/><p>All sessions are guided at your pace and tailored to your needs through an initial consultation. I hold space with care, respect and confidentiality, allowing each session to unfold naturally.</p><p>You’ll always have time to reflect, integrate and ground, ensuring you receive insight with compassion, clarity and self-awareness.</p></section>
+      </div>
+    </section>
+
+    <section class="band rose faq">
+      <div class="container"><h2>Frequently Asked Questions</h2><hr class="rule short"/><dl>{faqs.map(([question, answer]) => <><dt>{question}</dt><dd>{answer}</dd></>)}</dl></div>
+    </section>
+
+    <section class="band invitation center" id="discoverycall">
+      <div class="container"><h2>A gentle invitation</h2><p>When you’re ready to explore this work, you are warmly invited to connect.<br/>Together, we’ll uncover the patterns keeping you from full expression and create pathways for authentic, balanced, joyful living.</p><h2>Book your Free Discovery Call</h2><hr class="rule short"/><a class="button" href={href('/get-in-touch/')}>Get in touch</a><p class="form-note">The discovery-call form will be connected when the site’s email provider is selected.</p></div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .section-stack{display:grid;gap:42px}.section-stack h2,.reflection h2,.faq h2,.invitation h2{font-size:32px}.section-stack .rule,.reflection .rule,.faq .rule{margin:13px 0 23px}.introduction{padding-top:48px}.reflection blockquote{font-size:17px}.reflection footer{display:flex;align-items:center;gap:15px;margin-top:28px}.reflection footer img{width:46px;height:46px;border-radius:50%;object-fit:cover}.reflection cite{font:400 20px var(--heading);font-style:normal;color:var(--menu-heading)}.process h3{font:500 16px var(--body);margin:28px 0 4px;color:var(--text-rose)}.faq .rule{border-color:var(--accent)}.faq dl{margin:0}.faq dt{font-weight:500;margin-top:22px}.faq dt:first-child{margin-top:0}.faq dd{margin:2px 0 0}.invitation{background:#f1dddd}.invitation p{max-width:900px;margin-inline:auto;margin-bottom:32px}.invitation h2:nth-of-type(2){margin-top:38px}.invitation .rule{margin-inline:auto}.form-note{font-size:13px;color:var(--ink);margin-top:18px!important}
+  @media(max-width:799px){.section-stack h2,.reflection h2,.faq h2,.invitation h2{font-size:28px}.copy p{text-align:left}.reflection blockquote{font-size:16px}.reflection footer{align-items:flex-start}.reflection cite{font-size:18px}.faq dd{margin-top:5px}}
+</style>

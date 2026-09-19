@@ -1,0 +1,17 @@
+[
+{"type":"header","version":"5.2.3","comment":"Export to JSON plugin for phpMyAdmin"},
+{"type":"database","name":"typedyvg_wp321"},
+{"type":"table","name":"p","database":"typedyvg_wp321","data":
+[
+{"post_id":"1225","post_title":"footer","meta_key":"_edit_last","meta_value":"2"},
+{"post_id":"1225","post_title":"footer","meta_key":"_edit_lock","meta_value":"1766784561:2"},
+{"post_id":"1225","post_title":"footer","meta_key":"_wpb_shortcodes_default_css","meta_value":".vc_do_custom_heading{margin-bottom:0.625rem;margin-top:0;}.vc_do_custom_heading{margin-bottom:0.625rem;margin-top:0;}"},
+{"post_id":"1225","post_title":"footer","meta_key":"_wpb_shortcodes_default_css_updated","meta_value":"1"},
+{"post_id":"1225","post_title":"footer","meta_key":"_wpb_vc_editor_type","meta_value":"backend"},
+{"post_id":"1225","post_title":"footer","meta_key":"_wpb_vc_js_status","meta_value":"true"},
+{"post_id":"1225","post_title":"footer","meta_key":"nectar_g_section_conditions","meta_value":"a:1:{i:0;O:8:\"stdClass\":1:{s:7:\"options\";a:0:{}}}"},
+{"post_id":"1225","post_title":"footer","meta_key":"nectar_g_section_conditions_operator","meta_value":"a:1:{i:0;s:3:\"and\";}"},
+{"post_id":"1225","post_title":"footer","meta_key":"nectar_g_section_locations","meta_value":"a:1:{i:0;O:8:\"stdClass\":1:{s:7:\"options\";a:0:{}}}"}
+]
+}
+]

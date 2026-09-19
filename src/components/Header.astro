@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import {images} from '../data/images';
+import {navigation,href} from '../data/site';
+import Instagram from './Instagram.astro';
+interface Props { solid?: boolean; }
+const {solid=false}=Astro.props;
+---
+<header class:list={['site-header',{solid}]} id="site-header">
+ <div class="header-inner">
+  <a class="logo" href="/" aria-label="Amy Grist — Home"><Image class="logo-white" src={images[548]} width={245} alt="Amy Grist, Integrative Therapist" loading="eager"/><Image class="logo-dark" src={images[544]} width={245} alt="" loading="eager"/></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="navigation"><span class="sr-only">Menu</span><span aria-hidden="true">☰</span></button>
+  <nav id="navigation" aria-label="Main navigation">
+   {navigation.map((item,i)=><div class:list={['nav-item',{'mega':item.label==='Offerings'}]}>
+    {item.groups ? <><button class="nav-trigger" aria-expanded="false" aria-controls={`submenu-${i}`}>{item.label}<span class="chevron" aria-hidden="true">⌄</span></button><div class="submenu" id={`submenu-${i}`} hidden>{item.path && <a href={href(item.path)}>Visit the shop</a>}{item.groups.map(group=><div>{group.label&&<p>{group.label}</p>}{group.items.map(([label,path])=><a href={href(path)}>{label}</a>)}</div>)}</div></> : <a href={href(item.path!)}>{item.label}</a>}
+   </div>)}
+  </nav>
+  <div class="header-social"><Instagram/><a href={href('/shop/')} aria-label="Shop"><svg width="20" height="22" viewBox="0 0 20 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h12v13H4zM7 8V5a3 3 0 0 1 6 0v3"/></svg></a></div>
+ </div>
+</header>
+<script>
+ const header=document.querySelector<HTMLElement>('.site-header')!;
+ const menu=header.querySelector<HTMLButtonElement>('.menu-toggle')!;
+ const triggers=Array.from(header.querySelectorAll<HTMLButtonElement>('.nav-trigger'));
+ function closeSubmenus(){triggers.forEach(button=>{button.setAttribute('aria-expanded','false');document.getElementById(button.getAttribute('aria-controls')!)!.hidden=true;});}
+ function closeMenu(){menu.setAttribute('aria-expanded','false');header.classList.remove('menu-open');closeSubmenus();}
+ menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));header.classList.toggle('menu-open',open);if(!open)closeSubmenus();});
+ triggers.forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';closeSubmenus();button.setAttribute('aria-expanded',String(open));document.getElementById(button.getAttribute('aria-controls')!)!.hidden=!open;}));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'){const active=triggers.find(t=>t.getAttribute('aria-expanded')==='true');if(active){closeSubmenus();active.focus();}else if(menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}}});
+ document.addEventListener('click',event=>{if(!header.contains(event.target as Node))closeMenu();});
+ header.addEventListener('focusout',()=>requestAnimationFrame(()=>{if(!header.contains(document.activeElement))closeSubmenus();}));
+ const scroll=()=>header.classList.toggle('scrolled',window.scrollY>40);window.addEventListener('scroll',scroll,{passive:true});scroll();
+ matchMedia('(min-width:1000px)').addEventListener('change',closeMenu);
+</script>
+<style>
+.site-header{position:fixed;inset:0 0 auto;z-index:30;color:white;background:linear-gradient(#000b,#0008 80%,transparent);transition:background .2s,box-shadow .2s}.header-inner{width:73.5%;max-width:1425px;min-height:130px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:30px}.logo{width:245px;flex-shrink:0}.logo-dark{display:none}.site-header.scrolled,.site-header.menu-open,.site-header.solid{background:var(--soft-rose);box-shadow:0 6px 25px #0002}.scrolled,.menu-open,.solid{color:var(--ink)}.scrolled .header-inner,.solid .header-inner{min-height:110px}.scrolled .logo-white,.solid .logo-white{display:none}.scrolled .logo-dark,.solid .logo-dark{display:block}nav{display:flex;align-items:center;gap:20px}nav a,.nav-trigger{font:400 15px var(--nav);text-transform:uppercase;color:inherit;white-space:nowrap}.nav-trigger{border:0;background:none;padding:20px 0}.nav-item>a{padding:20px 0;display:block}.nav-item{position:relative}.chevron{display:none}.submenu{position:absolute;top:100%;left:-20px;min-width:245px;background:var(--soft-rose);color:var(--ink);box-shadow:0 10px 20px #0002;padding:15px}.submenu a{display:block;white-space:normal;padding:12px;font-size:14px;line-height:1.3}.submenu a:hover{background:var(--rose-surface);color:white;text-decoration:none}.submenu p{font:400 17px var(--nav);margin:12px;color:var(--menu-heading);text-transform:uppercase;letter-spacing:.08em}.mega{position:static}.mega .submenu{left:13.25%;right:13.25%;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.submenu[hidden],.mega .submenu[hidden]{display:none}.header-social{display:flex;gap:25px}.header-social :global(a){color:inherit}.menu-toggle{display:none}
+@media(min-width:1000px) and (max-width:1250px){.header-inner{width:88%;gap:20px}nav{gap:13px}.logo{width:200px}.header-social{gap:15px}}
+@media(max-width:999px){.header-inner,.scrolled .header-inner,.solid .header-inner{width:88%;min-height:100px}.logo{width:190px}.menu-toggle{display:block;background:none;border:0;color:inherit;font-size:28px}.header-social{display:none}nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--soft-rose);padding:10px 6% 30px;max-height:calc(100dvh - 100px);overflow:auto}.menu-open nav{display:block}.nav-item>a,.nav-trigger{font-size:22px;padding:16px 0}.nav-trigger{width:100%;text-align:left;display:flex;justify-content:space-between}.chevron{display:inline}.submenu,.mega .submenu{position:static;box-shadow:none;padding:0 0 10px 12px;display:block}.submenu[hidden],.mega .submenu[hidden]{display:none}.submenu a{font-size:18px}.submenu p{font-size:18px}.menu-open{background:var(--soft-rose)}}
+</style>

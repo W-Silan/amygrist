@@ -1,0 +1,78 @@
+{
+  "runtime": [
+    {
+      "path": "/",
+      "status": 200,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/amy/",
+      "status": 200,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/inner-council/",
+      "status": 200,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/does-not-exist/",
+      "status": 404,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/amy",
+      "status": 308,
+      "location": "/amy/"
+    },
+    {
+      "path": "/innercouncil/",
+      "status": 301,
+      "location": "/inner-council/"
+    }
+  ],
+  "labConditions": {
+    "viewport": "375x812",
+    "cpuSlowdown": 4,
+    "latencyMs": 150,
+    "downloadMbps": 1.6,
+    "cache": "disabled",
+    "note": "One local Chrome laboratory sample per page, not field data or a Lighthouse score."
+  },
+  "performance": [
+    {
+      "path": "/",
+      "lcpMs": 776,
+      "cls": 0.006964004879597498,
+      "transferBytes": 125915,
+      "jsBytes": 0,
+      "requests": 10
+    },
+    {
+      "path": "/amy/",
+      "lcpMs": 724,
+      "cls": 0.043493514007862354,
+      "transferBytes": 122071,
+      "jsBytes": 0,
+      "requests": 9
+    },
+    {
+      "path": "/inner-council/",
+      "lcpMs": 412,
+      "cls": 0.1032327889538693,
+      "transferBytes": 95749,
+      "jsBytes": 0,
+      "requests": 7
+    }
+  ]
+}
