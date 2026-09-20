@@ -138,3 +138,7 @@ The user selected Cloudflare Email Service for website form delivery, with `amyg
 The hero reuses original media ID 281, `2020/03/amygrist_intimate_setting_inner_child_workshop.jpg`. The body image uses media ID 315’s original 848×848 upload, `2020/07/amy_grist_inner_child_card_reading.jpg`, rather than its later WordPress `-e1595605146437` edited crop or any generated size. Its byte-for-byte checksum provenance is recorded in `migration/media-originals.json`, and Astro generates responsive WebP output. No dedicated desktop or mobile reference screenshot was supplied, so the layout follows the verified offering-page design system.
 
 Astro check reports 0 errors, warnings and hints, and the production build passes with 12 pages. Focused 375 px and 1440 px browser checks returned 200 with no overflow, broken images, browser console errors or page errors. Captures are `verification/inner-child-card-readings-{375,1440}.png`. The local review URL is `http://127.0.0.1:4323/inner-child-card-readings/`.
+
+### Coaching testimonial portrait adjustment
+
+At the user’s request, the Agnes Udoh testimonial portrait on `/one-to-one-coaching/` was enlarged by 200%, from 46×46 px to 92×92 px. The Astro image output dimensions and rendered CSS dimensions were both updated to preserve sharpness. Astro check and build pass; refreshed 375 px and 1440 px focused captures show no overflow, broken images or browser errors.
