@@ -141,4 +141,4 @@ Astro check reports 0 errors, warnings and hints, and the production build passe
 
 ### Coaching testimonial portrait adjustment
 
-At the user’s request, the Agnes Udoh testimonial portrait on `/one-to-one-coaching/` was enlarged by 200%, from 46×46 px to 92×92 px. The Astro image output dimensions and rendered CSS dimensions were both updated to preserve sharpness. Astro check and build pass; refreshed 375 px and 1440 px focused captures show no overflow, broken images or browser errors.
+At the user’s request, the Agnes Udoh testimonial portrait on `/one-to-one-coaching/` was first enlarged from 46×46 px to 92×92 px, then doubled again to its final 184×184 px size. The Astro image output dimensions and rendered CSS dimensions were both updated to preserve sharpness. Astro check and build pass; refreshed 375 px and 1440 px focused captures show no overflow, broken images or browser errors. The persistent review server was restarted on port 4324 after the final build.
