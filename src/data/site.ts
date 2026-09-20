@@ -12,6 +12,6 @@ export const navigation = [
   {label:'Training Programs',items:[['Inner Child Practitioner Training','/become-a-practitioner/'],['Inner Child Reiki Course 1 & 2','/inner-child-reiki/']]},
   {label:'Resources',items:[['Free Meditation Series','/meditation/'],['Inner Child Card Readings','/inner-child-card-readings/'],['Inner Child Resources','/inner-child-resources/'],['Wellbeing Tools & Practices','/wellbeing-tools-practices/']]}
  ]},
- {label:'Blog',path:'/blog/'}, {label:'Get in Touch',path:'/get-in-touch/'},
+ {label:'Blog',path:'/blog/'}, {label:'Contact',path:'/get-in-touch/'},
  {label:'Shop',path:'/shop/',groups:[{label:'',items:[['Meditation Series','/product-category/meditation-series/']]}]}
 ];
