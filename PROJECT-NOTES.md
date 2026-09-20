@@ -36,3 +36,7 @@ Astro 7.3.2 was the current stable npm release at bootstrap. Node is pinned to 2
 ## Next work
 
 Review `verification/REPORT.md` and the captured foundation views before expanding. Continue current menu pages, then implement the blog collection and root-level post routes. Keep uncertain legacy and commerce routes pending instead of publishing empty placeholders.
+
+## Contact form delivery decision — 20 September 2026
+
+Contact and enquiry forms will use Cloudflare Email Service and deliver to the fixed verified destination `amygrist@gmail.com`. Messages must use an onboarded `@amygrist.com` sender and the submitter email as `Reply-To`. The runtime endpoint must validate fields server-side, restrict delivery to the fixed recipient, apply spam/rate controls, and return accessible success and failure states. Cloudflare Pages Functions support service bindings, so a dedicated email Worker can be bound to the Pages project if direct email bindings are unavailable in Pages at implementation time. Domain onboarding, destination verification and binding configuration remain deployment-time Cloudflare dashboard tasks.
