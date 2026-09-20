@@ -4,7 +4,7 @@ export const site = {
   instagram: 'https://www.instagram.com/amy.grist/',
 };
 // Keep unbuilt routes on the existing site during the foundation preview.
-export function href(path: string) { return ['/', '/amy/', '/inner-council/', '/integration-work/', '/inner-child/', '/inner-child-mentoring/', '/one-to-one-coaching/', '/become-a-practitioner/', '/inner-child-reiki/'].includes(path) ? path : `${site.origin}${path}`; }
+export function href(path: string) { return ['/', '/amy/', '/inner-council/', '/integration-work/', '/inner-child/', '/inner-child-mentoring/', '/one-to-one-coaching/', '/become-a-practitioner/', '/inner-child-reiki/', '/inner-child-card-readings/'].includes(path) ? path : `${site.origin}${path}`; }
 export const navigation = [
  {label:'About', groups:[{label:'',items:[['About Me','/amy/'],['About The Inner Council','/inner-council/'],['Integration Work','/integration-work/']]}]},
  {label:'Offerings', groups:[

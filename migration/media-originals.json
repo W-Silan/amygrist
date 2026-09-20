@@ -173,5 +173,12 @@
     "asset": "src/assets/images/reiki_hands.jpg",
     "sha256": "2a6b351abb9b110601b4aa4ed5543c92003b9bbfad0b8ee7b324445bb05fe907",
     "resolution": "_wp_attached_file; no original_image override or generated filename"
+  },
+  {
+    "id": 315,
+    "original": "2020/07/amy_grist_inner_child_card_reading.jpg",
+    "asset": "src/assets/images/amy_grist_inner_child_card_reading.jpg",
+    "sha256": "e8c774d8ca5a3e12fad92172c1996785b9619b87b6bfeca7ceb28e8d736b62b7",
+    "resolution": "Original 848x848 uploaded file; deliberately used instead of the later WordPress -e1595605146437 edited crop and generated sizes"
   }
 ]

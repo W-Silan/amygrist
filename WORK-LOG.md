@@ -1,6 +1,6 @@
 # Amy Grist website — recovery log
 
-Updated: 18 September 2026. Read this first after an interruption, then `PROJECT-NOTES.md` and the supplied handover.
+Updated: 20 September 2026. Read this first after an interruption, then `PROJECT-NOTES.md` and the supplied handover.
 
 ## User scope and constraints
 
@@ -130,3 +130,11 @@ Astro check reports 0 errors, warnings and hints, and the production build passe
 ### Contact email provider decision — 20 September 2026
 
 The user selected Cloudflare Email Service for website form delivery, with `amygrist@gmail.com` as the fixed recipient. `/get-in-touch/` should therefore be implemented as a functional form rather than layout-only. Send from an address on the onboarded `amygrist.com` domain and set the visitor address as `Reply-To`; do not spoof the visitor address in `From`. Restrict the Cloudflare email binding or endpoint to the fixed destination. Dashboard work still required before live testing: onboard the sender domain, verify `amygrist@gmail.com` as a destination, and configure the Worker/Pages service binding. Add server-side validation, spam protection, rate limiting and an accessible success/error response. No deployment or Cloudflare account changes have been made.
+
+### Inner Child Card Readings
+
+`/inner-child-card-readings/` is migrated from WordPress page 307 and marked `foundation-verified`. It preserves the full current copy, the Inner Child insight and reading sections, Zoom session options, durations and prices (£50 single-card and £70 three-card), related Inner Child pathways, and both booking calls to action. Until the local `/get-in-touch/` form is implemented, booking links continue to use the established live contact fallback; Cloudflare Email Service and the fixed recipient `amygrist@gmail.com` are already selected for that future form.
+
+The hero reuses original media ID 281, `2020/03/amygrist_intimate_setting_inner_child_workshop.jpg`. The body image uses media ID 315’s original 848×848 upload, `2020/07/amy_grist_inner_child_card_reading.jpg`, rather than its later WordPress `-e1595605146437` edited crop or any generated size. Its byte-for-byte checksum provenance is recorded in `migration/media-originals.json`, and Astro generates responsive WebP output. No dedicated desktop or mobile reference screenshot was supplied, so the layout follows the verified offering-page design system.
+
+Astro check reports 0 errors, warnings and hints, and the production build passes with 12 pages. Focused 375 px and 1440 px browser checks returned 200 with no overflow, broken images, browser console errors or page errors. Captures are `verification/inner-child-card-readings-{375,1440}.png`. The local review URL is `http://127.0.0.1:4323/inner-child-card-readings/`.

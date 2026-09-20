@@ -23,4 +23,5 @@ import image122 from '../assets/images/background-Image-long2.jpg';
 import image138 from '../assets/images/amygrist_integrationonetoone.jpg';
 import image1269 from '../assets/images/Coaching_testimonial_Agnes.png';
 import image483 from '../assets/images/reiki_hands.jpg';
-export const images = {544: image544, 548: image548, 1741: image1741, 87: image87, 281: image281, 100: image100, 115: image115, 1133: image1133, 1130: image1130, 419: image419, 259: image259, 1150: image1150, 1157: image1157, 1156: image1156, 1014: image1014, 389: image389, 390: image390, 391: image391, 130: image130, 1147: image1147, 1148: image1148, 122: image122, 138: image138, 1269: image1269, 483: image483};
+import image315 from '../assets/images/amy_grist_inner_child_card_reading.jpg';
+export const images = {544: image544, 548: image548, 1741: image1741, 87: image87, 281: image281, 100: image100, 115: image115, 1133: image1133, 1130: image1130, 419: image419, 259: image259, 1150: image1150, 1157: image1157, 1156: image1156, 1014: image1014, 389: image389, 390: image390, 391: image391, 130: image130, 1147: image1147, 1148: image1148, 122: image122, 138: image138, 1269: image1269, 483: image483, 315: image315};

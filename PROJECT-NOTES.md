@@ -25,7 +25,7 @@ Astro 7.3.2 was the current stable npm release at bootstrap. Node is pinned to 2
 
 - Stripe Payment Links are the expected checkout entry point. The protected download architecture, transactional email, tax handling and fate of account/basket/checkout and Pay Me remain open. The Complete Meditation Series pilot and required inputs are mapped in `migration/PRODUCT-PILOT.md`.
 - Newsletter provider and migration of the existing signup flow.
-- Contact email provider, verified sender, recipient, Turnstile decision and delivery tests. No Pages Functions are implemented yet.
+- Contact delivery is selected: Cloudflare Email Service to the fixed recipient `amygrist@gmail.com`. Sender-domain onboarding, destination verification, Turnstile/rate-control details and delivery tests remain open. No Pages Function or email Worker is implemented yet.
 - Cloudflare Email Routing forwarding details remain a separate future task; no email/DNS changes made.
 - Legacy/review route decisions; category/tag archive and pagination scope.
 - Final Git/Cloudflare project and publishing workflow. Wrangler name is a local provisional value; no project has been created or deployed.

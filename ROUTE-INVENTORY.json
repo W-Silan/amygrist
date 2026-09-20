@@ -170,9 +170,9 @@
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "foundation-verified",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Migrated from page 307 using original media IDs 281 and 315. Focused mobile and desktop verification recorded in WORK-LOG.md."
     },
     {
       "sourceId": 37,

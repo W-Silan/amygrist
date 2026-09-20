@@ -1,0 +1,129 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+import {href} from '../data/site';
+
+const insights = [
+  'insights into long-held behaviour patterns',
+  'recognition of conditioning or emotional loops',
+  'intuitive messages from the child self',
+  'moments of clarity that shift perspective instantly',
+  'threads linking past experiences to present challenges or breakthroughs',
+];
+
+const invitations = [
+  ['those who have completed the Inner Child Workshop', ' and wish to support their integration process'],
+  ['those who resonate with Inner Child Work', ' and want to explore the archetype before joining a workshop'],
+  ['anyone seeking intuitive insight, emotional clarity or deeper self-understanding', ''],
+];
+
+const duringReading = [
+  'look at what your Inner Child is communicating',
+  'explore unconscious messages, symbols and emotions',
+  'discuss insights that arise with care and depth',
+  'bring clarity to blind spots or patterns that are difficult to see alone',
+  'connect the reading to your real-life experiences',
+  'identify steps or reflections that support your ongoing healing',
+];
+
+const readingOffers = [
+  'Single or multiple card readings with intuitive interpretation',
+  'Space to explore beliefs, patterns, trauma imprints and emotional blocks',
+  'Insight into conditioning or subconscious threads influencing your life',
+  'A safe and supportive environment for reflection and grounding',
+  'Guidance on trusting your intuition and inner child communication',
+  'A clearer understanding of the Inner Child Archetype',
+  'Practice integrating tools from the Inner Child Workshop',
+  'Continued support from an experienced Inner Child Practitioner',
+];
+---
+
+<BaseLayout title="Inner Child Card Readings | Amy Grist" description="Intuitive Inner Child Card Readings with Amy Grist offer insight, emotional clarity and compassionate guidance through a bespoke oracle deck." ogImage={images[315]}>
+  <PageHero image={images[281]} title="Inner Child Card Readings" caption="A gentle gateway into intuitive insight, healing and connection" alt="An intimate Inner Child workshop setting" position="center top" />
+
+  <main class="card-readings-page">
+    <section class="band introduction">
+      <div class="container intro-grid">
+        <div class="reading-image">
+          <Image src={images[315]} alt="Inner Child oracle cards arranged for a reading" widths={[360, 560, 848]} sizes="(max-width: 799px) 88vw, 25vw" format="webp" />
+        </div>
+        <div class="copy">
+          <h2>A Portal to Meet Your Inner Child</h2><hr class="rule short"/>
+          <p>Inner Child Card Readings offer a unique and intuitive way to connect with your Inner Child, whether it’s your first encounter or a deepening of a relationship already formed.</p>
+          <p>Using a bespoke oracle deck, these readings create a symbolic and energetic portal through which you can receive insight, guidance and reflection from your inner world. They complement and support all stages of Inner Child Work by illuminating patterns, emotions and subconscious threads that may be ready to integrate.</p>
+          <p>Inner Child cards touch the layers of our psyche with clarity and tenderness, often bringing forward:</p>
+          <ul>{insights.map(item => <li>{item}</li>)}</ul>
+          <p>Like all healing work, the journey continues to unfold and these readings serve as supportive stepping stones along your path of transformation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band content-sections">
+      <div class="container copy section-stack">
+        <section>
+          <h2>An Open Invitation</h2><hr class="rule short"/>
+          <p>These card readings are available to:</p>
+          <ul>{invitations.map(([lead, detail]) => <li><strong>{lead}</strong>{detail}</li>)}</ul>
+          <p>If you’re feeling a pull toward your Inner Child, card readings provide an accessible and meaningful doorway to begin or continue this relationship.</p>
+          <p>Inner Child Card Readings act as a mirror; helping reveal patterns, blockages, emotional imprints and healing opportunities with compassion and precision.</p>
+        </section>
+
+        <section>
+          <h2>What Happens in a Card Reading?</h2><hr class="rule short"/>
+          <p>Each session takes place in a safe, grounded space where I offer intuitive guidance, reflection and support at every step.</p>
+          <p>Depending on your reading type, we may explore one key message or dive into multiple threads woven through your subconscious.</p>
+          <p>During your reading, we will:</p>
+          <ul>{duringReading.map(item => <li>{item}</li>)}</ul>
+          <p>Modern life often leaves little space for inner listening. Card readings create an intentional container for messages to emerge, allowing you to receive guidance that supports your emotional, spiritual and psychological wellbeing.</p>
+        </section>
+
+        <section>
+          <h2>Inner Child Card Readings Offer:</h2><hr class="rule short"/>
+          <ul class="star-list">{readingOffers.map(item => <li>{item}</li>)}</ul>
+          <p>Each reading is a meeting point, between your present self and the child within, offering compassionate clarity and pathways forward.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="band soft-rose booking">
+      <div class="container copy">
+        <h2>Virtual Readings on Zoom</h2><hr class="rule short"/>
+        <p><em>Using a unique bespoke deck of Inner Child Oracle Cards</em></p>
+        <div class="reading-options">
+          <div><h3>Single Card Reading</h3><p>Up to 40 minutes</p><strong>£50</strong></div>
+          <div><h3>Three-Card Reading</h3><p>60–70 minutes</p><strong>£70</strong></div>
+        </div>
+        <p>These sessions are held online via Zoom and can be booked from anywhere in the world.</p>
+        <a class="button" href={href('/get-in-touch/')}>Book a Card Reading</a>
+      </div>
+    </section>
+
+    <section class="band journey">
+      <div class="container copy">
+        <h2>Continue Your Inner Child Journey</h2><hr class="rule short"/>
+        <p>If you would like to explore Inner Child healing more deeply, you can learn more about:</p>
+        <ul>
+          <li><a href="/inner-child/"><strong>Inner Child Workshops</strong></a></li>
+          <li><a href="/inner-child-mentoring/"><strong>Inner Child Mentoring</strong></a></li>
+          <li><a href="/become-a-practitioner/"><strong>Practitioner Training</strong></a></li>
+        </ul>
+        <p>You’re always welcome to <a href={href('/get-in-touch/')}>reach out</a> if you feel ready to take the next step.</p>
+      </div>
+    </section>
+
+    <section class="band rose closing center">
+      <div class="container">
+        <h2>Begin Your Inner Insight Journey</h2>
+        <p>These readings offer clarity, perspective and gentle guidance to support your healing.<br/>If you’d like to explore what your inner child is expressing, you’re welcome to book a session.</p>
+        <a class="button" href={href('/get-in-touch/')}>Book Your Card Reading</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .introduction{padding-top:60px}.intro-grid{display:grid;grid-template-columns:minmax(240px,1fr) 2fr;gap:48px;align-items:start}.reading-image img{width:100%;aspect-ratio:1;object-fit:cover}.intro-grid h2,.section-stack h2,.booking h2,.journey h2,.closing h2{font-size:32px}.intro-grid .rule,.section-stack .rule,.booking .rule,.journey .rule{margin:13px 0 23px}.content-sections{padding-top:15px}.section-stack{display:grid;gap:48px}.star-list{list-style:none;padding-left:0}.star-list li{position:relative;padding-left:29px;margin-bottom:7px}.star-list li::before{content:'★';position:absolute;left:0;color:var(--accent)}.booking .rule{border-color:var(--accent)}.reading-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:28px 0}.reading-options>div{background:#fff8;padding:28px;border-radius:8px;border:1px solid #76303e2b}.reading-options h3{font-size:24px;margin-bottom:8px}.reading-options p{margin-bottom:5px}.reading-options strong{font:400 24px var(--heading);color:var(--menu-heading)}.journey a:not(.button){text-decoration:underline;text-underline-offset:3px}.closing p{max-width:900px;margin:0 auto 28px}.closing .button{background:var(--teal)}.closing .button:hover{background:var(--ink)}
+  @media(max-width:799px){.introduction{padding-top:45px}.intro-grid{grid-template-columns:1fr;gap:32px}.reading-image{max-width:520px;margin-inline:auto}.intro-grid h2,.section-stack h2,.booking h2,.journey h2,.closing h2{font-size:28px}.copy p{text-align:left}.reading-options{grid-template-columns:1fr}.reading-options>div{padding:23px}}
+</style>
