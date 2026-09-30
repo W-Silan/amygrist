@@ -1,6 +1,6 @@
 # Amy Grist website — recovery log
 
-Updated: 20 September 2026. Read this first after an interruption, then `PROJECT-NOTES.md` and the supplied handover.
+Updated: 30 September 2026. Read this first after an interruption, then `PROJECT-NOTES.md` and the supplied handover.
 
 ## User scope and constraints
 
@@ -150,3 +150,14 @@ At the user’s request, the pre-scroll header shading was softened. The former 
 ### Contact navigation label
 
 The main navigation label `Get in Touch` was shortened to `Contact` at the user’s request. The destination remains `/get-in-touch/` to preserve the existing route. Astro check and build pass, and the persistent port 4324 preview was restarted.
+
+
+### Current-state audit - 30 September 2026
+
+Repository HEAD before this audit was `416a3f1 Rename contact navigation label`. The shared foundation and ten current/core routes are marked `foundation-verified`: home, About, Inner Council, Integration Work, Inner Child Healing Workshop, Inner Child Mentoring, One-to-One Coaching, Practitioner Training, Inner Child Reiki and Inner Child Card Readings. The Complete Meditation Series product pilot also builds at `/shop/gma_complete_series/` and remains `pilot-awaiting-stripe-and-fulfilment`.
+
+Six current-menu routes remain unstarted: `/blog/`, `/get-in-touch/`, `/inner-child-resources/`, `/meditation/`, `/shop/` and `/wellbeing-tools-practices/`. All 27 inventoried blog posts remain unstarted and must retain their root-level URLs. The remaining commerce routes/products are deferred pending Stripe, fulfilment, private-download and tax decisions.
+
+The contact provider decision is recorded but not implemented: completed offering CTAs still use the live WordPress `/get-in-touch/` fallback, and several page notes still say the email provider is unselected. Build the local contact route next, using Cloudflare email delivery to the fixed recipient `amygrist@gmail.com`, then update those temporary notes/links.
+
+Current verification on 30 September: `npm run check` passes with 0 errors, warnings and hints; `npm run build` passes and generates 12 HTML pages plus the sitemap. No local preview process was found during the audit. The only pre-existing uncommitted files are `package.json` and `package-lock.json`, changing Wrangler from pinned `4.132.0` to `^4.143.0`; this audit did not accept, revert or commit that dependency update.
