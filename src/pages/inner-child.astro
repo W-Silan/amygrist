@@ -42,7 +42,7 @@ const testimonials = [
   <section class="band rose center"><div class="container"><h2>Ready to Begin Your Inner Child Journey?</h2><hr class="rule short"/><p>Whether you’re seeking emotional healing, spiritual growth, or a deeper connection with yourself, Inner Child work offers a grounded and transformative path toward wholeness.</p><a class="button" href="#iccontact">Book a Workshop</a></div></section>
   <QuoteCarousel heading="Workshop Participants Say" quotes={featuredQuotes}/>
   <section class="band testimonials" id="testimony"><div class="container"><h2>Testimonials from Workshop Participants</h2><hr class="rule short"/><div class="testimonial-list">{testimonials.map(item => <details><summary>{item.name}</summary><div>{item.paragraphs.map(paragraph => <p><em>“{paragraph}”</em></p>)}</div></details>)}</div></div></section>
-  <section class="band enquiry center" id="iccontact"><div class="container"><h2>Enquire about Inner Child Therapy</h2><hr class="rule short"/><p>Ready to ask about one-to-one or small group workshops?</p><a class="button" href={href('/get-in-touch/')}>Get in touch</a><p class="form-note">The enquiry form will be connected when the site’s email provider is selected.</p></div></section>
+  <section class="band enquiry center" id="iccontact"><div class="container"><h2>Enquire about Inner Child Therapy</h2><hr class="rule short"/><p>Ready to ask about one-to-one or small group workshops?</p><a class="button" href={href('/contact/')}>Get in touch</a></div></section>
  </article>
 </BaseLayout>
 <style>

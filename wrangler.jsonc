@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "amy-grist",
+  "compatibility_date": "2026-09-26",
+  "pages_build_output_dir": "./dist",
+  "vars": {
+    "CONTACT_FROM": "website@amygrist.com"
+  },
+  "send_email": [
+    {
+      "name": "SEND_EMAIL",
+      "destination_address": "amygrist@gmail.com",
+      "allowed_sender_addresses": ["website@amygrist.com"]
+    }
+  ]
+}

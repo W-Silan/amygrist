@@ -1,1 +1,3 @@
-# No migration redirects approved yet. Existing post URLs remain at the root.
+# Preserve the former WordPress contact URL after the canonical route rename.
+/get-in-touch /contact/ 301
+/get-in-touch/ /contact/ 301

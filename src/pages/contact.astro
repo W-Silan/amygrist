@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY?.trim();
+---
+
+<BaseLayout title="Contact Amy Grist | Inner Child Work & Holistic Wellbeing" description="Contact Amy Grist to enquire about Inner Child work, coaching, mentoring, practitioner training, Reiki or card readings." ogImage={images[972]}>
+  <PageHero image={images[972]} title="Contact" caption="You’re warmly invited to get in touch" alt="A calm natural landscape reflected in still water" position="center" />
+
+  <div class="contact-page">
+    <section class="band contact-introduction">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <h2>How can I support you?</h2>
+          <hr class="rule short"/>
+          <p>If you’d like to ask about a workshop, mentoring, coaching, practitioner training, Reiki or an Inner Child Card Reading, please share a little about what you’re looking for.</p>
+          <p>I’ll read your message with care and reply with a clear next step.</p>
+          <p class="response-note">Messages submitted here are used only to respond to your enquiry.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="/api/contact" method="post">
+          <div class="name-fields">
+            <div class="field">
+              <label for="first-name">First name <span aria-hidden="true">*</span></label>
+              <input id="first-name" name="firstName" type="text" autocomplete="given-name" maxlength="80" required />
+            </div>
+            <div class="field">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="lastName" type="text" autocomplete="family-name" maxlength="80" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number <span class="optional">Optional</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" />
+          </div>
+
+          <div class="field">
+            <label for="enquiry">What would you like to discuss? <span aria-hidden="true">*</span></label>
+            <select id="enquiry" name="enquiry" required>
+              <option value="">Please choose</option>
+              <option value="inner-child-workshop">Inner Child Healing Workshop</option>
+              <option value="inner-child-mentoring">Inner Child Mentoring</option>
+              <option value="coaching">Mindset & Wellbeing Coaching</option>
+              <option value="practitioner-training">Inner Child Practitioner Training</option>
+              <option value="reiki">Inner Child Reiki</option>
+              <option value="card-reading">Inner Child Card Reading</option>
+              <option value="general">General enquiry</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Your message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="8" minlength="10" maxlength="5000" required></textarea>
+          </div>
+
+          <div class="consent-row">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent">I consent to Amy using these details to respond to my enquiry. <span aria-hidden="true">*</span></label>
+          </div>
+
+          <div class="website-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input id="started-at" name="startedAt" type="hidden" value="" />
+
+          {turnstileSiteKey && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>}
+          {turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+          <button class="button submit-button" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="band soft-rose privacy-section">
+      <div class="container">
+        <details>
+          <summary>Confidentiality Statement</summary>
+          <div class="privacy-copy copy">
+            <p>We deploy all efforts to protect the private nature of your personal information. Since we collect information about you using our website and through our email communication, we feel that it is important that you understand how we collect and use this information. The below summarises our personal information collection practices.</p>
+
+            <h3>Personal Information Collection</h3>
+            <p>All personal information collected by Amy Grist is done so exclusively with your consent, by means of a form posted on our website, an email attachment, a diagnostic telephone conversation or a physical document given on your arrival. Limited technical information may be processed automatically to secure the form and prevent spam; it is not used for marketing.</p>
+
+            <h3>Use of your Personal Information</h3>
+            <p>The personal information collected is only used for the purposes defined at the time of collection or a use that complies with these purposes. Physical documents are stored safely and your information is not shared with third parties for marketing.</p>
+            <p>Your personal information is used to process your appointment or information request and provide the details you need to access the relevant service.</p>
+
+            <h3>Sharing of your Personal Information</h3>
+            <p>Your personal information will not be shared with other individuals or organisations without your permission, except where required by law or where a service provider is needed to deliver and protect this form. Your information is not sold or added to mailing lists through this form.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#contact-form');
+  const startedAt = document.querySelector<HTMLInputElement>('#started-at');
+  const status = document.querySelector<HTMLElement>('#form-status');
+  if (startedAt) startedAt.value = String(Date.now());
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity() || !status) return;
+
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const values = new FormData(form);
+    const payload: Record<string, unknown> = Object.fromEntries(values.entries());
+    payload.consent = values.get('consent') === 'on';
+
+    if (button) button.disabled = true;
+    status.className = 'form-status';
+    status.textContent = 'Sending your message…';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || 'Your message could not be sent. Please try again.');
+
+      form.reset();
+      if (startedAt) startedAt.value = String(Date.now());
+      if ('turnstile' in window) (window as Window & {turnstile?: {reset: () => void}}).turnstile?.reset();
+      status.classList.add('success');
+      status.textContent = 'Thank you. Your message has been sent to Amy.';
+    } catch (error) {
+      status.classList.add('error');
+      status.textContent = error instanceof Error ? error.message : 'Your message could not be sent. Please try again.';
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .contact-introduction{padding:75px 0}.contact-grid{display:grid;grid-template-columns:minmax(260px,.78fr) minmax(440px,1.22fr);gap:8%;align-items:start}.contact-copy{padding-top:18px}.contact-copy h2{font-size:36px}.contact-copy .rule{margin:14px 0 28px}.contact-copy p{text-align:left}.response-note{font-size:14px;color:var(--ink);border-left:3px solid var(--accent);padding-left:16px}.contact-form{background:white;border:1px solid #a84f5c26;border-radius:10px;padding:42px;box-shadow:0 18px 45px #023c4d12}.name-fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}.field{margin-bottom:22px}.field label{display:block;color:var(--ink);font-weight:500;margin-bottom:7px}.optional{font-size:12px;font-weight:300;margin-left:7px}.field input,.field select,.field textarea{width:100%;border:1px solid #8a5360;background:#fff;color:var(--ink);border-radius:4px;padding:12px 14px;font:300 16px/1.45 var(--body)}.field textarea{resize:vertical;min-height:170px}.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid #19b3b14d;outline-offset:2px;border-color:var(--teal)}.consent-row{display:grid;grid-template-columns:20px 1fr;gap:11px;align-items:start;color:var(--ink);margin:4px 0 24px}.consent-row input{width:18px;height:18px;margin-top:3px;accent-color:var(--button)}.website-field{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.submit-button{min-width:160px}.submit-button:disabled{opacity:.65;cursor:wait}.form-status{min-height:24px;margin:17px 0 0;color:var(--ink);font-weight:500}.form-status.success{color:#136a39}.form-status.error{color:#9d263a}.privacy-section{padding:48px 0}.privacy-section details{background:#ffffff70;border:1px solid #76303e33;border-radius:8px}.privacy-section summary{cursor:pointer;color:var(--ink);font:400 25px var(--heading);padding:22px 28px}.privacy-section summary:focus-visible{outline-offset:2px}.privacy-copy{padding:5px 28px 30px;max-width:980px}.privacy-copy h3{font-size:24px;margin-top:30px}.privacy-copy p{text-align:left}.cf-turnstile{margin-bottom:24px}
+  @media(max-width:899px){.contact-introduction{padding:50px 0}.contact-grid{grid-template-columns:1fr;gap:35px}.contact-copy{padding-top:0}.contact-copy h2{font-size:30px}.contact-form{padding:28px}.name-fields{grid-template-columns:1fr;gap:0}.privacy-section summary{font-size:22px;padding:20px}.privacy-copy{padding:2px 20px 24px}}
+  @media(max-width:420px){.contact-form{padding:22px 18px}}
+</style>

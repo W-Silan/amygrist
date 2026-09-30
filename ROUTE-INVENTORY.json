@@ -136,15 +136,17 @@
       "sourceId": 853,
       "sourceType": "page",
       "sourceUrl": "/get-in-touch/",
-      "targetUrl": "/get-in-touch/",
-      "title": "Get in Touch",
-      "slug": "get-in-touch",
+      "targetUrl": "/contact/",
+      "title": "Contact",
+      "slug": "contact",
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
-      "redirectFrom": [],
-      "notes": ""
+      "migrationStatus": "foundation-verified",
+      "redirectFrom": [
+        "/get-in-touch/"
+      ],
+      "notes": "Canonical route renamed to /contact/ by user request; preserve the former production URL as a redirect."
     },
     {
       "sourceId": 581,

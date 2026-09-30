@@ -86,3 +86,8 @@ Unbuilt navigation links continue to the live WordPress site during this foundat
 ## Focused route verification: Practitioner Training and Inner Child Reiki
 
 `/become-a-practitioner/` and `/inner-child-reiki/` passed the reduced route check at 375 px and 1440 px: HTTP 200, no horizontal overflow, broken images, browser console errors or page errors. Visual captures use each route slug followed by `-375.png` and `-1440.png`. Astro check and production build pass. The practitioner route was compared with its supplied desktop reference. Reiki had no supplied route reference and was reviewed against the export and shared design system.
+
+
+## Focused route verification: Contact
+
+`/contact/` passed focused checks at 375px and 1440px: HTTP 200, no horizontal overflow, broken images, browser console errors or page errors, and zero axe WCAG A/AA/2.1 AA violations. Captures are `contact-375.png` and `contact-1440.png`. Astro check and production build pass. The Cloudflare Pages Function compiles and its local runtime validation, honeypot, method rejection and `/get-in-touch/` redirect were verified without sending a real email. Live delivery remains pending sender-domain onboarding, destination verification and Cloudflare binding setup.
