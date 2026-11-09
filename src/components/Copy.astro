@@ -1,6 +1,7 @@
 ---
+import {href} from '../data/site';
 interface Props {texts:string[];}
 const {texts}=Astro.props;
 ---
-{texts.map(text=><div class="text-block" set:html={text}/>)}
-<style>.text-block+.text-block{margin-top:30px}.text-block:global(>em){display:block;margin:25px 0}.text-block :global(h5){margin:0}.text-block :global(p:last-child){margin-bottom:0}.text-block :global(a){text-decoration:underline;text-underline-offset:3px}</style>
+{texts.map(text=><div class="text-block" set:html={text.replace(/(href=["'])https?:\/\/(?:www\.)?amygrist\.com([^"']*)/gi, (_match, prefix, path) => `${prefix}${href(path || '/')}`).replace(/(href=["'])\/inner-child\/?(["'])/gi, '$1/inner-child-therapy/$2')}/>)}
+<style>.text-block+.text-block{margin-top:30px}.text-block:global(>em){display:block;margin:25px 0}.text-block :global(h5){margin:0}.text-block :global(p:last-child){margin-bottom:0}.text-block :global(a){}</style>

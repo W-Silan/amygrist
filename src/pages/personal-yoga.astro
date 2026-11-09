@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+import {href} from '../data/site';
+
+const styles = ['Yin Yoga','Vinyasa Yoga','Hatha Yoga','Pranayama (breathwork)','Trauma-Informed Yoga','Yoga for Anxiety','Yoga Nidra'];
+const testimonials = [
+  {name:'Marina, Lisbon', paragraphs:[
+    'Yoga is an integral part of my self-care routine and each week I just breathe and let Amy take me on a relaxing, yet recharging journey to myself!',
+    'So far, I have taken part in about 20 online yoga classes with Amy and each time has been special. I am not always able to join “real-time” because of the time zone difference and work commitments, so I treasure the ability to access the recordings in “my-time”. Either way, it is magical to receive exactly what I need when I need it, whether a physical challenge, a message, an emotional release, or a revelation.',
+    'With a calming voice, clear directions and a joyous twinkle in her eye, Amy suspends time and guides the class from her heart… from the intuitive intention setting at the start, through the fun warm up and asanas, to the most delicious shavasana at the end!',
+    'Thank you, Amy! I look forward to so much more to come.',
+  ]},
+  {name:'Jean, England', paragraphs:[
+    'Amy is an excellent teacher and guide. I attended her online classes which always began with an explanation of what we would be focusing on that day. I was not sure how online yoga classes would work but I needn’t have worried. Amy is attentive, very caring, calm and fully at ease with this medium.',
+    'Being a more mature lady I found I was unable to do some positions (weakness in wrists and knees). Amy is very understanding and supportive, offering alternative positions that I could do. Finished each class feeling relaxed and energised.',
+  ]},
+  {name:'Ashley, England', paragraphs:[
+    'The pace of Amy’s classes is perfect; she always makes sure everyone can follow in their own time and checks in regularly to make sure we are all doing OK. Her clear, soothing voice is just what you need to help you relax into the gentle pace of her yoga classes.',
+  ]},
+];
+---
+<BaseLayout title="Personal Yoga with Amy Grist | YTT Yoga Teacher" description="One-to-one and small group yoga sessions with Amy Grist, including Yin, Vinyasa, Hatha, breathwork, trauma-informed yoga and Yoga Nidra." solidHeader={true}>
+  <PageHero image={images[110]} title="Personal Yoga" caption="Restorative &amp; Integrative approach" alt="Amy Grist practising yoga" position="center" />
+  <article class="personal-yoga">
+    <section class="band story-section">
+      <div class="container copy story-copy">
+        <h2>Yoga in my life</h2><hr class="rule short" />
+        <p>From an early age I was an active child exploring the boundaries of flexibility and the desire to express myself through movement, dance, gymnastics, expanding to drama performances on stage in adolescence. I tapped into many rhythms, expressions and styles before settling into a yin yoga based practice that is gentle, restorative and nurturing, drawing on inspiration from Tai Chi, meditation and breathwork.</p>
+        <p>A desire in me to share this practice naturally arose and I am grateful to witness its unfolding and share with the beautiful souls I’ve met along the journey so far.</p>
+        <p>My personal yoga practice has led me on a journey of transformation and continues to teach me lessons that contribute to the positive change in who I am and becoming. Movement is soulful, and as an individual who seeks deep connection with myself and others, I find peace and joy in moments of self and shared growth.</p>
+        <p>Providing one-to-one and small group sessions, I encourage heart-opening trust with oneself during our time together. Guiding and holding space for one to connect with their own rhythm, I provide support for individual needs, whilst considering and bringing balance in group dynamics.</p>
+        <p>Guiding myself through intuitive-led processes and practices, I come from a place of openness, creativity and compassion. This is woven into movement and my only desire is for a shared authentic experience together.</p>
+        <p class="style-list">{styles.join(' · ')}</p>
+        <p>Let’s see you stretch!</p>
+      </div>
+    </section>
+
+    <section class="band soft-rose offerings">
+      <div class="container offerings-copy">
+        <h2>Current Offerings</h2><hr class="rule short" />
+        <p>I have experience in and have enjoyed retreat-based settings internationally for holding yoga sessions. Feel free to get in touch if you would like to find out more about my offerings and availability for group retreats and personal one-to-one sessions.</p>
+        <p class="style-list">{styles.join(' · ')}</p>
+        <a class="button" href={href('/contact/')}>Contact Me <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="band testimonies" id="testimony">
+      <div class="container testimony-content">
+        <h2>Testimonies from Yoga Students</h2><hr class="rule short" />
+        <div class="testimonial-list">
+          {testimonials.map((testimonial, index) => <details class="testimonial" open={index === 0}>
+            <summary>{testimonial.name}</summary>
+            <div class="testimonial-copy">{testimonial.paragraphs.map(paragraph => <p>{paragraph}</p>)}</div>
+          </details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="band soft-rose more-section">
+      <div class="container more-copy">
+        <h2>Where can I learn more?</h2><hr class="rule short" />
+        <p>I can recommend some of the publications from Sri Aurobindo on his Integral Yoga. His ashram is still located outside of Pondicherry, on the East coast of India. His <a href="https://www.sriaurobindoashram.org/sriaurobindo/writings.php" target="_blank" rel="noopener noreferrer">works are available for free</a> and consist of questions and answers from students, a personal diary of his yogic practice between 1909 and 1927, essays on the Rig Veda and its mystic symbolism and more essays in Philosophy and Yoga.</p>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+<style>
+.personal-yoga h2{font-size:clamp(30px,4vw,40px);color:var(--ink)}.story-copy,.offerings-copy,.testimony-content,.more-copy{max-width:940px}.story-copy .rule,.offerings-copy .rule,.testimony-content .rule,.more-copy .rule{margin:14px 0 24px}.story-copy p,.offerings-copy p,.more-copy p{text-align:left}.style-list{font-weight:500;color:var(--ink);line-height:1.8}.offerings-copy .button{margin-top:8px}.testimonial-list{display:grid;gap:14px}.testimonial{background:var(--soft-rose);color:var(--ink);border-radius:var(--radius);padding:0 24px}.testimonial summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;font:400 22px/1.3 var(--heading)}.testimonial summary::-webkit-details-marker{display:none}.testimonial summary::after{content:'+';position:absolute;right:2px;top:50%;transform:translateY(-50%);font:300 27px/1 var(--body);color:var(--teal)}.testimonial[open] summary::after{content:'−'}.testimonial-copy{padding:0 0 22px}.testimonial-copy p{text-align:left}.more-copy a{}.more-copy a:hover{color:var(--teal)}
+@media(max-width:700px){.story-section{padding-top:45px}.testimonial{padding-inline:18px}.testimonial summary{font-size:20px}.testimonial-copy p{text-align:left}}
+</style>

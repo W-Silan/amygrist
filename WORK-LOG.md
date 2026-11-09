@@ -1,5 +1,18 @@
 # Amy Grist website — recovery log
 
+## Current recovery checkpoint — 1 October 2026
+
+Recovered the project context in a replacement conversation after the prior conversation broke. The owner confirmed Amy Grist is the intended project. Working directory: `/mnt/2A88CB9088CB5949/astro-site/amygrist`. Existing tracked edits and untracked migration files are retained; do not reset to the older Git commit. The historical sections below describe earlier stages and may be superseded by later entries.
+
+Current local implementation builds 67 pages, including 27 root-level articles, eight category archives, the main offering/resource pages, the free Sacred Space course, and the static Meditation Series catalog (nine product details). Latest preceding change renamed `/inner-child/` to `/inner-child-therapy/` with permanent redirects. Recent design/link/hero refinements are retained.
+
+Mailoctopus is selected; newsletter popup/form integration remains pending. Stripe Payment Links are selected; payment URLs and protected fulfilment remain pending. Transaction/account routes remain excluded; static shop/catalog routes are in scope. The Reiki online product decision and final visual/launch checks remain open. Contact/feedback code and Worker configuration exist; this recovery did not verify live email delivery. Current deployment configuration is `wrangler.jsonc` with `src/worker.js`; older foundation-only Pages instructions are historical.
+
+Recovery validation: `npm run check` passes with zero errors, warnings or hints; `npm run build` passes with 67 pages. Removed obsolete Shop submenu link markup that caused a TypeScript error, consistent with the direct Shop navigation decision. Added explicit `is:inline` to article JSON-LD to clear the Astro hint. Browser/visual and remote integration tests were not rerun. No deployment or DNS changes performed.
+
+Continue from this checkpoint and the latest dated entries, `PROJECT-NOTES.md`, and `ROUTE-INVENTORY.json`. The broken conversation itself has not been recovered; context comes from preserved local records.
+
+
 Updated: 30 September 2026. Read this first after an interruption, then `PROJECT-NOTES.md` and the supplied handover.
 
 ## User scope and constraints
@@ -179,3 +192,272 @@ Astro check reports 0 errors, warnings and hints; the production build passes wi
 The user confirmed that Amy’s forms should use the Inner Council setup with `FORM_RECIPIENT=amygrist@gmail.com`. Updated the Contact Pages Function from the direct Email binding to Cloudflare Email Sending API, using `forms@amygrist.com` as sender and the visitor address as `Reply-To`. Wrangler now defines `FORM_RECIPIENT`, account ID, allowed Turnstile hostnames and a 10-submissions-per-minute rate limit. Server-side Turnstile validation is required and checks the returned hostname. The Contact page disables submission in builds without `PUBLIC_TURNSTILE_SITE_KEY` and displays a configuration note.
 
 The API token and Turnstile secret must be added as Worker secrets; the public Turnstile site key must be supplied at build time. Sender-domain onboarding and live email delivery remain pending. No D1 submission log/Control Room integration was added because Amy’s project has no such system. No message was sent.
+
+
+### Contact delivery configuration correction — 30 September 2026
+
+The user clarified Amy’s contact setup must remain independent from Inner Council. Amy’s Worker recipient is `amygrist@gmail.com`; the contact handler sender is `forms@amygrist.com`. No Inner Council sender or recipient should be used. The Cloudflare dashboard screenshot confirms the Amy account ID, Amy recipient, Turnstile settings and encrypted email API token secret are present. Local handler test with external calls mocked confirms the form payload uses Amy’s sender and recipient; `npm run build` passes. No live email was sent. Deployed the Amy-only sender configuration to `amy-grist.typeface.workers.dev` as version `0169eec1-a9f1-4917-844e-c2a30711cc1e`; Cloudflare confirmed `FORM_RECIPIENT=amygrist@gmail.com` and the Turnstile bindings. Live test after deployment: Cloudflare Worker tail logged one API delivery rejection (code 10204) at 22:38:09 UTC, followed by a POST at 22:38:12 UTC with no delivery-failure log. Browser/inbox outcome is awaiting user confirmation.
+
+
+### Turnstile retry fix — 30 September 2026
+
+After deploying the Amy-only sender, live logs showed the first form request passed Turnstile and reached email delivery (provider code 10204). A retry then failed spam validation because the page reset the single-use Turnstile token only after success. Moved `turnstile.reset()` to the submit handler’s `finally` block so it runs after success and failure. Build passed and the fix was deployed to `amy-grist.typeface.workers.dev` as version `5759af56-0d5c-47ca-8b44-a228146dbec0`. Sender and recipient remain `forms@amygrist.com` and `amygrist@gmail.com`. A fresh live form test is pending.
+
+### Post-token-update form attempt — 30 September 2026
+
+The user reports updating the API token and receiving the same browser error. The previous captured request passed Turnstile and reached email delivery, which returned code 10000; the next attempted retry was blocked by the consumed Turnstile token. The contact page now resets Turnstile in `finally`, and version `5759af56-0d5c-47ca-8b44-a228146dbec0` is deployed. A fresh tail is connected, but the latest token-update submission occurred before reconnection, so its provider response is not captured. Do not change Inner Council configuration.
+
+
+### Contact form reduced to name and email — 30 September 2026
+
+At the user’s request, `/contact/` now collects only name and email. The form retains Turnstile, rate limiting, timing validation and the honeypot. The endpoint sends Amy a fixed “please contact me” notification and uses the submitted email as `Reply-To`; it still sends from `forms@amygrist.com` to `amygrist@gmail.com`. The handler accepts the old first/last-name payload during cache transition. Astro build and a mocked handler test passed. Deployed to `amy-grist.typeface.workers.dev`, version `37229ec1-954e-4cdb-8d16-3ef1155cd662`. Email delivery remains unresolved separately from this UI change.
+
+
+### Aligning diagnostics with the working form pattern — 1 October 2026
+
+The user clarified that Inner Council sends successfully although its domain is absent from Email Routing, so the earlier suggestion to onboard amygrist.com under Email Routing was not established and must not be repeated as the fix. Local handlers for Inner Council, Threefold and Safe Pastures use the same Cloudflare REST send endpoint; the Amy handler already uses that endpoint and keeps its own sender (`forms@amygrist.com`) and destination (`amygrist@gmail.com`). Updated Amy's provider-error logging to retain Cloudflare's bounded error message alongside the numeric code, without logging form contents. Build passed and the diagnostic was deployed to `amy-grist.typeface.workers.dev` as version `beac0b2d-4cba-41e0-9c35-64099c35fe9f`. No Email Sending activation, DNS changes, or changes to another site's configuration.
+
+### Persisting observability in Wrangler — 1 October 2026
+
+The user noticed that Worker logs stopped updating after deploy. Confirmed Amy's `wrangler.jsonc` lacked an observability setting; the previous diagnostic deployment from this config could reset the dashboard-only toggle. Added explicit persistent invocation/custom logs in Wrangler so later `npm run deploy` deployments retain logging. Logs only; traces remain off. Deploy and confirm the configuration, then inspect the next form event.
+
+### Requested redeploy — 1 October 2026
+
+Ran `npm run deploy` after persisting observability in `wrangler.jsonc`. Astro built 13 pages successfully and Cloudflare deployed `amy-grist.typeface.workers.dev` as Worker version `3b668545-352c-47ed-bd82-81c9e8e61c9c`. The live email error remains to be confirmed by a new form submission and Worker log entry.
+
+### Provider authentication error identified — 1 October 2026
+
+The user supplied a 502 invocation record from Amy Worker version `658814ad-3ab1-43d8-baf6-b1d360a284f6`. The matching live tail at 09:02:45 local time logged `Cloudflare Email Sending rejected the request (code 10000: Authentication error)`. Earlier interpretation of numeric 10000 as a missing resource was wrong for this response; the provider message is decisive. The request reached Amy's Worker, passed form checks, and failed at the Cloudflare REST API authorization step. Amy's `CLOUDFLARE_ACCOUNT_ID` binding and request account ID are both `310afa4b7ee71a6444a245450e7a9065`. The runtime email API secret is present but cannot be retrieved in plaintext from Cloudflare. Check the Amy Worker secret value/type and its account permission; keep Amy sender/recipient independent. The user's 4G connection is not the cause of this API authentication response.
+
+### Post-deploy form evidence — 1 October 2026
+
+On deployed Worker version `3b668545-352c-47ed-bd82-81c9e8e61c9c`, a 09:04:49 form POST returned HTTP 400 before any email API attempt; the shared invocation record had a much smaller body than the earlier valid submit. A later 09:05:55 POST passed form validation and again reached Cloudflare's email REST API, which rejected it with `code 10000: Authentication error`. This confirms the remaining delivery failure is Amy's API credential or its account/permission scope, independent of the dashboard logging fix. The Worker secret is nonempty but its plaintext value cannot be read back from Cloudflare.
+
+### Current sender rejection — 1 October 2026
+
+A later POST to deployed Worker version `3b668545-352c-47ed-bd82-81c9e8e61c9c` returned HTTP 502. Its matching live tail at 09:26:29 logged `code 10204: email.sending.error.email.sender_not_configured`. This supersedes the earlier `code 10000: Authentication error` as the current provider response: the API accepted the current authentication far enough to reject Amy's `forms@amygrist.com` sender. The fixed recipient remains `amygrist@gmail.com`; form submission and Turnstile passed on this request. Do not change another project's sender or activate paid Email Sending to bypass this; determine what sender registration is required for `amygrist.com` on this Cloudflare account. Any Email Routing onboarding that changes MX must be reviewed against existing mail hosting before changing DNS.
+
+### DNS comparison — 1 October 2026
+
+The owner showed amygrist@gmail.com verified as a Cloudflare destination, alongside the verified Inner Council and Typeface Gmail recipients. Read-only public DNS: both domains use adi/chase Cloudflare nameservers and identical apex SPF (including _spf.mx.cloudflare.net). innercouncil.org MX: mail.innercouncil.org only; amygrist.com MX: mail.amygrist.com plus Jellyfish mx1/mx2 backups. Inner Council DMARC uses relaxed alignment; Amy DMARC uses strict alignment. These differences alone do not explain Cloudflare response 10204 sender_not_configured. No DNS, Worker or sender change. Paid Email Sending is not in use and should not be suggested as the fix.
+
+### Temporary shared sender test — 1 October 2026
+
+At the owners explicit request, changed only Amy contact handler sender from forms@amygrist.com to forms@innercouncil.org as a test of the Cloudflare 10204 sender_not_configured error. Amy recipient remains amygrist@gmail.com and Reply-To remains the visitor. Inner Council files/configuration were not changed. Astro build passed; deployed amy-grist Worker version 3b716292-67aa-4555-b3ee-843d076ccc03 to https://amy-grist.typeface.workers.dev. Live form delivery has not yet been tested. This temporarily shares the sender identity and should be reviewed after the test; do not infer that Amy domain sender configuration is resolved.
+
+### Shared sender live form test — 1 October 2026
+
+The owner submitted the live Amy contact form after Worker version 3b716292-67aa-4555-b3ee-843d076ccc03 and reported the success message: Thank you. Your message has been sent to Amy. This confirms the Worker completed its send API call successfully using forms@innercouncil.org as sender and amygrist@gmail.com as fixed recipient. Inbox receipt has not been separately confirmed. The original forms@amygrist.com sender remains rejected with provider code 10204 until its configuration is resolved; the shared sender is a temporary workaround.
+
+### Full contact form restored — 1 October 2026
+
+At the owners request, restored the previous /contact/ fields: first name, optional last name, email, optional phone, enquiry category, message and required consent. Restored matching server validation and detailed enquiry email body. Preserved the working sender forms@innercouncil.org, fixed recipient amygrist@gmail.com, provider error logging, and Turnstile reset in finally after both success and failure. npm run build, node --check and git diff --check passed. Deployed amy-grist Worker version 244a4dc5-4b27-4d28-ba36-5647fd0e9680 to https://amy-grist.typeface.workers.dev. Live submission with restored fields is pending.
+
+### Amy article collection and key takeaways — 1 October 2026
+
+Compared Inner Council’s ArticleLayout and archive card structure. Amy’s shared Astro article layout uses a featured-image hero, category/date/reading-time metadata, a Key Takeaways callout, article body and Amy author card. It deliberately has no Notes or Exercises components. All 27 exported posts contain Key Takeaways; migrated each post to its original root-level URL, with source body cleaned of WPBakery row/column/divider shortcodes, categories/tags, Genesis title/description and publication dates retained. Added a local `/blog/` archive with category filter and made Blog navigation local. Original featured uploads only were copied and hashed in `migration/article-originals.json`; filenames with WordPress `-scaled` variants use the unsuffixed original upload. Added repeatable `scripts/migrate-articles.py` and clean generated data in `src/data/articles.json`. `npm run build` passed and generated 41 static pages. No deployment. Desktop/mobile visual comparison remains pending.
+
+### Design guide and route-scope update — 1 October 2026
+
+Built a local `/design/` visual guide using Amy Grist’s existing CSS variables and page conventions, following the component structure of Inner Council’s design guide. It documents palette, type roles, colour combinations, sample elements and responsive spacing; it does not change global styles and uses CSS-only ornamentation, no substituted media. The user explicitly excluded `/meditation-series/` (WooCommerce category), `/masterclass-2022/`, `/circle-2022/`, `/offerings-2024-deep-desire/` (dated campaigns), and `/mailpoet-confirmation/` (MailPoet utility); those entries are marked excluded in the working inventory. The `/inner-child-reiki-offering/` signup form is missing from exports; user chose a clearly labelled enquiry link to `/contact/`. No deployment.
+Build follow-up: corrected the new Astro page frontmatter and reran `npm run build`; all 42 static pages built successfully, including `/design/`. No deployment.
+
+### Navigation-first priority and Meditation — 1 October 2026
+
+Owner clarified that pages present in the navigation menu take priority. Built /meditation/ from WordPress page 424 and brought it into the local route allowlist. Hero uses original upload 430 (2021/02/amy_grist_meditation.jpg) copied unchanged; Astro handles responsive optimization. The unavailable WordPress MailPoet mini-course signup is labelled as unavailable in this preview and links to /contact/ for enquiries; no newsletter signup/provider was implemented. The next unbuilt navigation routes are /inner-child-resources/, /wellbeing-tools-practices/, and /shop/ (commerce remains open).
+
+### Category archive SQL export received — 1 October 2026
+
+Inspected the user-supplied t(1).json as WordPress export data only. It contains all 8 category descriptions, serialized Auto Description SEO metadata and category post counts. Preserved the raw export as migration/wppg-category-terms-export.json and normalized category titles, descriptions, SEO descriptions, paths, counts and indexability in migration/category-archives.json. Updated all 8 indexed /category/{slug}/ entries to ready-to-build. Navigation-menu pages remain the next build priority; category archives remain required URL-preservation scope after navigation routes.
+
+Correction: added all 8 category archive URLs as inventory entries and marked them ready-to-build after inspecting the SQL export. Verified the SEO noindex flag is 0 for each category. These remain queued behind unbuilt navigation pages.
+\n### Navigation pages: Inner Child Resources and Wellbeing Tools — 1 October 2026\n\nBuilt /inner-child-resources/ and /wellbeing-tools-practices/ as local routes and added both to the navigation route allowlist. The resources page includes source copy, original downloadable guide PDF from media attachment 1903, and a Cloudflare Pages redirect preserving the WordPress /download/1902/ link. Newsletter signup remains unavailable pending provider choice. The wellbeing page preserves the exported practices, prompts, six FAQs, offering and topic links; its hero uses original upload 1866 (Wellbeing-tools-and-practices-header.webp). Both original assets are checksum-recorded in migration/media-originals.json. `npm run build` passes; Astro generates responsive optimized variants from the original hero upload.\n
+
+### Category navigation — 1 October 2026
+
+Made category labels on blog cards and article headers link to their preserved WordPress category URLs. Added a visible category directory to /blog/ and implemented all eight indexable category archive routes from the supplied SQL export, with matched articles and original taxonomy descriptions. Verified with `npm run build`: 53 static pages built.
+
+
+PDF URL confirmation — 1 October 2026
+
+Confirmed the local guide PDF matches the supplied WordPress upload URL (SHA-256 4668ab8da293d516c88fdf54d9be9a8c0afe36ca461046523c0703027a89e6a0). Added a redirect from the exact /wp-content/uploads/2025/12/ source path to the unchanged local PDF.
+
+
+### Inner Child Resources title motion — 1 October 2026
+
+Disabled entrance animation, opacity changes and transforms on text in /inner-child-resources/ only. Added short animated underline rules to titles, with line colors selected for the title/background pairing: blush on the dark teal hero behind white type; teal on the light page background behind ink type; and rose on the pale-blush download panel behind ink type. Reduced-motion preference disables these animations through the existing global rule.
+
+
+Category navigation markup fix — 1 October 2026
+
+Fixed a variable-name collision on /blog/: category archive chips were empty because the article-filter string list shadowed the archive records. Rebuilt and checked the rendered chip labels and links against all eight category route files.
+
+
+Global title underline system — 1 October 2026
+
+Moved title underline colors, animation and reduced-motion handling into shared global styles. Added dark, light and blush surface variants; /inner-child-resources/ uses these shared classes for its hero and guide headings. Its no-text-entrance rule remains scoped to that page.
+
+
+Design page title underline contrast tests — 1 October 2026
+
+Added three title/background/underline specimens to /design/ with WCAG contrast ratios. The former blush line measured 2.52:1 on the lightest teal-gradient stop, so the shared dark-surface line token is now pale blush #fff4f2 (3.75:1); paper/teal is 8.82:1 and blush/rose is 3.81:1.
+
+
+Design underline samples refinement — 1 October 2026
+
+Reworked the title-underline contrast specimens into three side-by-side panels. Each panel now displays the actual stated surface: the resource hero teal gradient, warm-paper background, or soft-blush panel. At narrow widths the panels remain horizontal and scroll-snap rather than collapsing into a vertical list.
+
+
+Sitewide title underline audit — 1 October 2026
+
+Audited all Astro routes and shared components for hr.rule and bespoke title underline styles. Centralized line animation, reduced-motion behavior, lengths and color tokens in global.css. All existing hr.rule lines now use contextual global variants: pale blush on dark teal/rose, teal on soft-rose sections, rose on pale-blush enquiry/invitation panels, and teal on paper. Replaced the article key-takeaways bespoke aqua rule with the shared title utility. Removed local color/length overrides; retained spacing only.
+
+
+Responsive blog category navigation — 1 October 2026
+
+The blog archive now shows linked category buttons on desktop and a category-navigation dropdown at tablet and mobile widths. Both controls navigate to the preserved category archive URL; the dropdown’s “All articles” option returns to /blog/.
+
+
+Navigation submenu spacing — 1 October 2026
+
+Changed submenu link line-height from 1.3 to 1.2 and padding from 12px uniform to 12px 10px 10px, preserving extra top breathing room. Applies to desktop and mobile submenu links.
+
+
+Navigation submenu padding adjustment — 1 October 2026
+
+Added 0.2rem to submenu link top and left padding, retaining the established 10px right and bottom spacing.
+
+
+Navigation dropdown surface — 1 October 2026
+
+Changed the submenu panel surface to the existing warm-paper token var(--bg), separating it from the soft-rose navigation background. Text and hover colors remain unchanged.
+
+
+Navigation dropdown corner radius — 1 October 2026
+
+Rounded submenu panels to 25px and submenu-link hover/focus states to 15px.
+
+
+About submenu width — 1 October 2026
+
+Widened the About dropdown to 285px on desktop so “About The Inner Council” fits on one line. Other dropdowns and mobile navigation keep their existing widths.
+
+
+About navigation label — 1 October 2026
+
+Changed the About submenu item label from “About The Inner Council” to “The Inner Council”; destination remains /inner-council/.
+
+
+About submenu width adjustment — 1 October 2026
+
+Reduced the desktop About submenu width from 285px to 265px after shortening its second item label.
+
+
+About submenu width adjustment — 1 October 2026
+
+Reduced the desktop About submenu width by a further 20px, to 245px.
+
+
+### Shop launch section: Meditation Series — 1 October 2026
+
+Built /shop/ with a single Meditation Series collection panel, the retained WooCommerce category path /product-category/meditation-series/, and the existing product page at /shop/gma_complete_series/. Updated Shop menu links and href allowlist for local navigation. Product imagery comes from the mapped original upload in media manifest. Checkout remains a non-functional placeholder pending Stripe and fulfilment. The excluded /meditation-series/ path remains untouched.
+
+
+### Checkout direction — 1 October 2026
+
+Owner selected direct Stripe Payment Links from each product’s Buy it now button, with no cart/basket. The existing Complete Meditation Series product supports this pattern; the button remains inactive pending the URL and fulfilment setup.
+
+
+### Meditation Series catalog expanded — 1 October 2026
+
+Expanded the retained `/product-category/meditation-series/` page to show the Complete Collection first, then eight individual meditation products in a two-column desktop grid that stacks on mobile. The Shop nav now links directly to `/shop/`, with no dropdown; `/shop/` retains its Meditation Series collection panel. Added product records, source descriptions, prices, running times and reusable detail layouts at the existing `/shop/{slug}/` URLs. Copied six cover images from original uploads and checksum-recorded them; reused existing originals for the other two. Buy it now links remain disabled pending individual Stripe links and protected digital fulfilment. Local `npm run build` succeeds with 63 static pages; `git diff --check` passes. No deploy performed.
+
+
+### Feedback page restored — 1 October 2026
+
+Replaced the legacy Fluent Forms shortcode on `/feedback/` with a local name/email/feedback form. It reuses the existing `/api/contact` Worker delivery, Turnstile verification, honeypot, timing check and rate limiter; feedback messages have a distinct email subject and are sent to the configured Amy recipient. The form does not include newsletter signup. Updated route inventory and local href allowlist.
+
+
+### Inner Child Reiki offering rebuilt — 1 October 2026
+
+Rebuilt `/inner-child-reiki-offering/` from the Dec 2025 WordPress export, preserving training description, audience, Reiki/Inner Child learning content, certification details, course formats and the listed £180 group / £230 1:1 pricing. Replaced missing Fluent Forms signup with the already agreed contact-form link. Used the existing original Reiki hands image (media 483); source background attachment 3913 and inline photo attachment 1640 are absent from supplied originals. Source dates “to be confirmed for 2026” have passed, so page points visitors to Amy for current dates/availability. One source learning-outcome bullet is truncated mid-sentence and omitted instead of guessed. Added the local href allowlist and updated inventory. No deployment.
+
+
+### Newsletter provider selected — 1 October 2026
+
+Owner confirmed Amy will continue collecting newsletter signups through Mailoctopus. Updated project notes: provider choice is resolved; integration is pending the target form/list and Mailoctopus embed/API details. Existing signup CTAs remain clearly unavailable/enquiry-only until connected and tested.
+
+
+### Personal Yoga page restored — 1 October 2026
+
+Owner asked to restore `/personal-yoga/` although it is not in navigation. Rebuilt from WordPress page 55: Yoga in my Life, current offerings, the three student testimonies and Sri Aurobindo reading links. Recreated its slider as the shared PageHero, using the unsuffixed original upload 110 (`amy_grist_yoga2.jpg`) copied and checksum-recorded in `migration/media-originals.json`. Contact CTAs point to local `/contact/`. Route allowlist and inventory updated; it remains absent from navigation.
+
+
+### Newsletter popup visual reference received — 1 October 2026
+
+Owner supplied a screenshot of the live Green Popups modal. Recorded its static circular design, rose border, white interior, page overlay, course cover, visible copy, name/email fields and signup CTA in project notes. No entrance animation requested. Existing homepage trigger ID is `#lepopup-Meditation-Mailgroup-Signup`. Astro popup implementation, matching the original cover asset, and Mailoctopus connection remain outstanding.
+
+### Sacred Space Meditation Course restored — 1 October 2026
+
+Rebuilt `/sacred-space-meditation-course/` from WordPress page 362. Restored its course introduction, booklet cover and downloadable workbook, meditative-space guidance, three guided audio sessions with the full exported transcripts, and feedback link. Copied the three MP3s and original workbook PDF byte-for-byte from the supplied uploads; SHA-256 checks are recorded in `migration/media-originals.json`. Used original media attachment 419 for the hero/booklet. Added this route to the local href allowlist and Resources navigation; the homepage and Meditation page free-course links now lead here. The free course content is available locally; newsletter signup awaits Amy’s Mailoctopus form details and the page directs visitors to Contact in the meantime. No deployment.
+
+### WooCommerce and account route scope revised — 1 October 2026
+
+Owner clarified that WooCommerce commerce and account routes are not being replicated. Marked `/shop/`, `/product-category/meditation-series/`, all product routes, `/basket/`, `/checkout/`, `/my-account/`, `/payme/` and `/purchase-now/` excluded in the route inventory. Removed the local shop routes, product teasers, Shop navigation and bag icon. Preserved the retired route-page implementations under `migration/excluded-commerce-pages/` for recovery. `/product/inner-child-reiki-1-online-course/` remains on hold while Amy is asked whether it should be treated differently. No redirects or deployment.
+
+### Additional legacy pages excluded — 1 October 2026
+
+Owner confirmed `/visual-expression/`, `/yoga-sessions/` and `/photography/` will not be migrated. Marked each route excluded in the inventory. No pages or redirects were created and no deployment was made.
+
+### Responsive blog category selector — 1 October 2026
+
+At tablet and mobile widths, hid the visible “Browse categories” label while retaining its accessible label for assistive technology, and made the category dropdown fill its container. Desktop category buttons remain unchanged.
+
+### Shop navigation retained on live site — 1 October 2026
+
+Restored the Shop navigation item and basket icon after checking the header. They link to Amy’s existing live WordPress `/shop/` and `/basket/` routes through the fallback URL resolver; neither commerce route is generated locally. No other main navigation entries were missing. No deployment.
+
+### Shop and Meditation Series pages restored — 1 October 2026
+
+Corrected the previous scope interpretation: `/shop/`, `/product-category/meditation-series/` and the nine Meditation Series product details remain in scope as locally built static catalog pages. Restored their Astro routes and the homepage product teaser section; restored Shop navigation as a local link. Only transactional/account routes (`/basket/`, `/checkout/`, `/my-account/`, `/payme/`, `/purchase-now/`) remain excluded. Stripe purchase links and protected fulfilment are still pending. `/product/inner-child-reiki-1-online-course/` remains awaiting Amy’s input. No deployment.
+
+### Global title underline thickness — 1 October 2026
+
+Reduced both shared animated title line styles (`.rule` and `.title-underline::after`) from 3px to 2px. Other unrelated 3px elements, such as focus outlines and borders, are unchanged.
+
+### Sitewide link styling and design guide — 1 October 2026
+
+Changed links to use colour rather than underlines, with a distinct hover/focus colour across paper, blush, rose and teal surfaces. Removed local page/component rules that forced underlines. Added a four-surface link sample guide to `/design/` with WCAG AA normal-text contrast ratios for default and hover colours. Buttons and their hover treatment remain unchanged.
+
+### Design page top spacing — 1 October 2026
+
+Added extra top padding before the first palette column to keep its heading and copy clear of the fixed header, with a smaller adjustment on narrow screens.
+
+### Design hero spacing — 1 October 2026
+
+Shifted the `/design/` hero copy lower to add breathing room below the fixed navigation; narrowed the adjustment on mobile.
+
+### Design hero spacing refinement — 1 October 2026
+
+Added a little more space above the `/design/` hero copy on desktop and mobile at owner request.
+
+### Link weight refinement — 1 October 2026
+
+Raised global hyperlink weight to 400 so inline links are easier to distinguish from the 300-weight body copy, retaining the contrast-tested color hover/focus states.
+
+### Blush link color on rose — 1 October 2026
+
+Changed links on the rose surface to pale blush (#fff4f2), with aqua (#ccffff) on hover/focus. Both states pass WCAG AA normal-text contrast; the standard soft blush (#e3a6a1) is documented as failing at 2.42:1 on rose.
+
+### Homepage slider controls removed — 1 October 2026
+
+Removed the visible previous/next/count/pause controls from the homepage hero at owner request. The slideshow still rotates automatically, respects reduced-motion preference and pauses when focused. Shared Hero control handling is now optional.
+
+### Inner Child Therapy route renamed — 1 October 2026
+
+Renamed the local workshop route to `/inner-child-therapy/`, updated internal links/navigation references, and added 301 redirects from `/inner-child/` with and without a trailing slash. Preserved the source URL in the route inventory. No deployment.
+
+
+### Routes excluded by owner — 1 October 2026
+
+Owner confirmed `/shop/inner-child-reiki-1-online-course/` and `/guided-meditation/` will not be migrated. Marked the corresponding product source route (`/product/inner-child-reiki-1-online-course/`) and `/guided-meditation/` as excluded in `ROUTE-INVENTORY.json`; no local route or redirect was added.

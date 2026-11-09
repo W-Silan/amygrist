@@ -1,0 +1,71 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import {site} from '../data/site';
+import {images} from '../data/images';
+import {getCategoryForName} from '../data/categories';
+
+interface Article {
+  title: string; path: string; datePublished: string; dateModified: string;
+  displayDate: string; author: string; readingTime: string;
+  featuredImage: import('astro').ImageMetadata; featuredImageAlt: string;
+  categories: string[]; keyTakeaways: string[];
+  seo: {title: string; description: string}; Content: any;
+}
+interface Props {article: Article}
+const {article} = Astro.props;
+const articleUrl = new URL(article.path, site.origin).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.title,
+  description: article.seo.description,
+  image: new URL(article.featuredImage.src, site.origin).href,
+  datePublished: article.datePublished,
+  dateModified: article.dateModified,
+  mainEntityOfPage: articleUrl,
+  author: {'@type': 'Person', name: article.author, url: new URL('/amy/', site.origin).href},
+  publisher: {'@type': 'Organization', name: site.name, url: site.origin},
+};
+---
+<BaseLayout
+  title={article.seo.title + ' | Amy Grist'}
+  description={article.seo.description}
+  ogImage={article.featuredImage}
+  openGraphType="article"
+  articlePublished={article.datePublished}
+  articleModified={article.dateModified}
+  articleAuthor={article.author}
+>
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  <article class="article-page">
+    <header class="article-hero">
+      <Image src={article.featuredImage} alt="" class="article-hero__image" widths={[720, 1080, 1500, 1900]} sizes="100vw" format="webp" loading="eager" fetchpriority="high" />
+      <div class="article-hero__shade"></div>
+      <div class="container article-hero__content">
+        {article.categories.length > 0 && <p class="article-categories">{article.categories.map((name, index) => {const category = getCategoryForName(name); return <>{index > 0 && ' · '}{category ? <a href={category.path}>{name}</a> : name}</>;})}</p>}
+        <h1>{article.title}</h1>
+        <p class="article-meta">By <a href="/amy/">{article.author}</a><span aria-hidden="true"> · </span><time datetime={article.datePublished}>{article.displayDate}</time><span aria-hidden="true"> · </span>{article.readingTime}</p>
+      </div>
+    </header>
+
+    <div class="article-content container">
+      {article.keyTakeaways.length > 0 && (
+        <aside class="article-takeaways" aria-labelledby="article-takeaways-title">
+          <h2 id="article-takeaways-title" class="title-underline title-underline--on-blush">Key Takeaways</h2>
+          <ul>{article.keyTakeaways.map((takeaway) => <li set:html={takeaway} />)}</ul>
+        </aside>
+      )}
+      <div class="article-prose"><article.Content /></div>
+      <footer class="article-author">
+        <Image src={images[115]} alt="Amy Grist" width={96} height={96} loading="lazy" />
+        <div><h2>About Amy Grist</h2><p>Amy is an integrative practitioner offering trauma-informed Inner Child work and holistic wellbeing support.</p><a href="/amy/">About Amy</a></div>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.article-hero{position:relative;min-height:clamp(470px,54vw,680px);display:flex;align-items:flex-end;overflow:hidden;background:var(--teal);color:white}.article-hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.article-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,#023c4dc0 0%,#023c4d70 55%,#023c4d15 100%),linear-gradient(0deg,#023c4d9c,transparent 65%)}.article-hero__content{position:relative;z-index:1;padding-top:150px;padding-bottom:clamp(56px,8vw,96px)}.article-hero h1{max-width:1000px;color:white;font-size:clamp(38px,5vw,68px);line-height:1.08;margin:0 0 20px;text-shadow:0 2px 18px #001f2c55}.article-categories{font:400 14px/1.4 var(--nav);text-transform:uppercase;letter-spacing:.1em;margin:0 0 17px;color:white}.article-categories a{color:var(--link-dark);text-decoration:none}.article-categories a:hover,.article-categories a:focus-visible{text-decoration-color:white}.article-meta{margin:0;color:white;font-size:15px}.article-meta a{color:white;}.article-content{max-width:1060px;padding-top:clamp(44px,7vw,84px);padding-bottom:90px}.article-takeaways{background:#f7e9e7;border-left:5px solid var(--rose);padding:28px 34px;margin:0 auto 56px;max-width:920px;border-radius:0 8px 8px 0;color:var(--ink)}.article-takeaways h2{font-size:clamp(26px,3vw,34px);color:var(--ink);margin:0 0 16px}.article-takeaways ul{margin:0;padding-left:24px}.article-takeaways li{padding:4px 0 4px 4px}.article-prose{max-width:820px;margin-inline:auto;font-size:17px;line-height:1.85;color:var(--text-rose)}.article-prose :global(h2){font-size:clamp(28px,3.5vw,38px);line-height:1.2;color:var(--ink);margin:60px 0 18px}.article-prose :global(h3){font-size:27px;color:var(--ink);margin:42px 0 14px}.article-prose :global(p){margin:0 0 24px;text-align:left}.article-prose :global(ul),.article-prose :global(ol){margin:0 0 28px;padding-left:26px}.article-prose :global(li){padding:0 0 8px}.article-prose :global(a){color:var(--link);}.article-prose :global(blockquote){margin:38px 0;padding:8px 0 8px 24px;border-left:3px solid var(--accent);font-family:var(--heading);font-size:23px;line-height:1.5;color:var(--ink)}.article-prose :global(blockquote p){margin:0}.article-prose :global(.article-inline-cta){margin:35px 0}.article-prose :global(.article-inline-cta a){display:inline-block;background:var(--button);color:white;text-decoration:none;padding:14px 24px;border-radius:4px}.article-author{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:24px;max-width:820px;margin:76px auto 0;padding-top:32px;border-top:1px solid #023c4d2b}.article-author img{border-radius:50%;object-fit:cover}.article-author h2{font-size:25px;color:var(--ink);margin:0 0 8px}.article-author p{font-size:15px;margin:0 0 8px}.article-author a{font-weight:500}
+@media(max-width:700px){.article-hero{min-height:540px}.article-hero__content{padding-top:140px;padding-bottom:52px}.article-hero__shade{background:linear-gradient(0deg,#023c4de8 0%,#023c4d55 76%,#023c4d12 100%)}.article-meta{font-size:13px}.article-content{padding-bottom:60px}.article-takeaways{padding:23px 22px;margin-bottom:42px}.article-prose{font-size:16px;line-height:1.8}.article-prose :global(h2){margin-top:46px}.article-author{grid-template-columns:72px minmax(0,1fr);gap:17px;margin-top:55px}.article-author img{width:72px;height:72px}.article-author p{font-size:14px}}
+</style>

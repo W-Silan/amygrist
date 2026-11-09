@@ -1,5 +1,5 @@
 const EMAIL_API_URL = 'https://api.cloudflare.com/client/v4/accounts';
-const EMAIL_SENDER = 'forms@amygrist.com';
+const EMAIL_SENDER = 'forms@innercouncil.org';
 const MAX_BODY_BYTES = 25_000;
 const ENQUIRY_LABELS = {
   'inner-child-workshop': 'Inner Child Healing Workshop',
@@ -10,6 +10,7 @@ const ENQUIRY_LABELS = {
   'card-reading': 'Inner Child Card Reading',
   general: 'General enquiry',
 };
+
 
 const respond = (message, status = 200, extraHeaders = {}) => new Response(JSON.stringify({message}), {
   status,
@@ -46,7 +47,15 @@ async function sendFormEmail(env, message) {
     body: JSON.stringify(message),
   });
   const result = await response.json().catch(() => null);
-  if (!response.ok || result?.success !== true) throw new Error(`Cloudflare Email Sending returned ${response.status}.`);
+  if (!response.ok || result?.success !== true) {
+    const providerError = Array.isArray(result?.errors) ? result.errors[0] : undefined;
+    const providerCode = providerError?.code;
+    const errorCode = Number.isInteger(providerCode) ? providerCode : response.status;
+    const providerMessage = typeof providerError?.message === 'string'
+      ? providerError.message.slice(0, 240)
+      : '';
+    throw new Error(`Cloudflare Email Sending rejected the request (code ${errorCode}${providerMessage ? `: ${providerMessage}` : ''}).`);
+  }
 }
 
 export async function onRequestPost({request, env}) {
@@ -72,6 +81,8 @@ export async function onRequestPost({request, env}) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return respond('Please complete the form and try again.', 400);
   if (text(input.website, 200)) return respond('Thank you. Your form has been received.');
 
+  const feedback = input.formType === 'feedback';
+  const feedbackName = text(input.name, 160);
   const firstName = text(input.firstName, 80);
   const lastName = text(input.lastName, 80);
   const email = text(input.email, 254).toLowerCase();
@@ -81,7 +92,10 @@ export async function onRequestPost({request, env}) {
   const startedAt = Number(input.startedAt);
   const elapsed = Date.now() - startedAt;
 
-  if (!firstName || !validEmail(email) || !ENQUIRY_LABELS[enquiry] || message.length < 10 || input.consent !== true) {
+  const validSubmission = feedback
+    ? feedbackName && validEmail(email) && message.length >= 10
+    : firstName && validEmail(email) && ENQUIRY_LABELS[enquiry] && message.length >= 10 && input.consent === true;
+  if (!validSubmission) {
     return respond('Please complete all required fields and check your email address.', 400);
   }
   if (!Number.isFinite(startedAt) || elapsed < 2500 || elapsed > 86_400_000) {
@@ -106,17 +120,16 @@ export async function onRequestPost({request, env}) {
     return respond('Form delivery is not configured correctly.', 503);
   }
 
-  const fullName = [firstName, lastName].filter(Boolean).join(' ');
+  const fullName = feedback ? feedbackName : [firstName, lastName].filter(Boolean).join(' ');
   const emailMessage = {
     from: EMAIL_SENDER,
     to: recipient,
     reply_to: email,
-    subject: `Website enquiry: ${ENQUIRY_LABELS[enquiry]}`,
+    subject: feedback ? 'Website feedback' : `Website enquiry: ${ENQUIRY_LABELS[enquiry]}`,
     text: [
       `Name: ${fullName}`,
       `Email: ${email}`,
-      `Phone: ${phone || 'Not supplied'}`,
-      `Enquiry: ${ENQUIRY_LABELS[enquiry]}`,
+      ...(!feedback ? [`Phone: ${phone || 'Not supplied'}`, `Enquiry: ${ENQUIRY_LABELS[enquiry]}`] : []),
       '',
       'Message:',
       message,
@@ -127,7 +140,7 @@ export async function onRequestPost({request, env}) {
 
   try {
     await sendFormEmail(env, emailMessage);
-    return respond('Thank you. Your message has been sent to Amy.');
+    return respond(feedback ? 'Thank you for your feedback. It has been sent to Amy.' : 'Thank you. Your message has been sent to Amy.');
   } catch (error) {
     console.error('Contact email delivery failed', error instanceof Error ? error.message : 'Unknown error');
     return respond('Your message could not be sent just now. Please try again later.', 502);

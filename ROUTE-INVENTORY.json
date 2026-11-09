@@ -41,12 +41,12 @@
       "targetUrl": "/basket/",
       "title": "Basket",
       "slug": "basket",
-      "status": "shop-phase-2",
+      "status": "excluded",
       "template": "commerce",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Transactional or account route is not being replicated per owner direction."
     },
     {
       "sourceId": 238,
@@ -72,9 +72,9 @@
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Local article archive implemented with category filtering; 27 post URLs preserved at the site root."
     },
     {
       "sourceId": 1140,
@@ -83,12 +83,12 @@
       "targetUrl": "/checkout/",
       "title": "Checkout",
       "slug": "checkout",
-      "status": "shop-phase-2",
+      "status": "excluded",
       "template": "commerce",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Transactional or account route is not being replicated per owner direction."
     },
     {
       "sourceId": 597,
@@ -100,9 +100,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Dated 2022 campaign page; intentionally excluded from migration."
     },
     {
       "sourceId": 121,
@@ -114,9 +114,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Internal visual design reference based on Amy Grist tokens and the Inner Council design guide; no global styles changed."
     },
     {
       "sourceId": 444,
@@ -126,11 +126,11 @@
       "title": "Feedback",
       "slug": "feedback",
       "status": "review-retire",
-      "template": "legacy-page",
+      "template": "feedback-form",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Restored as a simple feedback form with name, email and message. Uses the existing contact Worker, Turnstile and rate limiting; sends to Amy and is not a newsletter signup."
     },
     {
       "sourceId": 853,
@@ -155,12 +155,12 @@
       "targetUrl": "/guided-meditation/",
       "title": "Guided Meditation",
       "slug": "guided-meditation",
-      "status": "review-retire",
+      "status": "excluded",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Owner confirmed this route will not be migrated."
     },
     {
       "sourceId": 307,
@@ -180,15 +180,17 @@
       "sourceId": 37,
       "sourceType": "page",
       "sourceUrl": "/inner-child/",
-      "targetUrl": "/inner-child/",
+      "targetUrl": "/inner-child-therapy/",
       "title": "Inner Child Healing Workshop",
-      "slug": "inner-child",
+      "slug": "inner-child-therapy",
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
       "migrationStatus": "foundation-verified",
-      "redirectFrom": [],
-      "notes": ""
+      "redirectFrom": [
+        "/inner-child/"
+      ],
+      "notes": "Canonical Astro route renamed to /inner-child-therapy/ at owner request. Existing /inner-child/ path redirects permanently to the new local route."
     },
     {
       "sourceId": 1027,
@@ -226,11 +228,11 @@
       "title": "Inner Child Reiki | Offering Signup",
       "slug": "inner-child-reiki-offering",
       "status": "review-retire",
-      "template": "legacy-page",
+      "template": "offering-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Rebuilt from the 2025 WordPress page, preserving course content and pricing. Missing Fluent Forms signup replaced by a clearly labelled link to /contact/ as requested. Original Reiki page background attachment 3913 and inline photo attachment 1640 are unavailable in supplied uploads; reused the existing original Reiki hands image 483. Source 2026 dates have elapsed and one learning bullet is truncated; current availability is referred to contact and the incomplete bullet is omitted."
     },
     {
       "sourceId": 1896,
@@ -242,9 +244,9 @@
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Navigation-priority page migrated; original path retained. Original guide PDF is available; its WordPress download URL is preserved by redirect. Newsletter signup remains unavailable pending provider choice."
     },
     {
       "sourceId": 29,
@@ -270,9 +272,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "MailPoet utility/confirmation route; intentionally excluded from migration."
     },
     {
       "sourceId": 521,
@@ -284,9 +286,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Dated 2022 campaign page; intentionally excluded from migration."
     },
     {
       "sourceId": 424,
@@ -298,9 +300,9 @@
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Priority navigation route; migrated from exported page 424 using original hero upload 430. Newsletter provider remains open; preview CTA clearly points to contact for information, no subscription claim."
     },
     {
       "sourceId": 1194,
@@ -312,9 +314,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "WooCommerce product category; intentionally excluded from this static migration scope."
     },
     {
       "sourceId": 1141,
@@ -323,12 +325,12 @@
       "targetUrl": "/my-account/",
       "title": "My account",
       "slug": "my-account",
-      "status": "shop-phase-2",
+      "status": "excluded",
       "template": "commerce",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Transactional or account route is not being replicated per owner direction."
     },
     {
       "sourceId": 913,
@@ -340,9 +342,9 @@
       "status": "review-retire",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Dated 2024 campaign page; intentionally excluded from migration."
     },
     {
       "sourceId": 43,
@@ -365,12 +367,12 @@
       "targetUrl": "/payme/",
       "title": "PayMe",
       "slug": "payme",
-      "status": "review-retire",
+      "status": "excluded",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Transactional or account route is not being replicated per owner direction."
     },
     {
       "sourceId": 55,
@@ -380,11 +382,11 @@
       "title": "Personal Yoga",
       "slug": "personal-yoga",
       "status": "review-retire",
-      "template": "legacy-page",
+      "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Rebuilt from WordPress page 55. Uses original upload 110 for its yoga slider/hero, keeps the source testimonials as accessible details panels, and links enquiries to the local /contact/. Not added to navigation, per owner instruction."
     },
     {
       "sourceId": 67,
@@ -393,12 +395,12 @@
       "targetUrl": "/photography/",
       "title": "Photography",
       "slug": "photography",
-      "status": "review-retire",
+      "status": "excluded",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Owner confirmed this legacy page is not being migrated."
     },
     {
       "sourceId": 1185,
@@ -407,12 +409,12 @@
       "targetUrl": "/purchase-now/",
       "title": "Purchase",
       "slug": "purchase-now",
-      "status": "shop-phase-2",
+      "status": "excluded",
       "template": "commerce",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Transactional or account route is not being replicated per owner direction."
     },
     {
       "sourceId": 362,
@@ -424,9 +426,9 @@
       "status": "review",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Restored from WordPress page 362 with three original guided meditation MP3s, full transcripts, workbook PDF and booklet image from original upload 419. Public free course is restored; newsletter signup awaits Mailoctopus form details, with contact enquiry as a temporary path. No deployment."
     },
     {
       "sourceId": 1138,
@@ -436,11 +438,11 @@
       "title": "Shop",
       "slug": "shop",
       "status": "current-menu",
-      "template": "page",
+      "template": "shop-index",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Static Shop landing page locally features the Meditation Series collection. Checkout/account routes are excluded; product Buy it now links await Stripe and protected fulfilment."
     },
     {
       "sourceId": 235,
@@ -463,12 +465,12 @@
       "targetUrl": "/visual-expression/",
       "title": "Visual Expression",
       "slug": "visual-expression",
-      "status": "review-retire",
+      "status": "excluded",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Owner confirmed this legacy page is not being migrated."
     },
     {
       "sourceId": 1745,
@@ -480,9 +482,9 @@
       "status": "current-menu",
       "template": "page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Navigation-priority page migrated; original path retained. Uses original media upload 1866; newsletter and commerce remain unconnected where provider or checkout is pending."
     },
     {
       "sourceId": 323,
@@ -491,12 +493,12 @@
       "targetUrl": "/yoga-sessions/",
       "title": "Yoga Sessions",
       "slug": "yoga-sessions",
-      "status": "review-retire",
+      "status": "excluded",
       "template": "legacy-page",
       "contentSource": "wppg_pages.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "excluded",
       "redirectFrom": [],
-      "notes": ""
+      "notes": "Owner confirmed this legacy page is not being migrated."
     },
     {
       "sourceId": 962,
@@ -508,9 +510,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 907,
@@ -522,9 +524,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 902,
@@ -536,9 +538,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 891,
@@ -550,9 +552,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 878,
@@ -564,9 +566,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 864,
@@ -578,9 +580,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 850,
@@ -592,9 +594,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 840,
@@ -606,9 +608,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 820,
@@ -620,9 +622,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 811,
@@ -634,9 +636,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 804,
@@ -648,9 +650,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 785,
@@ -662,9 +664,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 779,
@@ -676,9 +678,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 764,
@@ -690,9 +692,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 741,
@@ -704,9 +706,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 702,
@@ -718,9 +720,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 695,
@@ -732,9 +734,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 676,
@@ -746,9 +748,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 671,
@@ -760,9 +762,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 399,
@@ -774,9 +776,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 371,
@@ -788,9 +790,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 342,
@@ -802,9 +804,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 269,
@@ -816,9 +818,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 258,
@@ -830,9 +832,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 221,
@@ -844,9 +846,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 196,
@@ -858,9 +860,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 193,
@@ -872,9 +874,9 @@
       "status": "blog-migrate",
       "template": "blog-post",
       "contentSource": "wppg_posts.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "implemented",
       "redirectFrom": [],
-      "notes": "Preserve date, taxonomy, featured image and useful SEO metadata."
+      "notes": "Migrated to the Amy article layout with source key takeaways, taxonomy, SEO metadata and original featured image."
     },
     {
       "sourceId": 1213,
@@ -886,11 +888,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "pilot-awaiting-stripe-and-fulfilment",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_complete_series/"
       ],
-      "notes": "Static product pilot implemented. Awaiting Stripe Payment Link, secure download fulfilment, track-duration clarification and commerce decisions recorded in migration/PRODUCT-PILOT.md."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1205,
@@ -902,11 +904,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_grounding/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1208,
@@ -918,11 +920,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_higher_wisdom/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1201,
@@ -934,11 +936,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_nourish/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1203,
@@ -950,11 +952,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_rebalance/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1206,
@@ -966,11 +968,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_relaxing_into_dreams/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1145,
@@ -982,11 +984,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_rest/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1200,
@@ -998,11 +1000,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_restore/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1207,
@@ -1014,11 +1016,11 @@
       "status": "shop-phase-2",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
+      "migrationStatus": "catalog-and-detail-implemented-awaiting-stripe-and-fulfilment",
       "redirectFrom": [
         "/product/gma_the_inner_child/"
       ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "notes": "Static Meditation Series product detail is locally available. Buy it now awaits Stripe Payment Link and protected digital fulfilment."
     },
     {
       "sourceId": 1549,
@@ -1027,14 +1029,138 @@
       "targetUrl": "/shop/inner-child-reiki-1-online-course/",
       "title": "Inner Child Reiki | Online Group Course",
       "slug": "inner-child-reiki-1-online-course",
-      "status": "shop-phase-2",
+      "status": "excluded",
       "template": "product",
       "contentSource": "wppg_products.json",
-      "migrationStatus": "not-started",
-      "redirectFrom": [
-        "/product/inner-child-reiki-1-online-course/"
-      ],
-      "notes": "Commerce provider and protected-download flow to be selected before implementation."
+      "migrationStatus": "excluded",
+      "redirectFrom": [],
+      "notes": "Owner confirmed this product route will not be migrated."
+    },
+    {
+      "sourceId": 432,
+      "sourceType": "category",
+      "sourceUrl": "/category/conscious-relationships/",
+      "targetUrl": "/category/conscious-relationships/",
+      "title": "Conscious Relationships",
+      "slug": "conscious-relationships",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 3 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 1215,
+      "sourceType": "category",
+      "sourceUrl": "/category/emotional-wellbeing-and-resilience/",
+      "targetUrl": "/category/emotional-wellbeing-and-resilience/",
+      "title": "Emotional Wellbeing & Resilience",
+      "slug": "emotional-wellbeing-and-resilience",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 4 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 380,
+      "sourceType": "category",
+      "sourceUrl": "/category/inner-child-healing/",
+      "targetUrl": "/category/inner-child-healing/",
+      "title": "Inner Child Healing",
+      "slug": "inner-child-healing",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 8 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 1221,
+      "sourceType": "category",
+      "sourceUrl": "/category/mindfulness-and-meditation/",
+      "targetUrl": "/category/mindfulness-and-meditation/",
+      "title": "Mindfulness & Meditation",
+      "slug": "mindfulness-and-meditation",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 4 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 1220,
+      "sourceType": "category",
+      "sourceUrl": "/category/personal-healing-and-transformation/",
+      "targetUrl": "/category/personal-healing-and-transformation/",
+      "title": "Personal Healing & Transformation",
+      "slug": "personal-healing-and-transformation",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 8 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 381,
+      "sourceType": "category",
+      "sourceUrl": "/category/shadow-work-and-integration/",
+      "targetUrl": "/category/shadow-work-and-integration/",
+      "title": "Shadow Work & Integration",
+      "slug": "shadow-work-and-integration",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 3 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 1216,
+      "sourceType": "category",
+      "sourceUrl": "/category/spiritual-healing-and-energy-work/",
+      "targetUrl": "/category/spiritual-healing-and-energy-work/",
+      "title": "Spiritual Healing & Energy Work",
+      "slug": "spiritual-healing-and-energy-work",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 2 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": 1217,
+      "sourceType": "category",
+      "sourceUrl": "/category/wellbeing-tools-and-practices/",
+      "targetUrl": "/category/wellbeing-tools-and-practices/",
+      "title": "Wellbeing Tools & Practices",
+      "slug": "wellbeing-tools-and-practices",
+      "status": "indexed-content",
+      "template": "category-archive",
+      "contentSource": "migration/category-archives.json (from supplied WordPress SQL export)",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Indexed, indexable category archive. Description and term SEO metadata saved in migration/category-archives.json; 13 assigned posts. Generated locally; blog and article category labels link here."
+    },
+    {
+      "sourceId": null,
+      "sourceType": "product-category",
+      "sourceUrl": "/product-category/meditation-series/",
+      "targetUrl": "/product-category/meditation-series/",
+      "title": "Meditation Series",
+      "slug": "meditation-series",
+      "status": "current-menu",
+      "template": "product-category-archive",
+      "contentSource": "WooCommerce category path retained from WordPress navigation; product record from wppg_products.json",
+      "migrationStatus": "implemented",
+      "redirectFrom": [],
+      "notes": "Static archive lists the Complete Collection first, followed by eight individual meditations; checkout/account routes remain excluded."
     }
   ]
 }

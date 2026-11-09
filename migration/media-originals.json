@@ -187,5 +187,107 @@
     "asset": "src/assets/images/amygrist_gallery_background_001.jpg",
     "sha256": "b390a594cc90f656f4f718669efe6726791e9f061ef8773cc56a07372230cd97",
     "resolution": "_wp_attached_file original 2000x900 upload; generated WordPress sizes excluded"
+  },
+  {
+    "id": 1866,
+    "original": "2025/12/Wellbeing-tools-and-practices-header.webp",
+    "asset": "src/assets/images/Wellbeing-tools-and-practices-header.webp",
+    "sha256": "678015c1437b6edbe83fcdfd0851f0e8023909fcdbd554775ae1178822be8753",
+    "resolution": "Original media attachment; copied unchanged"
+  },
+  {
+    "id": 1903,
+    "original": "2025/12/Helping-Your-Inner-Child-Feel-Safe-A-Trauma-Informed-Boundaries-Guide.pdf",
+    "asset": "public/downloads/Helping-Your-Inner-Child-Feel-Safe-A-Trauma-Informed-Boundaries-Guide.pdf",
+    "sha256": "4668ab8da293d516c88fdf54d9be9a8c0afe36ca461046523c0703027a89e6a0",
+    "resolution": "Original media attachment; copied unchanged"
+  },
+  {
+    "mediaId": 1146,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_002.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_002.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_002.jpg",
+    "sha256": "e90992870cd21855271994eca42a1737b3f38cea93923e748fcb4d05cae4e017",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 1151,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_003.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_003.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_003.jpg",
+    "sha256": "82918cbc440d54e0eb93e262a50c04a06a32b5ab6bbe03d48a322bf4ba6d743d",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 1152,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_004.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_004.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_004.jpg",
+    "sha256": "a3f364815ca3f516a05acaaeb7d3c4fa74303affffecdcd64ce46002d5ad3743",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 1153,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_005.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_005.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_005.jpg",
+    "sha256": "53a0cb3578059da7d6812c25de67c095292f7908660147a6511a192142587426",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 1154,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_006.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_006.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_006.jpg",
+    "sha256": "b719a1cc2772d5fed81d393cda20430f641b34f1cadeaadd93e56bcd8512850a",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 1155,
+    "originalFilename": "Amy_grist_inner_harmony_balance_meditation_series_007.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2024/03/Amy_grist_inner_harmony_balance_meditation_series_007.jpg",
+    "appPath": "src/assets/images/Amy_grist_inner_harmony_balance_meditation_series_007.jpg",
+    "sha256": "98a32c00c62bd7c849633aa16f500c1e3a21b6e96218069b300a968b57a03600",
+    "use": "Meditation Series individual product original"
+  },
+  {
+    "mediaId": 110,
+    "originalFilename": "amy_grist_yoga2.jpg",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2020/03/amy_grist_yoga2.jpg",
+    "assetPath": "src/assets/images/amy_grist_yoga2.jpg",
+    "sha256": "c57fc2476fe8c500ab0f58084a7ca00da2739c7ebba93acfda60f1f80a51d5d8",
+    "use": "Personal Yoga hero image (original Nectar Slider upload)"
+  },
+  {
+    "mediaId": null,
+    "originalFilename": "Guided-Meditation-1-Creating-the-environment.mp3",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2023/05/Guided-Meditation-1-Creating-the-environment.mp3",
+    "appPath": "public/audio/Guided-Meditation-1-Creating-the-environment.mp3",
+    "sha256": "5bfc53218ead454ceebf1208c206857712ac84237961d7579440e45011e35d31",
+    "use": "Sacred Space Meditation Course original audio/workbook; copied byte-for-byte"
+  },
+  {
+    "mediaId": null,
+    "originalFilename": "Guided-Meditation-2-Explorative-Introspection.mp3",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2023/05/Guided-Meditation-2-Explorative-Introspection.mp3",
+    "appPath": "public/audio/Guided-Meditation-2-Explorative-Introspection.mp3",
+    "sha256": "38e7eed36a508bbf0daee7ae4d9c22d7707e7169abaa16f62d69265fd9c558d4",
+    "use": "Sacred Space Meditation Course original audio/workbook; copied byte-for-byte"
+  },
+  {
+    "mediaId": null,
+    "originalFilename": "Guided-Meditation-3-Receiving.mp3",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2023/05/Guided-Meditation-3-Receiving.mp3",
+    "appPath": "public/audio/Guided-Meditation-3-Receiving.mp3",
+    "sha256": "acb60dfa49bfe5cd4b5de63c10f7ed8655e2df3e518e6a16943642792440a6b2",
+    "use": "Sacred Space Meditation Course original audio/workbook; copied byte-for-byte"
+  },
+  {
+    "mediaId": null,
+    "originalFilename": "Amy-Meditations.pdf",
+    "sourcePath": "amy-grist-astro-starter-docs/uploads/2021/02/Amy-Meditations.pdf",
+    "appPath": "public/downloads/Amy-Meditations.pdf",
+    "sha256": "2a2ceddab1d7c6fcdd6c437077eec97f36f39b006d16a7c0372426ae912e0a35",
+    "use": "Sacred Space Meditation Course original audio/workbook; copied byte-for-byte"
   }
 ]

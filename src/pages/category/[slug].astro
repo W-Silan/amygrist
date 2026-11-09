@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import {getArticles} from '../../data/articles';
+import {categories} from '../../data/categories';
+
+export async function getStaticPaths() {
+  return categories.filter((category) => category.indexable).map((category) => ({
+    params: {slug: category.slug},
+    props: {category},
+  }));
+}
+const {category} = Astro.props;
+const articles = await getArticles();
+const categoryArticles = articles.filter((article) => article.categories.includes(category.name));
+---
+<BaseLayout title={`${category.name} | Amy Grist`} description={category.seoDescription} solidHeader={true}>
+  <section class="category-archive container" aria-labelledby="category-title">
+    <p class="eyebrow"><a href="/blog/">Articles</a> / Category</p>
+    <header class="category-heading">
+      <h1 id="category-title">{category.name}</h1>
+      <p>{category.description}</p>
+    </header>
+    <p class="result-count">{categoryArticles.length} {categoryArticles.length === 1 ? 'article' : 'articles'}</p>
+    {categoryArticles.length ? <div class="article-grid">{categoryArticles.map((article) => <ArticleCard {article} />)}</div> : <p>Articles in this category are being prepared.</p>}
+    <p class="all-articles"><a href="/blog/">Browse all articles →</a></p>
+  </section>
+</BaseLayout>
+<style>
+.category-archive{padding-top:clamp(150px,16vw,190px);padding-bottom:90px}.eyebrow{font:400 14px var(--nav);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}.eyebrow a{color:inherit}.category-heading{max-width:850px;margin:0 auto 38px;text-align:center}.category-heading h1{font-size:clamp(38px,6vw,62px);line-height:1.1;color:var(--ink);margin:0 0 18px}.category-heading p{font-size:18px}.result-count{font-size:14px;color:var(--ink);margin-bottom:20px}.article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.all-articles{text-align:center;margin:50px auto 0}.all-articles a{color:var(--link);font-weight:500}@media(max-width:1050px){.article-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}@media(max-width:680px){.category-archive{padding-top:130px;padding-bottom:60px}.article-grid{grid-template-columns:1fr;gap:18px}}</style>

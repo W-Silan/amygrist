@@ -1,0 +1,18 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import {getArticles} from '../data/articles';
+import {render} from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  const slugs = new Set<string>();
+  for (const article of articles) {
+    if (slugs.has(article.slug)) throw new Error('Duplicate article route: ' + article.slug);
+    slugs.add(article.slug);
+  }
+  return articles.map((article) => ({params: {slug: article.slug}, props: {article}}));
+}
+const {article} = Astro.props;
+const {Content} = await render(article.entry);
+---
+<ArticleLayout article={{...article, Content, seo: {title: article.seoTitle, description: article.seoDescription}}} />

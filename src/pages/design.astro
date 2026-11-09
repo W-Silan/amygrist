@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const colours = [
+  {name:'Warm paper', token:'--bg', value:'#f5f5f5', role:'Main reading surface', ink:true},
+  {name:'Rose', token:'--rose', value:'#bc5f6a', role:'Primary brand colour'},
+  {name:'Soft rose', token:'--soft-rose', value:'#e3a6a1', role:'Soft section backgrounds', ink:true},
+  {name:'Teal', token:'--teal', value:'#034b61', role:'Deep grounding colour'},
+  {name:'Aqua', token:'--accent', value:'#19b3b1', role:'Rules and small highlights', ink:true},
+  {name:'Rose ink', token:'--text-rose', value:'#a84f5c', role:'Readable rose text'},
+  {name:'Ink', token:'--ink', value:'#023c4d', role:'Body text on light surfaces'},
+  {name:'Action teal', token:'--button', value:'#066967', role:'Primary buttons'},
+];
+---
+<BaseLayout title="Design | Amy Grist" description="A visual guide to the colours, typography and page elements used across Amy Grist’s website.">
+  <section class="design-hero">
+    <div class="hero-inner container">
+      <p class="eyebrow">Visual language · Amy Grist</p>
+      <h1>Room to return<br/><em>to yourself.</em></h1>
+      <p class="hero-copy">A warm, spacious design system shaped by soft rose, deep teal, clear typography and a gentle reading rhythm.</p>
+      <a class="button" href="/">Explore the website <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-orbit" aria-hidden="true"><span></span><i></i><b></b></div>
+  </section>
+
+  <section class="section paper" aria-labelledby="palette">
+    <div class="container">
+      <p class="eyebrow dark">Colour palette</p><h2 id="palette">A grounded, gentle palette</h2>
+      <p class="lead">Rose brings warmth, teal provides steadiness, and open neutral space keeps the content easy to read.</p>
+      <div class="swatches">{colours.map(c=><article class:list={['swatch',{ink:c.ink}]} style={`--swatch:${c.value}`}><div class="sample"></div><div class="swatch-copy"><h3>{c.name}</h3><code>{c.value}</code><code>var({c.token})</code><p>{c.role}</p></div></article>)}</div>
+    </div>
+  </section>
+
+  <section class="section rose-band" aria-labelledby="combinations">
+    <div class="container"><p class="eyebrow">Colour relationships</p><h2 id="combinations">Softness with clear contrast</h2>
+      <div class="combos">
+        <article class="combo light"><small>Paper · Ink</small><h3>For longer reading</h3><p>Warm neutral space and deep teal text carry reflective and practical content.</p></article>
+        <article class="combo deep"><small>Deep teal · White</small><h3>For a grounded pause</h3><p>Use a deep colour band to give a key idea, invitation or testimonial room to stand out.</p></article>
+        <article class="combo blush"><small>Soft rose · Ink</small><h3>For a gentle transition</h3><p>A blush surface separates related sections while keeping the page calm and welcoming.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section paper" aria-labelledby="title-lines">
+    <div class="container">
+      <p class="eyebrow dark">Title details</p><h2 id="title-lines">Colour-coded title lines</h2>
+      <p class="lead">The background sets the title colour; a contrasting underline adds a small animated accent. Text stays still. The line must reach at least 3:1 against its surface, while title text meets WCAG AA for its size.</p>
+      <div class="underline-grid">
+        <article class="underline-sample dark-surface"><small>Resource hero gradient · #034b61 → #398b83</small><h3 class="title-underline title-underline--on-dark">A title on teal</h3><p>Title: #ffffff · Line: #fff4f2</p><p class="contrast-result">Title 4.04:1 · Line 3.75:1 <b>Pass</b></p><p class="previous-result">Previous blush #f1c1bb: 2.52:1 · Fail</p></article>
+        <article class="underline-sample light-surface"><small>Warm paper background · #f5f5f5</small><h3 class="title-underline title-underline--on-light">A title on paper</h3><p>Title: #023c4d · Line: #034b61</p><p class="contrast-result">Title 10.97:1 · Line 8.82:1 <b>Pass</b></p></article>
+        <article class="underline-sample blush-surface"><small>Soft blush panel · #f0dddd</small><h3 class="title-underline title-underline--on-blush">A title on blush</h3><p>Title: #023c4d · Line: #b05260</p><p class="contrast-result">Title 9.16:1 · Line 3.81:1 <b>Pass</b></p></article>
+      </div>
+      <p class="contrast-note">Contrast ratios use the WCAG relative-luminance formula. Underlines are decorative, but the 3:1 non-text contrast benchmark is used for consistency. The teal-gradient test uses its lightest stop.</p>
+    </div>
+  </section>
+
+  <section class="section paper" aria-labelledby="links">
+    <div class="container">
+      <p class="eyebrow dark">Interactive details</p><h2 id="links">Links without underlines</h2>
+      <p class="lead">Links use a distinct colour in each surface context. Hover or keyboard-focus a sample to see its colour shift; underlines are not used. All listed foreground colours meet WCAG AA contrast for normal text (at least 4.5:1).</p>
+      <div class="link-grid">
+        <article class="link-sample link-paper"><small>Warm paper · #f5f5f5</small><p>Read <a href="/contact/">more about getting in touch</a>.</p><code>Link #087b79 · Hover #b05260</code><strong>4.68:1 · 4.56:1 · Pass</strong></article>
+        <article class="link-sample link-blush"><small>Soft blush · #e3a6a1</small><p>Explore <a href="/inner-child-therapy/">Inner Child healing</a>.</p><code>Link #034b61 · Hover #76303e</code><strong>4.69:1 · 4.52:1 · Pass</strong></article>
+        <article class="link-sample link-teal"><small>Deep teal · #034b61</small><p>Discover <a href="/meditation/">meditation support</a>.</p><code>Link #ccffff · Hover #fff4f2</code><strong>8.85:1 · 8.92:1 · Pass</strong></article>
+        <article class="link-sample link-rose"><small>Rose · #b05260</small><p>Visit the <a href="/blog/">article archive</a>.</p><code>Blush link #fff4f2 · Aqua hover #ccffff</code><strong>4.61:1 · 4.58:1 · Pass</strong><small>Soft blush #e3a6a1 is 2.42:1 here, so it fails.</small></article>
+      </div>
+      <p class="contrast-note">Contrast ratios use the WCAG relative-luminance formula. Hover and keyboard focus share the same colour indication; a separate focus outline remains available for keyboard navigation.</p>
+    </div>
+  </section>
+
+  <section class="section paper" aria-labelledby="type">
+    <div class="container type-grid"><div><p class="eyebrow dark">Typography</p><h2 id="type">Expressive headings, comfortable reading.</h2><p>Fraunces gives headings a warm editorial character. Poppins keeps paragraphs and practical details open and legible. Josefin Sans marks the navigation.</p></div>
+      <div class="specimens"><article><small>Display · Fraunces</small><p class="display">Come home<br/>to yourself.</p></article><article><small>Section heading · Fraunces</small><p class="heading">A gentle path toward healing</p></article><article><small>Body · Poppins</small><p class="body-sample">Healing unfolds in its own time. A spacious line length and steady rhythm make room for each idea to land.</p></article><article><small>Navigation · Josefin Sans</small><p class="nav-sample">ABOUT&nbsp;&nbsp; OFFERINGS&nbsp;&nbsp; CONTACT</p></article></div>
+    </div>
+  </section>
+
+  <section class="section teal-band" aria-labelledby="elements"><div class="container"><p class="eyebrow">Page elements</p><h2 id="elements">A consistent way through the site</h2>
+    <div class="element-grid"><article><small>01 · Section title</small><h3>A clear heading</h3><hr class="rule"/><p>Titles use a fine aqua rule to create a quiet visual anchor.</p></article><article><small>02 · Primary action</small><h3>Make the next step clear</h3><a class="button" href="/contact/">Get in touch <span aria-hidden="true">→</span></a><p>Buttons use a solid teal surface and a concise invitation.</p></article><article class="quote"><small>03 · Reflection</small><blockquote>“There is no rush. You can meet yourself exactly where you are.”</blockquote><p>Amy Grist · Inner Child Practitioner</p></article></div>
+  </div></section>
+
+  <section class="section paper"><div class="container layout-grid"><div><p class="eyebrow dark">Layout</p><h2>Generous space supports a slower pace.</h2><p>Content sits within a centred maximum-width column. Desktop layouts can pair text and imagery; on smaller screens, they become one comfortable reading column.</p></div><div class="measures"><div><span style="--w:100%"></span><b>1248px</b><small>Maximum content width</small></div><div><span style="--w:73%"></span><b>73.5%</b><small>Desktop container width</small></div><div><span style="--w:48%"></span><b>88%</b><small>Container width below 999px</small></div><div><span style="--w:64%"></span><b>45–55px</b><small>Section padding on small screens</small></div></div></div></section>
+  <section class="closing"><p class="eyebrow">Amy Grist</p><p>Presence, compassion and a path inward.</p></section>
+</BaseLayout>
+
+<style>
+  .design-hero{position:relative;overflow:hidden;isolation:isolate;background:var(--teal);color:white}.hero-inner{position:relative;z-index:1;min-height:560px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:175px 0 90px}.eyebrow{font:500 13px/1.5 var(--nav);letter-spacing:.16em;text-transform:uppercase;color:#c9e5e2;margin:0 0 16px}.eyebrow.dark{color:var(--rose-surface)}h1{font-size:clamp(48px,8vw,92px);line-height:.98;margin:0 0 24px}h1 em{font-weight:400;color:#efc4bd}.hero-copy{max-width:570px;font-size:clamp(18px,2vw,22px);margin-bottom:32px}.hero-orbit{position:absolute;z-index:0;width:min(47vw,620px);aspect-ratio:1;right:2%;top:50%;transform:translateY(-50%);border:1px solid #ffffff28;border-radius:50%;display:grid;place-items:center}.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;inset:12%;border:1px solid #ffffff20;border-radius:50%}.hero-orbit:after{inset:25%;border-color:#ffffff30}.hero-orbit span{width:45%;aspect-ratio:1;border:1px solid #e3a6a177;transform:rotate(45deg)}.hero-orbit i,.hero-orbit b{position:absolute;width:62%;height:1px;background:#ffffff30;transform:rotate(45deg)}.hero-orbit b{transform:rotate(-45deg)}.section{padding-block:clamp(60px,8vw,110px)}.section[aria-labelledby="palette"]{padding-top:135px}.paper{background:var(--bg)}.container{position:relative;z-index:1}.section h2{font-size:clamp(32px,4.5vw,52px);max-width:23ch;margin-bottom:20px}.lead{max-width:700px}.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}.swatch{overflow:hidden;border:1px solid #023c4d20;border-radius:var(--radius);background:var(--swatch);color:white}.swatch.ink{color:var(--ink)}.sample{height:95px;background:linear-gradient(135deg,#ffffff05,#ffffff30);border-bottom:1px solid #ffffff35}.swatch-copy{display:grid;gap:5px;padding:18px}.swatch h3{font:500 19px/1.2 var(--heading);margin:0}.swatch code{font:12px/1.5 monospace}.swatch p{font-size:13px;margin:6px 0 0}.rose-band{background:var(--rose);color:#fff}.combos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}.combo{min-height:255px;padding:30px;border:1px solid #ffffff40}.combo small,.element-grid small,.specimens small{font:500 11px var(--nav);letter-spacing:.12em;text-transform:uppercase}.combo h3{font:400 26px/1.2 var(--heading);margin:52px 0 12px}.combo.light{background:#f5f5f5;color:var(--ink)}.combo.deep{background:var(--teal)}.combo.blush{background:var(--soft-rose);color:var(--ink)}.underline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:18px;margin-top:34px}.underline-sample{min-width:0;min-height:280px;padding:26px;border:1px solid #023c4d28;border-radius:4px;display:flex;flex-direction:column;align-items:flex-start}.underline-sample>small{min-height:40px}.underline-sample>.title-underline{margin-top:28px;margin-bottom:24px}.underline-sample>p{max-width:34ch}.underline-sample .contrast-result{margin-top:auto;padding-top:18px;font-weight:500}.underline-sample small{display:block;font:500 11px/1.5 var(--nav);letter-spacing:.1em;text-transform:uppercase;min-height:34px}.underline-sample h3{font:400 27px/1.2 var(--heading);margin:30px 0 20px}.underline-sample p{font-size:13px;margin:10px 0}.dark-surface{background:linear-gradient(115deg,#034b61,#0d6570 70%,#398b83);color:white}.light-surface{background:#f5f5f5;color:#023c4d}.blush-surface{background:#f0dddd;color:#023c4d}.contrast-result b{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:12px;background:#d8eee5;color:#154d37}.previous-result{color:#ffe5e2}.contrast-note{font-size:13px;margin-top:20px}.link-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:34px}.link-sample{min-width:0;min-height:220px;padding:22px;border-radius:var(--radius);display:flex;flex-direction:column;justify-content:space-between;gap:18px}.link-sample small{font:500 11px/1.5 var(--nav);letter-spacing:.08em;text-transform:uppercase}.link-sample p{margin:0}.link-sample code{font-size:11px;line-height:1.5}.link-sample strong{font-size:12px}.link-paper{background:#f5f5f5;color:var(--ink);border:1px solid #023c4d25}.link-blush{background:#e3a6a1;color:var(--ink)}.link-blush a:not(.button){color:var(--link-soft-rose)}.link-blush a:not(.button):hover,.link-blush a:not(.button):focus-visible{color:var(--link-hover-soft-rose)}.link-teal{background:#034b61;color:white}.link-teal a:not(.button),.link-rose a:not(.button){color:var(--link-on-rose)}.link-teal a:not(.button):hover,.link-teal a:not(.button):focus-visible,.link-rose a:not(.button):hover,.link-rose a:not(.button):focus-visible{color:var(--link-hover-on-rose)}.link-rose{background:#b05260;color:white}.type-grid,.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:start}.specimens{display:grid;gap:18px}.specimens article{border-top:1px solid #bc5f6a50;padding-top:14px}.specimens small{color:var(--rose-surface)}.specimens p{margin:12px 0 0;color:var(--ink)}.display{font:400 clamp(38px,5vw,60px)/1.02 var(--heading)}.heading{font:400 31px/1.2 var(--heading)}.body-sample{font:300 17px/1.7 var(--body)}.nav-sample{font:400 18px/1.5 var(--nav);letter-spacing:.05em}.teal-band{background:var(--teal);color:white}.element-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}.element-grid>article{padding:26px;border:1px solid #ffffff45;min-height:255px}.element-grid h3{font:400 25px var(--heading);margin:32px 0 14px}.element-grid p{margin-top:20px;font-size:14px}.element-grid .rule{margin:0}.quote blockquote{font:400 25px/1.35 var(--heading);margin:34px 0 16px}.button{gap:12px}.measures{display:grid;gap:20px;padding-top:8px}.measures div{display:grid;grid-template-columns:1fr auto;gap:6px 14px}.measures span{grid-column:1/-1;height:7px;width:var(--w);background:var(--accent)}.measures b{color:var(--ink)}.measures small{color:var(--rose-surface)}.closing{padding:70px 20px;background:#f0dddd;color:var(--ink);text-align:center}.closing .eyebrow{color:var(--rose-surface)}.closing>p:last-child{font:400 22px var(--heading);letter-spacing:.04em;margin:0}
+  @media(max-width:850px){.hero-inner{min-height:490px}.hero-orbit{right:-23%;width:68vw;opacity:.55}.swatches{grid-template-columns:repeat(2,1fr)}.combos,.element-grid{grid-template-columns:1fr}.link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.underline-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.underline-sample{padding:20px 16px;min-height:300px}.underline-sample h3{font-size:23px}.underline-sample p{font-size:12px}.combo{min-height:210px}.combo h3{margin-top:30px}.type-grid,.layout-grid{grid-template-columns:1fr;gap:38px}}
+  @media(max-width:680px){.underline-grid{display:flex;overflow-x:auto;padding:2px 2px 16px;scroll-snap-type:x mandatory}.underline-sample{flex:0 0 min(82vw,360px);scroll-snap-align:start}}
+  @media(max-width:520px){.hero-inner{padding:125px 0 70px}.section[aria-labelledby="palette"]{padding-top:90px}.link-grid{grid-template-columns:1fr}.hero-inner{min-height:480px;padding-block:70px}.hero-orbit{right:-52%;width:95vw}.swatches{gap:10px}.swatch-copy{padding:13px}.sample{height:70px}.swatch h3{font-size:17px}.section{padding-block:52px}.element-grid>article{min-height:0}.section h2{font-size:30px}}
+</style>

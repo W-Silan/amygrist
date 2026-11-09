@@ -1,8 +1,8 @@
-# Product pilot — Complete Meditation Series
+# Meditation Series products — catalog and detail layouts
 
 Updated: 18 September 2026.
 
-This pilot maps WordPress product 1213 to `/shop/gma_complete_series/`. The previous URL is `/product/gma_complete_series/`; its redirect remains recorded in `ROUTE-INVENTORY.json` for cutover and is not active yet.
+The Meditation Series has nine exported WooCommerce products: the Complete Series and eight individual audio meditations. All map to preserved `/shop/{slug}/` detail URLs; original `/product/{slug}/` paths remain recorded as redirects in `ROUTE-INVENTORY.json` for cutover, and are not active yet.
 
 ## Preserved product record
 
@@ -15,6 +15,10 @@ This pilot maps WordPress product 1213 to `/shop/gma_complete_series/`. The prev
 - WordPress expiry: 180 days
 - Source images: media IDs 1150, 1147 and 1148, copied from their original 1080×1080 uploads
 - Protected source file: remains only in the private archive under `uploads/woocommerce_uploads/`; it must never enter `src/`, `public/` or the static build
+
+## Checkout direction — 1 October 2026
+
+Use a direct Stripe Payment Link from the product’s **Buy it now** button. Do not add a basket/cart flow. The existing button remains inactive until a Payment Link is supplied and download fulfilment is ready.
 
 ## Pilot implementation
 
@@ -47,7 +51,7 @@ Stripe Payment Links create hosted Checkout Sessions and expose Checkout events 
 
 ## Decisions and inputs needed
 
-- Live or test Stripe Payment Link for the £35.95 product
+- Stripe Payment Link for the £35.95 product (direct Buy it now; no cart)
 - Download fulfilment choice: Cloudflare Worker/Pages Function plus private R2 is the recommended fit for this stack, or a managed digital-delivery service
 - Whether to retain the old 5-download/180-day limits
 - Transactional sender/service and the support email shown to buyers
@@ -59,3 +63,12 @@ Stripe Payment Links create hosted Checkout Sessions and expose Checkout events 
 ## Source conflict to resolve
 
 The export says the purchase includes 8 MP3 files, but its running-time copy lists seven tracks: Rest, Restore, Nourish, Grounding, Relaxing into Dreams, The Inner Child and Higher Wisdom. Rebalance appears elsewhere as a product and is probably the eighth track, but its duration must be confirmed rather than inferred. The pilot states “8 guided MP3 files” and omits the incomplete running-time list until Amy confirms it.
+
+
+## Catalog layout — 1 October 2026
+
+The `/shop/` page presents the Meditation Series collection and Shop navigation links directly to `/shop/` without a submenu. Selecting the collection opens `/product-category/meditation-series/`, which places the Complete Collection first, followed by eight individual meditations in a two-column desktop grid (four rows) that stacks on smaller screens. Each card opens its preserved `/shop/{slug}/` detail route. The products are Complete Series (£35.95), Rest, Restore, Nourish, Grounding, Relaxing into Dreams, The Inner Child, Higher Wisdom and Rebalance (£4.99 each).
+
+The individual records use the source excerpts, stated running times, source prices and original uploaded cover images. Images 1146 and 1151–1155 were copied from their original uploads and SHA-256 recorded in `migration/media-originals.json`; existing original assets 1156 and 1157 are reused for The Inner Child and Higher Wisdom. Astro generates responsive WebP output from these originals.
+
+Each product has a separate build-time Payment Link variable (`PUBLIC_STRIPE_GMA_{PRODUCT}_URL`) and Buy it now button. All remain disabled until links and protected download fulfilment are ready. No basket is used. The source Complete Series listing says eight MP3s, but its running-times paragraph names seven meditations; Rebalance is an individual product with its own stated 11:43 runtime, but its membership in the complete bundle remains unconfirmed.

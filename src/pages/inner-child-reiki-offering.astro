@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {images} from '../data/images';
+import {href} from '../data/site';
+
+const trainingFoundations = [
+  'Learn the foundations of the Usui Reiki system and its four levels of initiation.',
+  'Experience attunements that open your energetic channels and awaken intuitive sensitivity.',
+  'Explore intuitive and energy-based healing with a focus on self-awareness and self-trust.',
+  'Integrate Reiki with Inner Child practices, using energy to bring safety, balance and love to the inner child.',
+];
+const suitedTo = [
+  'Feel drawn to explore energy healing through a grounded, heart-centred approach.',
+  'Wish to heal and reconnect with your own inner child, restoring safety, trust and joy.',
+  'Are a practitioner or therapist seeking to integrate Reiki and intuitive energy work into your practice.',
+  'Desire to strengthen intuitive awareness and the ability to sense, interpret and balance subtle energies.',
+  'Feel ready to release inherited patterns and emotional imprints with gentleness.',
+  'Long to rediscover play, presence and openness.',
+  'Wish to cultivate a daily self-healing practice rooted in peace, clarity and compassion.',
+];
+const practitionerBenefits = [
+  ['Bridges energy and emotion', 'Translates Reiki’s subtle frequencies into felt experience through the language of the heart.'],
+  ['Deepens intuitive sensitivity', 'Expands awareness of how energy, emotion and memory weave together.'],
+  ['Heals the healer', 'Offers personal integration and release from old emotional patterns that can shape how we hold space for others.'],
+  ['Restores gentleness and joy', 'Reconnects you with the qualities of play, curiosity and wonder that keep the healing arts alive.'],
+  ['Strengthens relational presence', 'Cultivates the ability to meet clients, loved ones and yourself with compassion and energetic steadiness.'],
+  ['Honours Reiki’s lineage', 'Opens the practice to the emotional and psychological dimensions of Inner Child work.'],
+];
+const reikiTeachings = [
+  'The principles and ethics of the Usui System of Natural Healing.',
+  'The Five Reiki Precepts as a foundation for mindful, compassionate living.',
+  'How to create a sacred environment for healing sessions.',
+  'Self-healing and partner techniques, including hand positions and intuitive flow.',
+];
+const innerChildPractice = [
+  'Offer Reiki directly to your inner child.',
+  'Receive Reiki from your inner child, opening to reciprocity and trust.',
+  'Use Reiki to cleanse the energy of past memories and experiences.',
+];
+---
+<BaseLayout title="Inner Child Reiki Training | Amy Grist" description="Explore Inner Child Reiki, a heart-centred training that brings Usui Reiki practice together with Inner Child work." ogImage={images[483]} solidHeader={true}>
+  <PageHero image={images[483]} title="Inner Child Reiki" caption="A path of energy, love and remembrance" alt="Hands resting gently as part of a Reiki healing practice" position="center" />
+
+  <article class="offering-page">
+    <section class="band introduction">
+      <div class="container intro-copy">
+        <p class="lead">Two sacred healing modalities united in purpose: to awaken love, trust and the natural intelligence of the soul. Through this course, you will learn to channel Reiki energy as unconditional love, and to direct this light inward, to soothe, nurture and restore the child within.</p>
+        <p>Whether you are new to energy work or already walking a healing path, this training offers practical tools and space for profound transformation.</p>
+        <a class="button" href={href('/contact/')}>Enquire about Inner Child Reiki <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="band soft-rose">
+      <div class="container section-copy">
+        <h2>An Invitation to Healing</h2><hr class="rule short" />
+        <p>Reiki is the art of connecting with the universal life force — a current of love that restores balance to body, mind and spirit. Inner Child work is the art of listening to the soul’s earliest voice — the innocent self who remembers joy, curiosity and wonder.</p>
+        <p>Together, they create a bridge between energy and emotion, past and present, the child and the adult within.</p>
+        <p>In <em>Inner Child Reiki</em>, you will:</p>
+        <ul>{trainingFoundations.map(item => <li>{item}</li>)}</ul>
+        <p>This training honours Reiki’s lineage while opening it to a new dimension of emotional and spiritual integration.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container section-copy">
+        <h2>Who This Training Is For</h2><hr class="rule short" />
+        <p><em>Inner Child Reiki</em> is for those who feel called to deepen their healing journey, whether personally, professionally or spiritually. It welcomes anyone who senses that love, when consciously directed, can transform the self and the relationships that flow from it.</p>
+        <p>This training may be right for you if you:</p>
+        <ul>{suitedTo.map(item => <li>{item}</li>)}</ul>
+        <p>There are no prerequisites other than an open heart and a willingness to listen within. Whether you are a seasoned practitioner or taking your first step into energy work, the training meets you where you are and gently invites you deeper.</p>
+      </div>
+    </section>
+
+    <section class="band soft-rose">
+      <div class="container section-copy">
+        <h2>Why Practitioners Are Drawn to This Training</h2><hr class="rule short" />
+        <p>Many who are drawn to <em>Inner Child Reiki</em> have already walked a path of helping others — as therapists, healers, coaches, parents or caregivers — yet feel a quiet knowing that something deeper awaits. This work calls to those who sense that true healing begins in relationship: between love and fear, presence and pain, the adult and the child within.</p>
+        <ul class="benefit-list">{practitionerBenefits.map(([title, copy]) => <li><strong>{title}</strong> — {copy}</li>)}</ul>
+        <p>Many practitioners describe this training as a homecoming, a return to the essence that first called them to healing. It invites you not only to learn Reiki, but to live it as a path of unconditional love in action, beginning within.</p>
+        <blockquote>“To heal others with light, we must first learn to hold our own heart in our hands.”</blockquote>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container section-copy">
+        <h2>The Essence of Reiki</h2><hr class="rule short" />
+        <p>Reiki is not a religion or belief system. It is a living current — Universal Life Energy — guided by intention and love. Practitioners serve as channels, allowing this energy to flow through them and restore harmony where imbalance has occurred.</p>
+        <p>Through <em>Inner Child Reiki</em>, you will learn:</p>
+        <ul>{reikiTeachings.map(item => <li>{item}</li>)}</ul>
+        <p>As you practise, your connection to this universal current deepens, harmonising body and spirit, awakening inner guidance and amplifying compassion for yourself and others.</p>
+      </div>
+    </section>
+
+    <section class="band soft-rose">
+      <div class="container section-copy">
+        <h2>Integrating the Inner Child</h2><hr class="rule short" />
+        <p>The inner child carries both innocence and memory: the joy of play and the echoes of unmet needs. When we bring Reiki’s unconditional love to this space, deep transformation can occur.</p>
+        <p>Through guided meditations and experiential exercises, you will learn to:</p>
+        <ul>{innerChildPractice.map(item => <li>{item}</li>)}</ul>
+        <p>This integration becomes a living dialogue of love, the soul remembering itself whole.</p>
+      </div>
+    </section>
+
+    <section class="band teal-band">
+      <div class="container heart-copy">
+        <h2>The Heart of the Work</h2><hr class="rule short" />
+        <p>At the heart of <em>Inner Child Reiki</em> lies a simple truth: healing is not about fixing what is broken, but remembering what has always been whole.</p>
+        <p>This training is not only an initiation into Reiki, but an invitation into intimacy with your own being — a living dialogue between the energy that sustains life and the child within who still remembers how to feel it.</p>
+        <ul>
+          <li><strong>Listen</strong> to the quiet voice beneath the noise, speaking in sensation, feeling and intuition.</li>
+          <li><strong>Trust</strong> the natural intelligence of body and spirit to guide you toward what is needed.</li>
+          <li><strong>Soften</strong> the walls built through fear or striving, so love can flow freely once again.</li>
+          <li><strong>Integrate</strong> the wisdom of the adult, the innocence of the child and the guidance of Spirit into a harmonious field of awareness.</li>
+        </ul>
+        <p><em>The heart of the work is love</em> — not as concept or ideal, but as living energy: unconditional, unforced and always present.</p>
+        <p>Every time you place your hands upon yourself or another, you offer that love a voice: the silent language of light that says, “You are safe now. You are seen. You are whole.” Through Reiki, we learn to inhabit the human experience with tenderness, reverence and trust.</p>
+      </div>
+    </section>
+
+    <section class="band course-section" id="course-details">
+      <div class="container section-copy">
+        <h2>Certification &amp; Continuing Practice</h2><hr class="rule short" />
+        <p>Completion of <em>Inner Child Reiki Level I</em> confers certification in the Usui Reiki System of Natural Healing. Further levels continue under the same lineage, leading toward Reiki Mastery for those who wish to teach or integrate the practice professionally.</p>
+        <p>Each attunement is both a spiritual initiation and a commitment to the path of love in action.</p>
+        <h3>Course details</h3>
+        <ul>
+          <li>Two sessions of 2–2.5 hours each (approximately five hours total)</li>
+          <li>A follow-up integration call</li>
+          <li>Online via Zoom</li>
+          <li>Small group course: £180 per person, with up to six places</li>
+          <li>One-to-one personalised course: £230</li>
+        </ul>
+        <div class="course-options">
+          <section><h3>Small Group Course</h3><ul><li>Inner Child Reiki course booklet</li><li>Reiki 1 certificate</li><li>45-minute follow-up integration call</li></ul></section>
+          <section><h3>1:1 Personalised Course</h3><ul><li>Inner Child Reiki course booklet</li><li>Reiki 1 certificate</li><li>Private training and attunement</li><li>One-hour follow-up integration call</li></ul></section>
+        </div>
+        <p class="date-note">Contact Amy for upcoming course dates and current availability.</p>
+      </div>
+    </section>
+
+    <section class="band soft-rose invitation">
+      <div class="container invitation-copy">
+        <h2>Begin Your Journey</h2><hr class="rule short" />
+        <p>If you feel the quiet pull of this work — a recognition, a soft yes within your heart — trust that call. <em>Inner Child Reiki</em> is not only a course to complete, but a path to walk: a remembering of what you already carry within.</p>
+        <p>Whether this is your first encounter with Reiki or a continuation of your professional practice, you are welcome here. You are invited to begin, place your hands upon your heart, breathe, and whisper to yourself, “I am ready.”</p>
+        <a class="button" href={href('/contact/')}>Register your interest <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+<style>
+.offering-page h2{font-size:clamp(30px,4vw,40px);color:var(--ink)}.offering-page h3{font-size:25px;color:var(--ink);margin:30px 0 14px}.section-copy{max-width:940px}.section-copy .rule{margin:14px 0 24px}.section-copy p,.section-copy li,.heart-copy p,.heart-copy li{text-align:left}.section-copy ul,.heart-copy ul{padding-left:24px;margin-top:14px}.section-copy li,.heart-copy li{margin-bottom:10px}.introduction{padding-top:65px;padding-bottom:65px}.intro-copy{max-width:940px}.intro-copy p{font-size:18px;line-height:1.75;text-align:left}.intro-copy .lead{font-size:21px;color:var(--ink)}.intro-copy .button{margin-top:22px}.benefit-list{list-style:none;padding:0!important}.benefit-list li{border-bottom:1px solid #023c4d20;padding:13px 0;margin:0}.section-copy blockquote{font:400 25px/1.45 var(--heading);color:var(--ink);border-left:3px solid var(--accent);padding:8px 0 8px 22px;margin:28px 0}.teal-band{background:var(--teal);color:white}.heart-copy{max-width:940px}.heart-copy h2{color:white}.heart-copy .rule{--title-line-color:var(--title-line-on-dark)}.heart-copy ul{padding-left:24px}.course-section{background:var(--bg)}.course-section h3{margin-top:28px}.course-options{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}.course-options section{padding:24px;background:var(--soft-rose);color:var(--ink);border-radius:var(--radius)}.course-options h3{font-size:23px;margin:0 0 14px}.course-options ul{margin-bottom:0}.date-note{color:var(--ink);font-weight:500;margin-top:22px}.invitation-copy{max-width:940px;text-align:center}.invitation-copy h2{color:var(--ink)}.invitation-copy .rule{margin-inline:auto}.invitation-copy p{max-width:850px;margin:0 auto 22px;text-align:left}.invitation-copy .button{margin-top:10px}
+@media(max-width:700px){.introduction{padding:44px 0}.intro-copy p{font-size:16px}.intro-copy .lead{font-size:18px}.course-options{grid-template-columns:1fr;gap:16px}.course-options section{padding:20px}.section-copy blockquote{font-size:22px}}
+</style>

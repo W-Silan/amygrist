@@ -21,7 +21,7 @@
         "button_color_2": "Accent-Color",
         "icon_family": "linecons",
         "text": "Enquire about Inner Child Practitioner Training",
-        "url": "https://amygrist.com/become-a-practitioner/",
+        "url": "/become-a-practitioner/",
         "icon_linecons": "vc_li vc_li-heart",
         "css_animation": "fadeInUp",
         "aria_label_text": "Read more about becoming a Certified Inner Child Practitioner"
@@ -34,7 +34,7 @@
       "I invite you to open your heart, trust your intuition, and follow the calling within. My space is here, ready to welcome you."
     ],
     "texts": [
-      "<p style=\"text-align: center;\">I offer gentle, trauma-informed healing modalities that support inner harmony, realignment, and empowerment. Each journey is designed to help you discover purpose and meaning in daily life while deepening your understanding of the multidimensional aspects of your being.</p>\r\n<p style=\"text-align: center;\">Together, we honour and prioritise wellbeing—reconnecting, reclaiming, and integrating all aspects of the Self: emotional, mental, physical, and spiritual.</p>\r\n<p style=\"text-align: center;\">As a practitioner, trainer and mentor, my work offers <strong>an inner-child-led, trauma-informed, integrative approach to healing</strong>, supporting emotional safety, self-awareness and authentic transformation across all stages of the journey. For more details on <a href=\"https://amygrist.com/inner-child/\"><strong>workshops</strong></a>, <a href=\"https://amygrist.com/one-to-one-coaching/\"><strong>one-to-one mentoring</strong></a> and <a href=\"https://amygrist.com/become-a-practitioner/\"><strong>training programs,</strong></a> you are welcome to explore further.</p>",
+      "<p style=\"text-align: center;\">I offer gentle, trauma-informed healing modalities that support inner harmony, realignment, and empowerment. Each journey is designed to help you discover purpose and meaning in daily life while deepening your understanding of the multidimensional aspects of your being.</p>\r\n<p style=\"text-align: center;\">Together, we honour and prioritise wellbeing—reconnecting, reclaiming, and integrating all aspects of the Self: emotional, mental, physical, and spiritual.</p>\r\n<p style=\"text-align: center;\">As a practitioner, trainer and mentor, my work offers <strong>an inner-child-led, trauma-informed, integrative approach to healing</strong>, supporting emotional safety, self-awareness and authentic transformation across all stages of the journey. For more details on <a href=\"/inner-child-therapy/\"><strong>workshops</strong></a>, <a href=\"/one-to-one-coaching/\"><strong>one-to-one mentoring</strong></a> and <a href=\"/become-a-practitioner/\"><strong>training programs,</strong></a> you are welcome to explore further.</p>",
       "<h5 style=\"text-align: center;\">There is a world we can share together—bridging inner landscapes with outer experiences to create harmony and confidence within. When you align with your authentic self, you begin living your purpose with clarity, meaning and joy.</h5>"
     ],
     "buttons": [],
@@ -45,7 +45,7 @@
       "Where to Start"
     ],
     "texts": [
-      "<p style=\"text-align: justify;\">If you’re unsure where to begin, you’re not alone. Many people arrive here feeling a pull toward healing or growth, without yet knowing which path feels right. This gentle guide may help you orient:</p>\r\n<p style=\"text-align: justify;\"><strong>New to this work</strong><br />→ <a href=\"https://amygrist.com/inner-child/\"><em>Begin with Inner Child Healing</em></a><br />A supportive starting point to reconnect with your inner world, build safety, and begin healing with care.</p>\r\n<p style=\"text-align: justify;\"><strong>Integrating after a workshop or deep experience</strong><br />→ <a href=\"https://amygrist.com/inner-child-mentoring/\"><em>Inner Child Mentoring</em></a><br />Ongoing guidance to support integration, deepen trust with your Inner Child, and navigate what unfolds over time.</p>\r\n<p style=\"text-align: justify;\"><strong>Seeking ongoing personal support</strong><br />→ <a href=\"https://amygrist.com/one-to-one-coaching/\"><em>Mindset &amp; Wellbeing Coaching</em></a><br />A grounded, trauma-informed space to work with patterns, relationships, and everyday challenges with clarity and compassion.</p>\r\n<p style=\"text-align: justify;\"><strong>Feeling called to train or guide others</strong><br />→ <a href=\"https://amygrist.com/become-a-practitioner/\"><em>Inner Child Practitioner Training</em></a><br />An experiential pathway for those wishing to embody this work more deeply and share it with integrity.</p>"
+      "<p style=\"text-align: justify;\">If you’re unsure where to begin, you’re not alone. Many people arrive here feeling a pull toward healing or growth, without yet knowing which path feels right. This gentle guide may help you orient:</p>\r\n<p style=\"text-align: justify;\"><strong>New to this work</strong><br />→ <a href=\"/inner-child-therapy/\"><em>Begin with Inner Child Healing</em></a><br />A supportive starting point to reconnect with your inner world, build safety, and begin healing with care.</p>\r\n<p style=\"text-align: justify;\"><strong>Integrating after a workshop or deep experience</strong><br />→ <a href=\"/inner-child-mentoring/\"><em>Inner Child Mentoring</em></a><br />Ongoing guidance to support integration, deepen trust with your Inner Child, and navigate what unfolds over time.</p>\r\n<p style=\"text-align: justify;\"><strong>Seeking ongoing personal support</strong><br />→ <a href=\"/one-to-one-coaching/\"><em>Mindset &amp; Wellbeing Coaching</em></a><br />A grounded, trauma-informed space to work with patterns, relationships, and everyday challenges with clarity and compassion.</p>\r\n<p style=\"text-align: justify;\"><strong>Feeling called to train or guide others</strong><br />→ <a href=\"/become-a-practitioner/\"><em>Inner Child Practitioner Training</em></a><br />An experiential pathway for those wishing to embody this work more deeply and share it with integrity.</p>"
     ],
     "buttons": [],
     "testimonials": []
@@ -72,7 +72,7 @@
         "button_color_2": "Accent-Color",
         "icon_family": "none",
         "text": "Book a Free Discovery Call",
-        "url": "http://amygrist.com/inner-child/#iccontact",
+        "url": "/inner-child-therapy/#iccontact",
         "css_animation": "fadeInUp",
         "aria_label_text": "Book a Discovery Call for an Inner Child Healing Workshop"
       }
@@ -122,7 +122,7 @@
     ],
     "texts": [
       "<p style=\"text-align: justify;\">Having worked in therapeutic settings including counselling, psychoanalytical work and trauma-informed care, I bring a diverse toolkit and a flexible, integrative approach to healing. My experience includes supporting individuals with severe trauma (PTSD, childhood abuse and violence), depression, anxiety, dissociative patterns and eating disorders.</p>\r\n<p style=\"text-align: justify;\">Through this work, I have developed gentle and empowering therapies that honour each person’s unique needs and support self-healing. My intention is always to create a safe, compassionate and nurturing space for transformation.</p>",
-      "<p style=\"text-align: justify;\">Since graduating with an MSc in Investigative Forensic Psychology in 2012, I have been deeply committed to developing therapeutic practices that help people understand their healing journey. My approach focuses on tools and frameworks that allow individuals to self-realise their own path, and feel confident sharing what they learn with others.</p>\r\n<p style=\"text-align: justify;\">I invite you to explore the <a href=\"https://amygrist.com/inner-child/#testimony\">testimonials</a> and additional information to learn more about <a href=\"https://amygrist.com/integration-work/\">integrative therapy</a>, trauma-informed support and inner-child healing.</p>"
+      "<p style=\"text-align: justify;\">Since graduating with an MSc in Investigative Forensic Psychology in 2012, I have been deeply committed to developing therapeutic practices that help people understand their healing journey. My approach focuses on tools and frameworks that allow individuals to self-realise their own path, and feel confident sharing what they learn with others.</p>\r\n<p style=\"text-align: justify;\">I invite you to explore the <a href=\"/inner-child-therapy/#testimony\">testimonials</a> and additional information to learn more about <a href=\"/integration-work/\">integrative therapy</a>, trauma-informed support and inner-child healing.</p>"
     ],
     "buttons": [],
     "testimonials": []
@@ -135,7 +135,7 @@
     "texts": [
       "<p style=\"text-align: justify;\">Many of us move through life unaware of the patterns shaping how we think, feel and respond. These early adaptations, created for safety and belonging, often limit our ability to live with freedom and authenticity as adults.</p>\r\n<p style=\"text-align: justify;\">Mindset &amp; Wellbeing Coaching offers a gentle, trauma-informed space to uncover these patterns and reconnect with your true self. Through mindfulness, somatic awareness, and conscious reprogramming, we work together to cultivate clarity, confidence, and emotional balance across all aspects of life.</p>\r\n<p style=\"text-align: justify;\">My approach draws on mindfulness, neuro-linguistic programming (NLP), reparenting, generational healing and conscious relationship work, supporting you to release limiting beliefs, strengthen self-awareness, and realign with your natural rhythm and purpose.</p>\r\n<p style=\"text-align: justify;\">If you feel called to create more harmony, inner confidence and self-understanding, I invite you to connect.</p>",
       "<p style=\"text-align: justify;\"><strong>Deepening your journey of healing and integration</strong></p>\r\n<p style=\"text-align: justify;\">Inner Child Mentoring offers continued guidance and support after completing the Inner Child Workshop. This gentle, trauma-informed space helps you integrate insights, strengthen your relationship with your Inner Child, and move through deeper layers of healing with clarity and compassion.</p>\r\n<p style=\"text-align: justify;\">Through reflective dialogue, healing practices and personalised guidance, mentoring supports you in releasing limiting patterns, nurturing emotional safety, and expanding into greater confidence, authenticity and inner trust. Ideal for those wanting ongoing support, deeper exploration, or a long-term healing relationship with their inner world.</p>",
-      "<h5 style=\"text-align: center;\"><strong><a href=\"https://amygrist.com/inner-child-mentoring/\">Explore Inner Child Mentoring</a></strong></h5>"
+      "<h5 style=\"text-align: center;\"><strong><a href=\"/inner-child-mentoring/\">Explore Inner Child Mentoring</a></strong></h5>"
     ],
     "buttons": [
       {
@@ -144,7 +144,7 @@
         "button_color_2": "Accent-Color",
         "icon_family": "none",
         "text": "Book a Free Discovery Call",
-        "url": "https://amygrist.com/one-to-one-coaching/#discoverycall",
+        "url": "/one-to-one-coaching/#discoverycall",
         "css_animation": "fadeInUp",
         "aria_label_text": "Book a Discovery Call for Mindset and Wellbeing Coaching"
       }
@@ -156,7 +156,7 @@
       "Begin your journey with a gentle step inward. You’re invited to:"
     ],
     "texts": [
-      "<ul>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Join the <a href=\"https://amygrist.com/meditation/\">free meditation series</a></h5>\r\n</li>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Explore the <a href=\"https://amygrist.com/inner-child/\">Inner Child Healing Workshop</a></h5>\r\n</li>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Book a <a href=\"https://amygrist.com/one-to-one-coaching/\">1:1 session</a> or <a href=\"https://amygrist.com/inner-child-card-readings/\">reading</a></h5>\r\n</li>\r\n</ul>\r\n<h5></h5>\r\n<h5 style=\"text-align: center;\">Whether you’re seeking clarity, healing, or deeper self-connection, my space is here for you.</h5>"
+      "<ul>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Join the <a href=\"/meditation/\">free meditation series</a></h5>\r\n</li>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Explore the <a href=\"/inner-child-therapy/\">Inner Child Healing Workshop</a></h5>\r\n</li>\r\n \t<li style=\"text-align: left;\">\r\n<h5>Book a <a href=\"/one-to-one-coaching/\">1:1 session</a> or <a href=\"/inner-child-card-readings/\">reading</a></h5>\r\n</li>\r\n</ul>\r\n<h5></h5>\r\n<h5 style=\"text-align: center;\">Whether you’re seeking clarity, healing, or deeper self-connection, my space is here for you.</h5>"
     ],
     "buttons": [],
     "testimonials": []
@@ -196,7 +196,7 @@
         "button_color_2": "Accent-Color",
         "icon_family": "none",
         "text": "Read the full interview on holistic hybrid therapy",
-        "url": "https://amygrist.com/an-interview-with-a-psychologist/",
+        "url": "/an-interview-with-a-psychologist/",
         "css_animation": "fadeInUp",
         "aria_label_text": "Read the interview on holistic hybrid therapy and inner child work"
       }
@@ -221,7 +221,7 @@
         "button_color_2": "Accent-Color",
         "icon_family": "none",
         "text": "Explore Resources",
-        "url": "https://amygrist.com/shop/",
+        "url": "/shop/",
         "css_animation": "fadeInUp",
         "aria_label_text": "View products to buy from the Shop"
       }

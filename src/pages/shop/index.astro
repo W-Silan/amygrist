@@ -1,0 +1,20 @@
+---
+import {Image} from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {products} from '../../data/products';
+
+const series = products.find((product) => product.slug === 'gma_complete_series')!;
+const categoryPath = '/product-category/meditation-series/';
+---
+<BaseLayout title="Shop | Amy Grist" description="Explore Amy Grist’s Meditation Series, a collection of guided audio practices for calm and wellbeing." solidHeader={true}>
+  <section class="shop-page container" aria-labelledby="shop-title">
+    <header class="shop-heading"><p class="eyebrow">Digital resources</p><h1 id="shop-title">Shop</h1><p>Explore resources to support your wellbeing and meditation practice.</p></header>
+    <section class="collection" aria-labelledby="series-title">
+      <a class="collection-image" href={categoryPath}><Image src={series.image} alt={series.imageAlt} widths={[480,720,1080]} sizes="(max-width: 700px) 88vw, 42vw" format="webp" loading="eager"/></a>
+      <div class="collection-copy"><p class="eyebrow">Meditation Series</p><h2 id="series-title">Inner Harmony &amp; Balance</h2><p>A guided audio collection to support relaxation, ease tension and nurture a greater sense of harmony in mind, body and spirit.</p><a class="button" href={categoryPath}>Explore the Meditation Series <span aria-hidden="true">→</span></a></div>
+    </section>
+  </section>
+</BaseLayout>
+<style>
+.shop-page{padding-top:clamp(150px,16vw,190px);padding-bottom:90px}.shop-heading{max-width:780px;margin:0 auto 48px;text-align:center}.eyebrow{font:400 14px var(--nav);letter-spacing:.12em;text-transform:uppercase;color:var(--rose-surface);margin:0 0 12px}.shop-heading h1{font-size:clamp(42px,6vw,64px);color:var(--ink);margin:0 0 16px}.shop-heading>p:last-child{font-size:18px}.collection{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1080px;margin:auto;padding:clamp(22px,4vw,48px);background:var(--soft-rose);color:var(--ink);border-radius:8px}.collection-image{display:block;overflow:hidden;border-radius:5px;background:white}.collection-image img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .3s ease}.collection-image:hover img{transform:scale(1.02)}.collection-copy h2{font-size:clamp(30px,4vw,44px);margin:0 0 18px}.collection-copy>p:not(.eyebrow){max-width:490px;margin:0 0 24px}.collection-copy .button{background:var(--button)}@media(max-width:700px){.shop-page{padding-top:130px;padding-bottom:60px}.shop-heading{margin-bottom:32px}.collection{grid-template-columns:1fr;gap:24px;padding:18px}.collection-copy{padding:0 4px 5px}.collection-copy h2{font-size:32px}}
+</style>

@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY?.trim();
+---
+<BaseLayout title="Feedback | Amy Grist" description="Share feedback about your experience with Amy Grist." solidHeader={true}>
+  <section class="feedback-page">
+    <div class="container feedback-content">
+      <header class="feedback-heading">
+        <p class="eyebrow">Your voice matters</p>
+        <h1>Share your feedback</h1>
+        <hr class="rule short" />
+        <p>Thank you for taking the time to share your thoughts. Your feedback helps Amy understand what has been helpful and where things can improve.</p>
+      </header>
+
+      <form class="feedback-form" id="feedback-form" action="/api/contact" method="post">
+        <input type="hidden" name="formType" value="feedback" />
+        <div class="field">
+          <label for="feedback-name">Name <span aria-hidden="true">*</span></label>
+          <input id="feedback-name" name="name" type="text" autocomplete="name" maxlength="160" required />
+        </div>
+        <div class="field">
+          <label for="feedback-email">Email address <span aria-hidden="true">*</span></label>
+          <input id="feedback-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+        </div>
+        <div class="field">
+          <label for="feedback-message">Your feedback <span aria-hidden="true">*</span></label>
+          <textarea id="feedback-message" name="message" rows="7" minlength="10" maxlength="5000" required></textarea>
+        </div>
+        <div class="website-field" aria-hidden="true">
+          <label for="feedback-website">Website</label>
+          <input id="feedback-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <input id="feedback-started-at" name="startedAt" type="hidden" value="" />
+        {turnstileSiteKey ? <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div> : <p class="security-note" role="status">The feedback form is unavailable in this preview until its spam protection is configured.</p>}
+        {turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+        <button class="button submit-button" type="submit" disabled={!turnstileSiteKey}>Send feedback</button>
+        <p class="form-status" id="feedback-status" role="status" aria-live="polite"></p>
+        <p class="privacy-note">Your details will only be used to read and respond to your feedback. They will not be added to a mailing list.</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#feedback-form');
+  const startedAt = document.querySelector<HTMLInputElement>('#feedback-started-at');
+  const status = document.querySelector<HTMLElement>('#feedback-status');
+  if (startedAt) startedAt.value = String(Date.now());
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity() || !status) return;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const values = new FormData(form);
+    const payload: Record<string, unknown> = Object.fromEntries(values.entries());
+    if (button) button.disabled = true;
+    status.className = 'form-status';
+    status.textContent = 'Sending your feedback…';
+    try {
+      const response = await fetch(form.action, {method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || 'Your feedback could not be sent. Please try again.');
+      form.reset();
+      if (startedAt) startedAt.value = String(Date.now());
+      status.classList.add('success');
+      status.textContent = 'Thank you for your feedback. It has been sent to Amy.';
+    } catch (error) {
+      status.classList.add('error');
+      status.textContent = error instanceof Error ? error.message : 'Your feedback could not be sent. Please try again.';
+    } finally {
+      if ('turnstile' in window) (window as Window & {turnstile?: {reset: () => void}}).turnstile?.reset();
+      if (button) button.disabled = false;
+    }
+  });
+</script>
+<style>
+.feedback-page{padding:clamp(145px,16vw,185px) 0 90px}.feedback-content{max-width:780px}.feedback-heading{text-align:center;margin-bottom:38px}.eyebrow{font:400 14px var(--nav);letter-spacing:.12em;text-transform:uppercase;color:var(--rose-surface);margin:0 0 12px}.feedback-heading h1{font-size:clamp(40px,6vw,62px);color:var(--ink);margin:0 0 8px}.feedback-heading .rule{margin:15px auto 22px}.feedback-heading>p:last-child{max-width:620px;margin-inline:auto;font-size:18px}.feedback-form{background:#fff;border:1px solid #a84f5c26;border-radius:10px;padding:clamp(24px,5vw,44px);box-shadow:0 18px 45px #023c4d12}.field{margin-bottom:22px}.field label{display:block;color:var(--ink);font-weight:500;margin-bottom:7px}.field input,.field textarea{width:100%;border:1px solid #8a5360;background:#fff;color:var(--ink);border-radius:4px;padding:12px 14px;font:300 16px/1.45 var(--body)}.field textarea{resize:vertical;min-height:170px}.field input:focus,.field textarea:focus{outline:3px solid #19b3b14d;outline-offset:2px;border-color:var(--teal)}.website-field{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.cf-turnstile{margin-bottom:24px}.submit-button{min-width:160px}.submit-button:disabled{opacity:.65;cursor:wait}.form-status{min-height:24px;margin:17px 0 0;color:var(--ink);font-weight:500}.form-status.success{color:#136a39}.form-status.error,.security-note{color:#9d263a}.security-note{font-size:14px;margin:0 0 20px}.privacy-note{font-size:13px;color:var(--ink);margin-top:18px}@media(max-width:700px){.feedback-page{padding:130px 0 60px}.feedback-heading{margin-bottom:28px}.feedback-heading>p:last-child{font-size:16px}.feedback-form{padding:25px 20px}}
+</style>

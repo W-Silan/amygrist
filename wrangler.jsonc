@@ -1,12 +1,36 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "amy-grist",
+  "account_id": "310afa4b7ee71a6444a245450e7a9065",
+  "main": "src/worker.js",
   "compatibility_date": "2026-09-26",
-  "pages_build_output_dir": "./dist",
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "r2_buckets": [
+    {
+      "binding": "PRODUCTS_BUCKET",
+      "bucket_name": "amygrist-digital-products"
+    }
+  ],
   "vars": {
     "CLOUDFLARE_ACCOUNT_ID": "310afa4b7ee71a6444a245450e7a9065",
     "FORM_RECIPIENT": "amygrist@gmail.com",
-    "TURNSTILE_HOSTNAMES": "amygrist.com,www.amygrist.com,amy-grist.pages.dev,localhost,127.0.0.1"
+    "TURNSTILE_HOSTNAMES": "amygrist.com,www.amygrist.com,amy-grist.typeface.workers.dev,localhost,127.0.0.1",
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAFKhXp8wxciykWCh",
+    "PRODUCT_BUNDLE_KEY": "Amy_grist_inner_harmony_balance_meditation_series_complete_series_009-l82nka.zip"
   },
   "ratelimits": [
     {

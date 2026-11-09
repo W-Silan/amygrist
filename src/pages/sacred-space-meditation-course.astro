@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import {Image} from 'astro:assets';
+import {images} from '../data/images';
+import sessions from '../data/sacred-space-course.json';
+const title = 'Sacred Space Meditation Course';
+---
+<BaseLayout title={`${title} | Amy Grist`} description="A free guided meditation course to help you create sacred inner space, explore introspection and listen to your inner wisdom." ogImage={images[419]} solidHeader={true}>
+  <PageHero image={images[419]} title={title} alt="Amy Grist’s Sacred Inner Space meditation course booklet" position="center" actions={[{label:'Explore the course',href:'#course'},{label:'Get the free workbook',href:'#workbook'}]} />
+  <article class="sacred-course">
+    <section class="band"><div class="container intro copy">
+      <p class="lead">Amy has spent over a thousand hours in silent meditation retreats, where days typically begin at 4am and include around 11 hours of meditation. Managing courses of up to 100 students has given Amy experience in explaining practices and responding to students’ questions. She shares that guidance so others can feel more content and supported in their meditation setting and practice.</p>
+      <hr class="rule" />
+      <div class="workbook" id="workbook"><a class="booklet" href="/downloads/Amy-Meditations.pdf" download><Image src={images[419]} alt="Sacred Inner Space meditation course booklet cover" widths={[240,360,500]} sizes="(max-width:700px) 70vw, 310px" format="webp"/><span>Download the Meditation Workbook <span aria-hidden="true">↓</span></span></a><p>Use the workbook alongside the audio sessions to reflect on your practice.</p></div>
+    </div></section>
+
+    <section class="band soft-rose"><div class="container copy space-copy">
+      <h2>Creating and managing the meditative space</h2><hr class="rule short" />
+      <p>A daily practice of introspection allows us to listen, creating a platform where subconscious or spiritual wisdom can enter the conscious mind. A gentle meditative practice can honour our environment and personal space, allowing the mind to relax into attentive awareness. Practise anywhere you feel comfortable and for any length of time; longer periods may bring more insight. The intention is to stay receptive to information in whatever form it takes.</p>
+      <p>Before listening, you may like to spend 2–5 minutes in a meditative posture and notice what questions arise. Let your mind be free and honour what comes.</p>
+    </div></section>
+
+    <section class="band" id="course"><div class="container session-list">
+      <p class="eyebrow">Three guided practices</p><h2>Explore the course</h2><hr class="rule short" />
+      {sessions.map((session, index) => <details class="session" open={index === 0}>
+        <summary><span>{session.title}</span><span class="toggle-icon" aria-hidden="true">+</span></summary>
+        <div class="session-content"><p>{session.description}</p><audio controls preload="none" aria-label={session.title}><source src={session.audio} type="audio/mpeg"/>Your browser does not support audio playback. <a href={session.audio}>Download the audio</a>.</audio>
+          <details class="transcript"><summary>Read the transcript</summary><div class="transcript-copy">{session.transcript.split('\n').map(paragraph => <p>{paragraph}</p>)}</div></details>
+        </div>
+      </details>)}
+    </div></section>
+
+    <section class="band deep-teal closing"><div class="container copy">
+      <p>This meditation is a form of insight meditation, similar to Anapana (observation of respiration), with the addition of an imaginal visual space.</p>
+      <p>The newsletter signup for this free offering is awaiting Amy’s Mailoctopus form details. Until it is connected, <a href="/contact/">contact Amy to ask about the course</a>.</p>
+      <a class="button" href="/feedback/">Share your feedback</a>
+    </div></section>
+  </article>
+</BaseLayout>
+<style>
+.sacred-course h2{font-size:clamp(30px,4vw,40px);color:var(--ink)}.intro{max-width:980px}.lead{font-size:clamp(18px,2vw,21px);line-height:1.75}.intro>.rule{margin:34px 0}.workbook{display:flex;align-items:center;justify-content:center;gap:34px;text-align:left}.booklet{display:flex;flex-direction:column;align-items:center;gap:14px;color:var(--ink);font-family:var(--heading);font-size:20px;text-align:center}.booklet img{width:min(100%,310px);height:auto;border-radius:var(--radius);box-shadow:0 10px 28px #023c4d22}.booklet span span{color:var(--teal)}.workbook>p{max-width:360px}.space-copy{max-width:900px}.space-copy .rule,.session-list>.rule{margin:14px 0 24px}.session-list{max-width:950px}.session-list>.eyebrow{color:var(--rose-surface);margin-bottom:8px}.session-list>h2{margin:0}.session{border-radius:var(--radius);background:var(--soft-rose);color:var(--ink);margin:15px 0;overflow:hidden}.session>summary{display:flex;justify-content:space-between;align-items:center;gap:18px;cursor:pointer;list-style:none;padding:20px 26px;font:400 23px/1.3 var(--heading)}.session>summary::-webkit-details-marker,.transcript>summary::-webkit-details-marker{display:none}.toggle-icon{font:400 28px/1 var(--body);color:var(--teal)}.session[open]>summary .toggle-icon{transform:rotate(45deg)}.session-content{padding:0 28px 28px}.session-content>p{margin:0 0 18px}.session audio{width:100%;accent-color:var(--teal)}.transcript{margin-top:20px;border-top:1px solid #023c4d33}.transcript>summary{cursor:pointer;color:var(--teal);padding:15px 0 4px;font-weight:600}.transcript-copy{max-height:560px;overflow:auto;padding:8px 20px 0;border-left:2px solid var(--accent);margin-top:12px}.transcript-copy p{margin:0 0 12px}.closing .container{max-width:900px}.closing a:not(.button){color:white;}.closing .button{margin-top:14px}
+@media(max-width:700px){.workbook{flex-direction:column;gap:12px;text-align:center}.workbook>p{text-align:center}.session>summary{font-size:19px;padding:18px}.session-content{padding:0 20px 22px}.transcript-copy{padding-inline:14px}}
+</style>

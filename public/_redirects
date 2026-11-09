@@ -1,3 +1,7 @@
 # Preserve the former WordPress contact URL after the canonical route rename.
 /get-in-touch /contact/ 301
 /get-in-touch/ /contact/ 301
+/download/1902/ /downloads/Helping-Your-Inner-Child-Feel-Safe-A-Trauma-Informed-Boundaries-Guide.pdf 301
+/wp-content/uploads/2025/12/Helping-Your-Inner-Child-Feel-Safe-A-Trauma-Informed-Boundaries-Guide.pdf /downloads/Helping-Your-Inner-Child-Feel-Safe-A-Trauma-Informed-Boundaries-Guide.pdf 301
+/inner-child /inner-child-therapy/ 301
+/inner-child/ /inner-child-therapy/ 301
